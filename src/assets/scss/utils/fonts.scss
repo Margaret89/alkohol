@@ -1,0 +1,91 @@
+// cormorantinfant
+@font-face {
+	font-family: 'Cormorant Infant';
+	src: local('Cormorant Infant'), local('CormorantInfant-Regular'),
+		url('#{$path-fonts}/cormorantinfant/Cormorantinfant.woff2') format('woff2'),
+		url('#{$path-fonts}/cormorantinfant/Cormorantinfant.woff') format('woff'),
+		url('#{$path-fonts}/cormorantinfant/Cormorantinfant.ttf') format('truetype');
+	font-weight: 400;
+	font-style: normal;
+	font-display: swap;
+}
+@font-face {
+	font-family: 'Cormorant Infant';
+	src: local('Cormorant Infant Italic'), local('CormorantInfant-Italic'),
+		url('#{$path-fonts}/cormorantinfant/Cormorantinfantitalic.woff2') format('woff2'),
+		url('#{$path-fonts}/cormorantinfant/Cormorantinfantitalic.woff') format('woff'),
+		url('#{$path-fonts}/cormorantinfant/Cormorantinfantitalic.ttf') format('truetype');
+	font-weight: 400;
+	font-style: italic;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: 'Cormorant Infant';
+	src: local('Cormorant Infant Semibold'), local('CormorantInfant-Semibold'),
+		url('#{$path-fonts}/cormorantinfant/Cormorantinfantsemibold.woff2') format('woff2'),
+		url('#{$path-fonts}/cormorantinfant/Cormorantinfantsemibold.woff') format('woff'),
+		url('#{$path-fonts}/cormorantinfant/Cormorantinfantsemibold.ttf') format('truetype');
+	font-weight: 600;
+	font-style: normal;
+	font-display: swap;
+}
+@font-face {
+	font-family: 'Cormorant Infant';
+	src: local('Cormorant Infant Semibold Italic'), local('CormorantInfant-SemiboldItalic'),
+		url('#{$path-fonts}/cormorantinfant/Cormorantinfantsemibolditalic.woff2') format('woff2'),
+		url('#{$path-fonts}/cormorantinfant/Cormorantinfantsemibolditalic.woff') format('woff'),
+		url('#{$path-fonts}/cormorantinfant/Cormorantinfantsemibolditalic.ttf') format('truetype');
+	font-weight: 600;
+	font-style: italic;
+	font-display: swap;
+}
+
+// Raleway
+@font-face {
+	font-family: 'Raleway';
+	src: local('Raleway Regular'), local('Raleway-Regular'),
+		url('#{$path-fonts}/raleway/Raleway-Regular.woff2') format('woff2'),
+		url('#{$path-fonts}/raleway/Raleway-Regular.woff') format('woff');
+	font-weight: 400;
+	font-style: normal;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: 'Raleway';
+	src: local('Raleway Italic'), local('Raleway-Italic'),
+		url('#{$path-fonts}/raleway/Raleway-Italic.woff2') format('woff2'),
+		url('#{$path-fonts}/raleway/Raleway-Italic.woff') format('woff');
+	font-weight: 400;
+	font-style: italic;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: 'Raleway';
+	src: local('Raleway Bold'), local('Raleway-Bold'),
+		url('#{$path-fonts}/raleway/Raleway-Bold.woff2') format('woff2'),
+		url('#{$path-fonts}/raleway/Raleway-Bold.woff') format('woff');
+	font-weight: 700;
+	font-style: normal;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: 'Raleway';
+	src: local('Raleway BoldItalic'), local('Raleway-BoldItalic'),
+		url('#{$path-fonts}/raleway/Raleway-BoldItalic.woff2') format('woff2'),
+		url('#{$path-fonts}/raleway/Raleway-BoldItalic.woff') format('woff');
+	font-weight: 700;
+	font-style: italic;
+	font-display: swap;
+}
+
+// Jaipur
+@font-face {
+	font-family: 'Jaipur';
+	src: local('Jaipur'),
+		url('#{$path-fonts}/jaipur/jaipur.woff2') format('woff2'),
+		url('#{$path-fonts}/jaipur/jaipur.woff') format('woff'),
+}
