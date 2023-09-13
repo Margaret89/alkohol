@@ -1,0 +1,32 @@
+/*-------------- bottom-menu -----------------*/
+.bottom-menu{
+	display: flex;
+	align-items: center;
+	gap: 25px;
+
+	&,
+	&__item{
+		padding: 0;
+		margin: 0;
+		list-style: none;
+	}
+
+	&__item,
+	&__link{
+		font-size: 1.2rem;
+		color: var(--color-grey);
+		transition: color 0.2s ease 0s;
+	}
+
+	&__link{text-decoration: underline;}
+
+	&__link:hover{
+		color: var(--color-link-active);
+		text-decoration: none;
+	}
+	
+	&__link:active,
+	&__link.active{
+		color: var(--color-link-active);
+	}
+}

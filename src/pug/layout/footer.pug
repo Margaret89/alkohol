@@ -1,4 +1,61 @@
 footer.footer
 	.container-fluid
 		.row
-			.col-12 footer
+			.col-12
+				.footer__top
+					img(src="assets/img/logo-explore.svg", alt="")
+					+svg('ic-flower','ic-flower', '18', '18')
+
+				.footer__main
+					.row
+						.col-5
+							.footer__info
+								.footer__phone
+									a(href="tel:+74951392191") +7 495 139-21-91
+
+								.footer__callback
+									a(href="#") Написать нам
+
+								.footer__mail
+									a(href="mailto:mariya.miroshnik@asg.ru") mariya.miroshnik@asg.ru
+
+						.col-2
+							.footer__logo
+								a(href="/")
+									img(src="assets/img/asg-logo.svg", alt="")
+
+						.col-5
+							ul.main-menu
+								li.main-menu__item
+									a(href="/")
+										+svg('ic-home','ic-home', '24', '25')
+								-
+									var list=[
+										{text:'История'},
+										{text:'Портфель'},
+										{text:'О компании'},
+										{text:'Контакты'},
+									]
+								each item in list
+									li.main-menu__item
+										a(href="#").main-menu__link= item.text
+
+				.footer__bottom
+					.row
+						.col-5
+							.footer__copyright &copy; Все права защищены, Логотипы торговых марок принадлежат их владельцам.
+
+						.col-2
+							.footer__year 2023 г.
+
+						.col-5
+							ul.bottom-menu
+								-
+									var list=[
+										{text:'Политика конфиденциальности'},
+										{text:'Ответственность'},
+										{text:'Разработка сайта'},
+									]
+								each item in list
+									li.bottom-menu__item
+										a(href="#").bottom-menu__link= item.text

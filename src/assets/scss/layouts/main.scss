@@ -20,11 +20,17 @@
 
 html,
 body{
-	background: #141D26;
+	background-color: #141D26;
 	font-family: $font-site;
 	@include font(normal, normal, 10px, 1.4, var(--color-text));
+	font-variant-numeric: lining-nums proportional-nums ordinal;
 	box-sizing: border-box;
 	height: 100%;
+}
+
+body{
+	background:  url(../img/bg-pattern.png) top center no-repeat,
+				 url(../img/vertical-text.png) calc(100% - 30px) 150px no-repeat;
 }
 
 body{font-size: 1.8rem;}

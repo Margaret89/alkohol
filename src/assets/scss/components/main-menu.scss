@@ -1,0 +1,45 @@
+/*-------------- main-menu -----------------*/
+.main-menu{
+	display: flex;
+	align-items: center;
+	gap: 16px;
+
+	&,
+	&__item{
+		padding: 0;
+		margin: 0;
+		list-style: none;
+	}
+
+	&__item:not(:last-child):after{
+		content: '';
+		flex-shrink: 0;
+		display: inline-block;
+		vertical-align: middle;
+		width: 4px;
+		height: 4px;
+		border-radius: 50%;
+		background: var(--color-grey);
+		margin-left: 16px;
+	}
+
+	&__item,
+	&__link{
+		@include font(none, 600, 1.8rem, 1.2, var(--color-link));
+		transition: color 0.2s ease 0s;
+	}
+
+	&__link:hover{color: var(--color-link-hover);}
+	
+	&__link:active,
+	&__link.active{
+		color: var(--color-link-active);
+	}
+
+	&__item .ic-home{
+		fill: var(--color-semi-gold);
+		transition: fill 0.2s ease 0s;
+	}
+
+	&__item .ic-home:hover{fill: var(--color-warm-gold);}
+}

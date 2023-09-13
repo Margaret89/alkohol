@@ -64,6 +64,25 @@
 
 @font-face {
 	font-family: 'Raleway';
+	src: local('Raleway SemiBold'), local('Raleway-SemiBold'),
+	url('#{$path-fonts}/raleway/Raleway-SemiBold.woff2') format('woff2'),
+	url('#{$path-fonts}/raleway/Raleway-SemiBold.woff') format('woff');
+	font-weight: 600;
+	font-style: normal;
+	font-display: swap;
+}
+@font-face {
+	font-family: 'Raleway';
+	src: local('Raleway SemiBoldItalic'), local('Raleway-SemiBoldItalic'),
+	url('#{$path-fonts}/raleway/Raleway-SemiBoldItalic.woff2') format('woff2'),
+	url('#{$path-fonts}/raleway/Raleway-SemiBoldItalic.woff') format('woff');
+	font-weight: 600;
+	font-style: italic;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: 'Raleway';
 	src: local('Raleway Bold'), local('Raleway-Bold'),
 		url('#{$path-fonts}/raleway/Raleway-Bold.woff2') format('woff2'),
 		url('#{$path-fonts}/raleway/Raleway-Bold.woff') format('woff');
