@@ -12,7 +12,10 @@
 @import "~bootstrap/scss/grid";
 // @import "~bootstrap/scss/modal";
 
-@import "~sass-rem/_rem.scss";
+// @import "~sass-rem/_rem.scss";
+
+// swiper
+@import '~swiper/swiper-bundle.css';
 
 // Наш сайт
 // @import "utils/libs";
@@ -29,3 +32,5 @@
 @import "components/main-menu";
 @import "components/bottom-menu";
 @import "components/history";
+@import "components/info-block";
+@import "components/gallery-slider";

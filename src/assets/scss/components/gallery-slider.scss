@@ -1,0 +1,91 @@
+/*-------------- gallery-slider -----------------*/
+@keyframes animate-map {
+	from {transform: translate(-50%, -50%) scale(1);}
+	50% {transform: translate(-50%, -50%) scale(0.9);}
+	to {transform: translate(-50%, -50%) scale(1);}
+}
+
+@keyframes animate-pattern {
+	
+	from {transform: translate(-50%, -50%) translate3d(0, 0, 0);}
+	50% {transform: translate(-50%, -50%) translate3d(-40px, 50px, 0);}
+	to {transform: translate(-50%, -50%) translate3d(0, 0, 0);}
+}
+
+.gallery-slider-wrap{
+	&::before{
+		content: '';
+		display: inline-block;
+		width: 840px;
+		padding-bottom: 100%;
+		background: url(../img/pattern.png) no-repeat center;
+		background-size: contain;
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+		animation: animate-pattern 10s infinite linear;
+		animation-fill-mode: forwards;
+	}
+
+	&::after{
+		content: '';
+		display: inline-block;
+		width: 840px;
+		padding-bottom: 90%;
+		background: url(../img/ind-map.png) no-repeat center;
+		background-size: contain;
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+		animation: animate-map 10s infinite linear;
+		animation-fill-mode: forwards;
+	}
+}
+
+.gallery-slider{
+	width: calc(100% + (100vw - 1456px) / 2);
+
+	&__img{
+		padding-bottom: 132%;
+		background-repeat: no-repeat;
+		background-position: center;
+		background-size: cover;
+		box-shadow: 0px 0px 0px 0px rgba(18, 26, 33, 0.47), 0px 5px 11px 0px rgba(18, 26, 33, 0.46), 0px 21px 21px 0px rgba(18, 26, 33, 0.40), 0px 47px 28px 0px rgba(18, 26, 33, 0.23), 0px 84px 33px 0px rgba(18, 26, 33, 0.07), 0px 131px 37px 0px rgba(18, 26, 33, 0.01); 
+		border-radius: 8px;
+	}
+
+	&__label{
+		font-family: var(--font-jaipur);
+		font-size: 2.5rem;
+		line-height: 1.4;
+		text-align: center;
+		margin-top: 10px;
+	}
+}
+
+.swiper-buttons{
+	display: inline-flex;
+	gap: 22px;
+	margin-bottom: 40px;
+
+	.swiper-button-prev,
+	.swiper-button-next{
+		flex-shrink: 0;
+		width: auto;
+		height: auto;
+		position: static;
+		margin: 0;
+
+
+		&::after{display: none;}
+
+		.icon{fill: var(--color-warm-gold);}
+		&:hover .icon{fill: var(--color-semi-gold);}
+	}
+}
+
+.gallery-info{
+	.info-block{margin: 45px 0;}
+}

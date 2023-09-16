@@ -89,13 +89,61 @@ block content
 			.container-fluid
 				.row
 					.col-12
-						.history__desc
+						.info-block
 							h2 Начало XVII века
 
-							.history__text
+							.info-block__text
 								p Британская Империя, в поисках пряностей, тканей и драгоценных камней, пускает якорь у берегов загадочного полуострова — Индии. 
 								p Вдохновлённые новыми культурами и обычаями, британцы открывают нечто большее, чем просто новый рынок — они обнаруживают в Индии потенциал для создания идеального «brown spirit».
 
 
+	section.p-indent.gallery-info
+		.container
+			.row
+				.col-5
+					.info-block
+						h2 Британско- индийский симбиоз
 
-	div(style="height: 2000px;")
+						.info-block__text
+							p Проходит время, и британцы привозят свои технологии и традиции производства алкоголя в Индию. Индийские винокурни начинают применять эти методы, адаптируя их под свои условия и ингредиенты. 
+							p Это рождение нового стиля дистилляции, симбиоза британских традиций и индийского терруара.
+
+				.col-7
+					.gallery-slider-wrap
+						.gallery-slider.swiper.js-gallery-slider
+							.swiper-buttons
+								.swiper-button-prev.js-gallery-slider-prev
+									+svg('ic-decor-arrow-left','ic-decor-arrow-left', '52', '25')
+								.swiper-button-next.js-gallery-slider-next
+									+svg('ic-decor-arrow-right','ic-decor-arrow-right', '52', '25')
+
+							.swiper-wrapper
+								-
+									var list=[
+										{
+											img:'gallery-slider1.jpg',
+											label: 'radico',
+										},
+										{
+											img:'gallery-slider2.jpg',
+											label: 'ads group',
+										},
+										{
+											img:'gallery-slider3.jpg',
+										},
+										{
+											img:'gallery-slider4.jpg',
+										},
+										{
+											img:'gallery-slider2.jpg',
+											label: 'ads group',
+										},
+									]
+								each item in list
+									.swiper-slide.gallery-slider__item
+										.gallery-slider__img(style="background-image: url(assets/img/"+item.img+")")
+
+										if(item.label)
+											.gallery-slider__label= item.label
+
+						

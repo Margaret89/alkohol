@@ -1,0 +1,20 @@
+/*-------------- info-block -----------------*/
+.info-block{
+	max-width: 575px;
+	
+	&__text{
+		padding: 0 60px 50px 40px;
+		position: relative;
+
+		&::after{
+			content: '';
+			display: inline-block;
+			width: 75px;
+			height: 1px;
+			background: var(--color-warm-gold);
+			position: absolute;
+			bottom: 0;
+			left: 0;
+		}
+	}
+}
