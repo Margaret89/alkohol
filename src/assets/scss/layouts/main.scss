@@ -2,6 +2,7 @@
 	--font-site: 'Raleway', Arial, sans-serif;
 	--font-header: 'Cormorant Infant', Arial, sans-serif;
 	--font-jaipur: 'Jaipur', Arial, sans-serif;
+	--font-ebgaramond: 'EBGaramond', Arial, sans-serif;
 
 	--color-silver: #A7B0B9;
 	--color-warm-gold: #B17C57;
@@ -28,10 +29,7 @@ body{
 	height: 100%;
 }
 
-body{
-	background:  url(../img/bg-pattern.png) top center no-repeat,
-				 url(../img/vertical-text.png) calc(100% - 30px) 150px no-repeat;
-}
+body{background:  url(../img/bg-pattern.png) top center no-repeat;}
 
 body{font-size: 1.8rem;}
 
@@ -78,12 +76,16 @@ h5,.h5
 
 h1,.h1{
 	font-size: 6.4rem;
-	margin-bottom: 4rem;
+	font-weight: 600;
+	text-transform: uppercase;
+	margin-bottom: 5rem;
 }
 
 h2,.h2{
 	font-size: 6.4rem;
-	margin-bottom: 3rem;
+	font-weight: 600;
+	text-transform: uppercase;
+	margin-bottom: 5rem;
 }
 
 h3,.h3{
@@ -107,7 +109,15 @@ h5,.h5{
 	min-height: 100vh;
 	width: 100%;
 	margin: 0 auto;
+	padding-top: 154px;
 	overflow: hidden;
+	position: relative;
+
+	&__text{
+		position: absolute;
+		top: 150px;
+		right: 30px;
+	}
 }
 
 main{
@@ -136,6 +146,7 @@ button.btn{
 	background: transparent;
 	border: 1px solid var(--color-btn);
 	border-radius: 3.9rem;
+	font-family: var(--font-ebgaramond);
 	font-size: 3.2rem;
 	line-height: 1;
 	color: var(--color-btn);
@@ -175,6 +186,11 @@ button.btn{
 		border-color: var(--color-btn-grey-hover);
 
 		.icon{fill: var(--color-btn-grey-hover)}
+	}
+
+	&_small{
+		height: 6.2rem;
+		border-radius: 3.1rem;
 	}
 }
 

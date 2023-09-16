@@ -10,9 +10,11 @@ html(lang='ru')
 
 	body
 		.wrapper
+			.wrapper__text
+				img(src="assets/img/vertical-text.png", alt="")
+
 			include ./header
 			main
-				block header-ban
 				block breadcrumb
 				if h1
 					+h1(h1)

@@ -1,0 +1,228 @@
+/*-------------- history -----------------*/
+.history{
+	position: relative;
+	// background: rgba(0,255,0,0.1);
+	&__sect{
+		height: 1080px;
+		padding: 47px 0;
+		position: relative;
+	}
+
+	&__sect_center{
+		display: flex;
+		align-items: flex-center;
+	}
+
+	&__title{
+		font-family: var(--font-header);
+		font-size: 15rem;
+		line-height: 1.05;
+		text-transform: uppercase;
+		margin-bottom: 50px;
+		letter-spacing: -1.5px;
+		margin-left: -20px;
+	}
+
+	&__text{max-width: 576px;}
+
+	&__links{
+		display: flex;
+		flex-wrap: wrap;
+		gap: 22px;
+		margin-top: 72px;
+
+		.btn{
+			padding-left: 32px;
+			padding-right: 32px;
+		}
+	}
+
+	&__desc{max-width: 536px;}
+
+	&__desc &__text{
+		padding: 0 60px 50px 40px;
+		position: relative;
+
+		&::after{
+			content: '';
+			display: inline-block;
+			width: 75px;
+			height: 1px;
+			background: var(--color-warm-gold);
+			position: absolute;
+			bottom: 0;
+			left: 0;
+		}
+	}
+
+	&__line{
+		display: block;
+		width: 100%;
+		height: 161px;
+		background-repeat: repeat-x;
+		background-position: center;
+		position: absolute;
+		left: 0;
+		bottom: 0;
+	}
+}
+
+@keyframes rotate-compas {
+	from {transform: rotate(0);}
+	50% {transform: rotate(180deg);}
+	to {text-shadow: rotate(360deg);}
+}
+
+.history-animate{
+	position: relative;
+	z-index: 1;
+
+	&__map-wrap{
+		display: block;
+		height: auto;
+		text-align: right;
+		position: absolute;
+		top: 100px;
+		right: 0;
+	}
+
+	&__map{
+		position: relative;
+		z-index: 5;
+	}
+
+	&__map-color{
+		position: absolute;
+		top: 0;
+		right: 0;
+		opacity: 0;
+		z-index: 10;
+	}
+
+	&__glass{
+		position: absolute;
+		top: 0;
+		right: 0;
+	}
+
+	&__pattern{
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translateX(-50%) translateY(-50%) scale(0);
+		z-index: 0;
+	}
+
+	&__compas{
+		animation: rotate-compas 5s infinite linear;
+		animation-fill-mode: forwards;
+		opacity: 0;
+		position: absolute;
+		top: 0;
+		left: 0;
+		z-index: 1;
+	}
+}
+
+@keyframes move-arrow {
+	from {bottom: 250px;}
+	50% {bottom: 200px;}
+	to {bottom: 250px;}
+}
+
+@keyframes move-dot-left {
+	from {left: -34px;}
+	50% {left: -54px;}
+	to {left: -34px;}
+}
+
+@keyframes move-dot-right {
+	from {right: -34px;}
+	50% {right: -54px;}
+	to {right: -34px;}
+}
+
+.scroll-arrow{
+	position: absolute;
+	bottom: 250px;
+	left: 25%;
+	transition: all 0.2s ease 0s;
+	animation: move-arrow 3s infinite linear;
+	animation-fill-mode: forwards;
+
+	&::before,
+	&::after{
+		content: '';
+		display: inline-block;
+		width: 4px;
+		height: 4px;
+		border-radius: 50%;
+		background: var(--color-warm-gold);
+		position: absolute;
+		top: 50%;
+		transform: translateY(-50%);
+		transition: background-color 0.2s ease 0s;
+	}
+
+	&::before{
+		left: -44px;
+		animation: move-dot-left 3s infinite linear;
+		animation-fill-mode: forwards;
+	}
+
+	&::after{
+		right: -44px;
+		animation: move-dot-right 3s infinite linear;
+		animation-fill-mode: forwards;
+	}
+
+	.icon{
+		fill: var(--color-warm-gold);
+		transition: fill 0.2s ease 0s;
+	}
+
+	&:hover .icon{fill: var(--color-semi-gold);}
+
+	&:hover::before,
+	&:hover::after{
+		background: var(--color-semi-gold);
+	}
+}
+
+@keyframes anchor {
+	from {opacity: 0; transform: scale(1);}
+	50% {opacity: 0.5; transform: scale(1.1);}
+	to {opacity: 1; transform: scale(1);}
+}
+
+.history-path{
+	width: 1920px;
+	margin: 0 auto;
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	z-index: 2;
+
+	&__content{
+		display: inline-flex;
+		position: relative;
+	}
+
+	&__line{
+		svg{fill: var(--color-warm-gold);}
+		path{opacity: 0;}
+	}
+
+	&__anchor{
+		opacity: 0;
+		position: absolute;
+		right: -50px;
+		top: 11%;
+
+		&.active{
+			animation: anchor 0.5s 1 linear;
+			animation-fill-mode: forwards;
+		}
+	}
+}
