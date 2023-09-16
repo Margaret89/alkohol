@@ -47,6 +47,8 @@
 .gallery-slider{
 	width: calc(100% + (100vw - 1456px) / 2);
 
+	&:not(.swiper-initialized){display: none;}
+
 	&__img{
 		padding-bottom: 132%;
 		background-repeat: no-repeat;
