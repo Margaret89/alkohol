@@ -5,14 +5,8 @@ block variables
 	- var h1 = 'Типографика';
 
 
-block breadcrumb
-	-
-		var breadcrumbs=[
-			{href:'/',name:'Главная'},
-			{href:'#',name:'Типографика'},
-		];
-
-	+breadcrumbs(breadcrumbs)
+block label
+	img(src="assets/img/vertical-text.png", alt="")
 
 block content
 	section.container-fluid

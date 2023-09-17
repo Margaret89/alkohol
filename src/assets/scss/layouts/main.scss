@@ -18,6 +18,8 @@
 	--color-btn-hover: var(--color-semi-gold);
 	--color-btn-grey: var(--color-grey);
 	--color-btn-grey-hover: var(--color-silver);
+
+	--color-dander: #E01E1E;
 }
 
 html,
@@ -91,7 +93,8 @@ h2,.h2{
 
 h3,.h3{
 	font-size: 4.8rem;
-	margin-bottom: 3rem;
+	margin-bottom: 5rem;
+	text-transform: none;
 }
 
 h4,.h4{

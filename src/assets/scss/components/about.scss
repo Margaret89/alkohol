@@ -1,0 +1,23 @@
+/*-------------- about -----------------*/
+.about{
+	padding-bottom: 40px;
+	
+	&::after{
+		content: '';
+		display: inline-block;
+		width: 75px;
+		height: 1px;
+		background: var(--color-warm-gold);
+		position: absolute;
+		bottom: 0;
+		left: 0;
+	}
+
+	&__content{
+		column-count: 3;
+		gap: 40px;
+		padding-left: 40px;
+
+		p{break-inside: avoid;}
+	}
+}

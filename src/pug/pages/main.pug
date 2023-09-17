@@ -3,6 +3,9 @@ extends ../layout/main
 block variables
 	- var title = 'Главная';
 
+block label
+	img(src="assets/img/vertical-text.png", alt="")
+	
 block content
 	section.history.js-history
 		.history-animate.js-history-animate
@@ -563,5 +566,5 @@ block content
 		.container
 			.row
 				.col-12
-					.text-center.m-indent
+					.text-center.mt-indent
 						a.btn(href='#') Связаться с нами

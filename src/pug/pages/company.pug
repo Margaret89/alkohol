@@ -1,0 +1,103 @@
+extends ../layout/main
+
+block variables
+	- var title = 'О компании';
+
+block label
+	img(src="assets/img/vertical-text-company.png", alt="")
+
+block content
+	section.company-top.mb-indent
+		.container
+			.row
+				.col-6
+					h1
+						span.text-gradient Алкогольная сибирская группа
+
+				.col-6
+					img(src="assets/img/asg-logo-color.svg", alt="")
+
+	section.m-indent
+		.container
+			.row
+				.col-12
+					.about
+						h2.h3 О компании
+						
+						.about__content 
+							p «Алкогольная Сибирская Группа» (АСГ) – один из крупнейших производителей алкоголя. По итогам 2021 года объём производства продукции под брендами компании составил 8,3 млн дол.
+							p Основные торговые марки АСГ – «Белая Берёзка», «Хаски», «Сиббиттер» и «Пять Озёр». Водка «Пять Озёр», согласно данным международного рейтинга Millionaires Club 2022 журнала Drinks International, является самой продаваемой водкой российского производства в мире.
+							p Продукция компании производится на заводе «Омсквинпром» в Сибири, который работает с 1993 года и входит в тройку крупнейших ликеро-водочных заводов России, а также на «Рузском Купажном Заводе» в Подмосковье, начавшем работу в 2016 году.
+
+
+	section.mt-indent
+		.container
+			.row
+				.col-5
+					.contacts
+						h2.h3 Контакты
+						
+						.contacts__content
+							.contacts__title «Алкогольная Сибирская группа»
+
+							.contacts__list
+								.contacts__item
+									.contacts__label Офис в Омске:
+									.contacts__val 70 лет Октября, 19, г. Омск 644074
+
+								.contacts__item
+									.contacts__label Служба качества:
+									.contacts__val
+										a(href="mailto:quality@asg.ru") quality@asg.ru
+
+								.contacts__item
+									.contacts__label Отдел управления персоналом
+									.contacts__val
+										a(href="mailto:personalASG@asg.ru") personalASG@asg.ru
+
+								.contacts__item
+									.contacts__label Отдел транспортной логистики
+									.contacts__val
+										a(href="mailto:transport@asg.ru") transport@asg.ru
+
+								.contacts__item
+									.contacts__label PR и внешние коммуникации
+									.contacts__val
+										a(href="mailto:mariya.miroshnik@asg.ru") mariya.miroshnik@asg.ru
+
+								.contacts__item
+									.contacts__label Телефон
+									.contacts__val
+										a(href="tel:+74951392191") +7 495 139-21-91
+
+							.contacts__text
+								p Мы дорожим репутацией и следуем принципам честного ведения бизнеса. Если вы столкнулись с фактами коррупционного, мошеннического, неэтичного или недобросовестного поведения в отношении нас, то сообщите об этом на Горячую линию. Принимаются, как персонализированные, так и анонимные сообщения. Обращение будет обработано на конфиденциальной основе! <a href="https://hotline.asg.ru">https://hotline.asg.ru</a>
+								p По остальным вопросам обращайтесь к нам через форму на этой странице.
+
+				.offset-1.col-5
+					h2.h3 Форма для связи
+
+					.js-valid-form
+						form.form-site.form-site_dark
+							.form-site__content
+								.form-site__item.js-form-site-item
+									.form-site__label Как к вам обращаться
+
+									.form-site__field
+										input(type="text", placeholder="Имя")
+
+								.form-site__item.js-form-site-item
+									.form-site__label Сюда ответим
+
+									.form-site__field
+										input(type="email", placeholder="Эл. почта")
+
+								.form-site__item.js-form-site-item
+									.form-site__label Сообщение
+
+									.form-site__field
+										textarea(placeholder="Ваш вопрос или сообщение")
+
+
+							.form-site__btn
+								button(type="submit").btn.js-btn-submit Отправить
