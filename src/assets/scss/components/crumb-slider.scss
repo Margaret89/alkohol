@@ -1,0 +1,29 @@
+/*-------------- crumb-slider -----------------*/
+.crumb-slider{
+	margin-bottom: 80px;
+
+	&__item{
+		font-size: 1.8rem;
+		color: var(--color-grey);
+		line-height: 1.6;
+		transition: color 0.2s ease 0s;
+
+		&:hover,
+		&.active{
+			color: var(--color-warm-gold);
+		}
+
+		&:not(.active){cursor: pointer;}
+
+		&:not(:last-child)::after{
+			content: '';
+			display: inline-block;
+			vertical-align: middle;
+			width: 5px;
+			height: 5px;
+			border-radius: 50%;
+			background: #2A3138;
+			margin: 0 16px;
+		}
+	}
+}

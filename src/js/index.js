@@ -1,4 +1,4 @@
-import {$, Swiper, Navigation, Pagination} from './common';
+import {$, Swiper, Navigation, Pagination, Mousewheel, EffectFade} from './common';
 
 // $(window).scroll(function(){
 // 	if($(this).scrollTop()>300){
@@ -87,16 +87,60 @@ $(function(){
 	}
 
 	//Слайдер галерет картинок
-	var gallerySlider = new Swiper('.js-gallery-slider', {
-		loop: false,
-		spaceBetween: 40,
-		slidesPerView: 3.4,
-		modules: [Navigation, Pagination],
-		navigation: {
-			nextEl: '.js-gallery-slider-next',
-			prevEl: '.js-gallery-slider-prev',
-		},
-	});
+	if($('.js-gallery-slider').length){
+		var gallerySlider = new Swiper('.js-gallery-slider', {
+			loop: false,
+			spaceBetween: 40,
+			slidesPerView: 3.4,
+			modules: [Navigation, Pagination],
+			navigation: {
+				nextEl: '.js-gallery-slider-next',
+				prevEl: '.js-gallery-slider-prev',
+			},
+		});
+	}
+
+	//Слайдер каталога
+	if($('.js-catalog-slider').length){
+		let catalogSlider = {};
+
+		$('.js-catalog-slider').each(function(index) {//Задаем множественные слайдеры каталога
+			let swiperSliderId = $(this).data('id');
+
+			catalogSlider[index] = new Swiper('.js-catalog-slider[data-id="'+swiperSliderId+'"]', {
+				slidesPerView: 1,
+				spaceBetween: 30,
+				loop: true,
+				modules: [Mousewheel, EffectFade],
+				mousewheel: true,
+				fadeEffect: { crossFade: true },
+				effect: 'fade',
+				on: {
+					slideChange: function (elem) {
+						//Задаем активный пункт в крошках
+						var activeIndex = this.realIndex;
+						var $parentBlock = $('.js-catalog-slider[data-id="'+swiperSliderId+'"]').closest('.js-catalog-slider-wrap');
+
+						$parentBlock.find('.js-crumb-slider-item').removeClass('active');
+						$parentBlock.find('.js-crumb-slider-item[data-slide="'+activeIndex+'"]').addClass('active');
+					},
+				},
+			});
+
+		});
+
+		//Переключаем слайдер при клике по крошкам
+		$('.js-crumb-slider-item').on('click', function(){
+			var $parentBlock = $(this).closest('.js-catalog-slider-wrap');
+			var $idBlock = $parentBlock.find('.js-catalog-slider').data('id');
+
+			$parentBlock.find('.js-crumb-slider-item').removeClass('active');
+			$(this).addClass('active');
+
+			catalogSlider[$idBlock].update();
+			catalogSlider[$idBlock].slideToLoop($(this).data('slide'),0,false);
+		});
+	}
 
 	//Переключение брендов
 	if($('.js-choose-brand-item').length){
@@ -143,5 +187,25 @@ $(function(){
 		}
 	}
 
-	
+	// Табуляция
+	if ($('.js-tabs-page').length) {
+		$('.js-tabs-page-list').each(function(){
+			$(this).find('.js-tabs-page-item:first').addClass("active");
+		});
+
+		$('.js-tabs-page-content').each(function(){
+			$(this).find('.js-tabs-page-content-item:first').fadeIn();
+		});
+
+		$('.js-tabs-page-item').on('click',function(e) {
+			e.preventDefault();
+			var $parent = $(this).parents('.js-tabs-page');
+
+			$parent.find('.js-tabs-page-content-item').hide();
+			$parent.find('.js-tabs-page-item').removeClass('active');
+
+			$(this).addClass("active");
+			$parent.find('#' + $(this).attr('data-item')).fadeIn();
+		});
+	}
 });
