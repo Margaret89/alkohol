@@ -90,14 +90,58 @@ $(function(){
 	var gallerySlider = new Swiper('.js-gallery-slider', {
 		loop: false,
 		spaceBetween: 40,
-		// slidesPerView: 2,
 		slidesPerView: 3.4,
-		// freeMode: true,
-		// watchSlidesProgress: true,
 		modules: [Navigation, Pagination],
 		navigation: {
 			nextEl: '.js-gallery-slider-next',
 			prevEl: '.js-gallery-slider-prev',
 		},
 	});
+
+	//Переключение брендов
+	if($('.js-choose-brand-item').length){
+		//Клик по иконкам брендов
+		$('.js-choose-brand-item').on('click', function(){
+			chooseBrand($(this).data('choose'));
+		});
+
+		//Клик по стрелкам
+		$('.js-choose-brand-arr-next').on('click', function(){
+			let curBrand = $('.js-choose-brand-item.active').data('choose');
+			curBrand++;
+
+			chooseBrand(curBrand);
+		});
+
+		$('.js-choose-brand-arr-prev').on('click', function(){
+			let curBrand = $('.js-choose-brand-item.active').data('choose');
+			curBrand--;
+
+			chooseBrand(curBrand);
+		});
+
+		function chooseBrand(num) {
+			//Активируем иконку бренда
+			$('.js-choose-brand-item').removeClass('active');
+			$('.js-choose-brand-item[data-choose="'+num+'"]').addClass('active');
+			
+			//Активируем иконку страны
+			$('.js-bottle-info-item').removeClass('active')
+			$('.js-bottle-info-item[data-choose="'+num+'"]').addClass('active');
+
+			//Деавтивируем стрелки
+			$('.js-choose-brand-arr-prev').removeClass('disable');
+			$('.js-choose-brand-arr-next').removeClass('disable');
+
+			if(num == 1){
+				$('.js-choose-brand-arr-prev').addClass('disable');
+			}
+
+			if(num == $('.js-choose-brand-item').length){
+				$('.js-choose-brand-arr-next').addClass('disable');
+			}
+		}
+	}
+
+	
 });

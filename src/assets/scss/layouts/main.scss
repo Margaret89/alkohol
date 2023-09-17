@@ -8,6 +8,7 @@
 	--color-warm-gold: #B17C57;
 	--color-semi-gold: #F6C187;
 	--color-grey: #5B6166;
+	// --color-beige: #A8A2A0;
 	
 	--color-text: var(--color-silver);
 	--color-link: var(--color-warm-gold);
@@ -234,4 +235,5 @@ button.btn{
 .text-right{text-align: right !important;}
 .text-justify{text-align: justify !important;}
 .text-uppercase{text-transform: uppercase !important;}
-.text-bold {font-weight: 700 !important;}
+.text-bold{font-weight: 700 !important;}
+.text-accent{color: var(--color-warm-gold)!important;}

@@ -1,0 +1,64 @@
+/*-------------- tabs-page -----------------*/
+.tabs-page{
+	&__list,
+	&__item{
+		@include reset-list;
+	}
+
+	&__list{
+		display: flex;
+		flex-wrap: wrap;
+		margin-bottom: 60px;
+	}
+
+	&__item{
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		min-height: 4.5rem;
+		border-radius: 2.25rem;
+		border: 1px solid #ECF5FC;
+		background: #fff;
+		@include font(none, none, 1.6rem, 1.2, $color-blue);
+		cursor: pointer;
+		padding: 5px 22px;
+		margin: 8px;
+		transition: background 0.2s ease 0s, color 0.2s ease 0s;
+	}
+
+	&__item:hover,
+	&__item.active{
+		background: #ECF5FC;
+		color: $color-text;
+	}
+
+	&__item.active{cursor: auto;}
+	&__content-item{display: none;}
+
+	&__top{
+		display: flex;
+
+		h2, .h2{margin-right: 50px;}
+	}
+}
+
+@media (max-width: 767px) {
+	.tabs-page{
+		&__top{
+			display: block;
+			text-align: center;
+
+			h2, .h2{margin: 0 0 10px;}
+		}
+
+		&__list{
+			justify-content: center;
+			margin-bottom: 30px;
+		}
+
+		&__item{
+			min-height: 4.2rem;
+			font-size: 1.4rem;
+		}
+	}
+}

@@ -163,4 +163,50 @@ block content
 
 						img.climate-anim__cloud-first(src="assets/img/cloud1.png", alt="")
 						img.climate-anim__cloud-second(src="assets/img/cloud2.png", alt="")
-						
+
+	section.p-indent.briefcase-wrap
+		.container
+			.row.align-items-center
+				.col-5
+					.briefcase
+						.briefcase__title
+							span.text-gradient Портфель
+
+						.briefcase__text <b>Ключевые бренды</b> представляют <b>три региона</b> северной Индии
+
+						.choose-brand
+							.choose-brand__arr
+								.choose-brand__arr-prev.js-choose-brand-arr-prev
+									+svg('ic-decor-arrow-left','ic-decor-arrow-left', '39', '20')
+								.choose-brand__arr-next.js-choose-brand-arr-next
+									+svg('ic-decor-arrow-right','ic-decor-arrow-right', '39', '20')
+
+							.choose-brand__list
+								.choose-brand__item.js-choose-brand-item(data-choose='1')
+									img(src="assets/img/jaisalmer.png", alt="")
+								.choose-brand__item.js-choose-brand-item.active(data-choose='2')
+									img(src="assets/img/ranthambore.png", alt="")
+								.choose-brand__item.js-choose-brand-item(data-choose='3')
+									img(src="assets/img/rampur.png", alt="")
+
+						.briefcase__text <b class="text-accent">Заповедник Ranthhambore</b> на краю пустыни, путь на арабский восток
+
+						a.btn(href='#') К портфелю
+							span.btn__icon-hide
+								+svg('ic-decor-arrow-right','ic-decor-arrow-right', '39', '20')
+
+				.col-7
+					.bottle-info
+						-
+							var list=[
+								{id:'1', img:'view1.jpg', bottle:'bottle1.png'},
+								{id:'2', img:'view2.jpg', bottle:'bottle2.png',status:'active'},
+								{id:'3', img:'view3.jpg', bottle:'bottle3.png'},
+							]
+						each item in list
+							.bottle-info__item.js-bottle-info-item(class=item.status?'active':'', data-choose=item.id)
+								.bottle-info__country(style="background-image: url(assets/img/"+item.img+")")
+								.bottle-info__img
+									.bottle-info__circles
+										span
+									img(src="assets/img/"+item.bottle, alt="")
