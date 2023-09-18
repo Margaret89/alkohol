@@ -220,4 +220,16 @@
 		color: var(--color-silver);
 		margin-top: 5px;
 	}
+
+	&_hor{gap: 24px;}
+
+	&_hor &__item{
+		display: inline-flex;
+		align-items: center;
+		gap: 8px;
+		width: auto;
+	}
+
+	&_hor &__label{margin: 0;}
+	&_hor &__icon{flex-shrink: 0;}
 }

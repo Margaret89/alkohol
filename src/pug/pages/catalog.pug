@@ -32,156 +32,186 @@ block content
 		.catalog-list
 			.container
 				.row
-					-
-						var list=[
-							{
-								img:'cat-item1.png',
-								title:'Rampur Asava',
-								subtitle:'односолодовый виски',
-								notes:[
-									{icon:'ic-barrel', icon_width:'32', icon_height:'32', label:'Дуб'},
-									{icon:'ic-grape', icon_width:'32', icon_height:'32', label:'Виноград'},
-									{icon:'ic-date-fruit', icon_width:'32', icon_height:'32', label:'Финик'},
-								],
-								text:[
-									'Типичные тропические фруктовые ароматы, дополненные нотами абрикоса, чёрной смородины и сливы, завершающиеся лёгким оттенком специй и табака, барахатная медовая сладость во вкусе оттеняется ярким дубом и ванилью и балансируется сухостью индийского красного вина. ',
-									'Среднее по продолжительности послевкусие наполнено типично индийскими оттенками.',
+					.col-11
+						.row
+							-
+								var list=[
+									{
+										img:'cat-item1.png',
+										title:'Rampur Asava',
+										subtitle:'односолодовый виски',
+										notes:[
+											{icon:'ic-barrel', icon_width:'32', icon_height:'32', label:'Дуб'},
+											{icon:'ic-grape', icon_width:'32', icon_height:'32', label:'Виноград'},
+											{icon:'ic-date-fruit', icon_width:'32', icon_height:'32', label:'Финик'},
+										],
+										text:[
+											'Типичные тропические фруктовые ароматы, дополненные нотами абрикоса, чёрной смородины и сливы, завершающиеся лёгким оттенком специй и табака, барахатная медовая сладость во вкусе оттеняется ярким дубом и ванилью и балансируется сухостью индийского красного вина. ',
+											'Среднее по продолжительности послевкусие наполнено типично индийскими оттенками.',
+										]
+									},
+									{
+										img:'cat-item2.png',
+										title:'Rampur Double Cask',
+										subtitle:'односолодовый виски',
+										notes:[
+											{icon:'ic-barrel', icon_width:'32', icon_height:'32', label:'Дуб'},
+											{icon:'ic-lemongrass', icon_width:'32', icon_height:'32', label:'Лемонграсс'},
+											{icon:'ic-cinnamon', icon_width:'32', icon_height:'32', label:'Корица'},
+										],
+										text:[
+											'Интенсивный аромат тропических фруктов в сочетании с дубовыми нотами от двух типов бочек рождают яркую палитру запахов. Чарующая элегантность сладких фруктов во вкусе в сочетании с яркими нотами хереса и длительное и щедрое послевкусие.',
+										]
+									},
+									{
+										img:'cat-item3.png',
+										title:'Royal Ranthambore',
+										ssubtitle:'односолодовый виски',
+										notes:[
+											{icon:'ic-smoke', icon_width:'32', icon_height:'32', label:'Дымность'},
+										],
+										text:[
+											'В основе купажа солодовые дистилляты из нескольких регионов Шотландии, а индийские дистилляты придают напитку интенсивные ароматы и вкусовые ноты, создавая необычные сочетания. Royal Ranthambore удостоен двух международных наград Spiritz Selection за безупречный вкус и премиальную упаковку, благодаря которой виски идеально подходит в подарок.',
+										]
+									},
+									{
+										img:'cat-item4.png',
+										title:'Royal Green',
+										subtitle:'односолодовый виски',
+										notes:[
+											{icon:'ic-apple', icon_width:'32', icon_height:'32', label:'Яблоко'},
+											{icon:'ic-citrus', icon_width:'32', icon_height:'32', label:'Апельсин'},
+										],
+										text:[
+											'Шотландский солодовый дистиллят обладает сложными нотами фруктов, ванили и оттенком специй во вкусоароматической палитре благодаря уникальному процессу созревания. Дистиллят сначала выдерживается в бочках из-под бурбона, а затем вручную отобранных бочках из-под Хереса Олоросо.',
+										]
+									},
+									{
+										img:'cat-item5.png',
+										title:'The Generation',
+										subtitle:'односолодовый виски',
+										notes:[
+											{icon:'ic-barrel', icon_width:'32', icon_height:'32', label:'Дуб'},
+											{icon:'ic-lemongrass', icon_width:'32', icon_height:'32', label:'Лемонграсс'},
+											{icon:'ic-cinnamon', icon_width:'32', icon_height:'32', label:'Корица'},
+										],
+										text:[
+											'Типичные тропические фруктовые ароматы, дополненные нотами абрикоса, чёрной смородины и сливы, завершающиеся лёгким оттенком специй и табака, барахатная медовая сладость во вкусе оттеняется ярким дубом и ванилью и балансируется сухостью индийского красного вина. ',
+											'Среднее по продолжительности послевкусие наполнено типично индийскими оттенками.',
+										]
+									},
+									{
+										img:'cat-item6.png',
+										title:'Officer’s choice Blue',
+										subtitle:'односолодовый виски',
+										notes:[
+											{icon:'ic-barrel', icon_width:'32', icon_height:'32', label:'Дуб'},
+											{icon:'ic-lemongrass', icon_width:'32', icon_height:'32', label:'Лемонграсс'},
+											{icon:'ic-cinnamon', icon_width:'32', icon_height:'32', label:'Корица'},
+										],
+										text:[
+											'Типичные тропические фруктовые ароматы, дополненные нотами абрикоса, чёрной смородины и сливы, завершающиеся лёгким оттенком специй и табака, барахатная медовая сладость во вкусе оттеняется ярким дубом и ванилью и балансируется сухостью индийского красного вина. ',
+											'Среднее по продолжительности послевкусие наполнено типично индийскими оттенками.',
+										]
+									},
+									{
+										img:'cat-item7.png',
+										title:'Sterling Reserve B7',
+										subtitle:'односолодовый виски',
+										notes:[
+											{icon:'ic-barrel', icon_width:'32', icon_height:'32', label:'Дуб'},
+											{icon:'ic-lemongrass', icon_width:'32', icon_height:'32', label:'Лемонграсс'},
+											{icon:'ic-cinnamon', icon_width:'32', icon_height:'32', label:'Корица'},
+										],
+										text:[
+											'Типичные тропические фруктовые ароматы, дополненные нотами абрикоса, чёрной смородины и сливы, завершающиеся лёгким оттенком специй и табака, барахатная медовая сладость во вкусе оттеняется ярким дубом и ванилью и балансируется сухостью индийского красного вина. ',
+											'Среднее по продолжительности послевкусие наполнено типично индийскими оттенками.',
+										]
+									},
+									{
+										img:'cat-item8.png',
+										title:'Sterling Reserve B10',
+										subtitle:'односолодовый виски',
+										notes:[
+											{icon:'', icon_width:'32', icon_height:'32', label:''},
+										],
+										text:[
+											{icon:'ic-barrel', icon_width:'32', icon_height:'32', label:'Дуб'},
+											{icon:'ic-lemongrass', icon_width:'32', icon_height:'32', label:'Лемонграсс'},
+											{icon:'ic-cinnamon', icon_width:'32', icon_height:'32', label:'Корица'},
+										]
+									},
+									{
+										img:'cat-item9.png',
+										title:'Jaisalmer',
+										subtitle:'Джин',
+										notes:[
+											{icon:'ic-barrel', icon_width:'32', icon_height:'32', label:'Дуб'},
+											{icon:'ic-lemongrass', icon_width:'32', icon_height:'32', label:'Лемонграсс'},
+											{icon:'ic-cinnamon', icon_width:'32', icon_height:'32', label:'Корица'},
+										],
+										text:[
+											'Типичные тропические фруктовые ароматы, дополненные нотами абрикоса, чёрной смородины и сливы, завершающиеся лёгким оттенком специй и табака, барахатная медовая сладость во вкусе оттеняется ярким дубом и ванилью и балансируется сухостью индийского красного вина. ',
+											'Среднее по продолжительности послевкусие наполнено типично индийскими оттенками.',
+										]
+									},
+									{
+										img:'cat-item10.png',
+										title:'Jaisalmer Gold',
+										subtitle:'Джин',
+										notes:[
+											{icon:'ic-barrel', icon_width:'32', icon_height:'32', label:'Дуб'},
+											{icon:'ic-lemongrass', icon_width:'32', icon_height:'32', label:'Лемонграсс'},
+											{icon:'ic-cinnamon', icon_width:'32', icon_height:'32', label:'Корица'},
+										],
+										text:[
+											'Типичные тропические фруктовые ароматы, дополненные нотами абрикоса, чёрной смородины и сливы, завершающиеся лёгким оттенком специй и табака, барахатная медовая сладость во вкусе оттеняется ярким дубом и ванилью и балансируется сухостью индийского красного вина. ',
+											'Среднее по продолжительности послевкусие наполнено типично индийскими оттенками.',
+										]
+									},
+									{
+										img:'cat-item11.png',
+										title:'Calenter',
+										subtitle:'Джин',
+										notes:[
+											{icon:'ic-barrel', icon_width:'32', icon_height:'32', label:'Дуб'},
+											{icon:'ic-lemongrass', icon_width:'32', icon_height:'32', label:'Лемонграсс'},
+											{icon:'ic-cinnamon', icon_width:'32', icon_height:'32', label:'Корица'},
+										],
+										text:[
+											'Типичные тропические фруктовые ароматы, дополненные нотами абрикоса, чёрной смородины и сливы, завершающиеся лёгким оттенком специй и табака, барахатная медовая сладость во вкусе оттеняется ярким дубом и ванилью и балансируется сухостью индийского красного вина. ',
+											'Среднее по продолжительности послевкусие наполнено типично индийскими оттенками.',
+										]
+									},
 								]
-							},
-							{
-								img:'cat-item2.png',
-								title:'Rampur Double Cask',
-								subtitle:'односолодовый виски',
-								notes:[
-									{icon:'ic-barrel', icon_width:'32', icon_height:'32', label:'Дуб'},
-									{icon:'ic-lemongrass', icon_width:'32', icon_height:'32', label:'Лемонграсс'},
-									{icon:'ic-cinnamon', icon_width:'32', icon_height:'32', label:'Корица'},
-								],
-								text:[
-									'Интенсивный аромат тропических фруктов в сочетании с дубовыми нотами от двух типов бочек рождают яркую палитру запахов. Чарующая элегантность сладких фруктов во вкусе в сочетании с яркими нотами хереса и длительное и щедрое послевкусие.',
-								]
-							},
-							{
-								img:'cat-item3.png',
-								title:'Royal Ranthambore',
-								ssubtitle:'односолодовый виски',
-								notes:[
-									{icon:'ic-smoke', icon_width:'32', icon_height:'32', label:'Дымность'},
-								],
-								text:[
-									'В основе купажа солодовые дистилляты из нескольких регионов Шотландии, а индийские дистилляты придают напитку интенсивные ароматы и вкусовые ноты, создавая необычные сочетания. Royal Ranthambore удостоен двух международных наград Spiritz Selection за безупречный вкус и премиальную упаковку, благодаря которой виски идеально подходит в подарок.',
-								]
-							},
-							{
-								img:'cat-item4.png',
-								title:'Royal Green',
-								subtitle:'односолодовый виски',
-								notes:[
-									{icon:'ic-apple', icon_width:'32', icon_height:'32', label:'Яблоко'},
-									{icon:'ic-citrus', icon_width:'32', icon_height:'32', label:'Апельсин'},
-								],
-								text:[
-									'Шотландский солодовый дистиллят обладает сложными нотами фруктов, ванили и оттенком специй во вкусоароматической палитре благодаря уникальному процессу созревания. Дистиллят сначала выдерживается в бочках из-под бурбона, а затем вручную отобранных бочках из-под Хереса Олоросо.',
-								]
-							},
-							{
-								img:'cat-item5.png',
-								title:'The Generation',
-								subtitle:'односолодовый виски',
-								notes:[
-									{icon:'ic-barrel', icon_width:'32', icon_height:'32', label:'Дуб'},
-									{icon:'ic-lemongrass', icon_width:'32', icon_height:'32', label:'Лемонграсс'},
-									{icon:'ic-cinnamon', icon_width:'32', icon_height:'32', label:'Корица'},
-								],
-								text:[
-									'Типичные тропические фруктовые ароматы, дополненные нотами абрикоса, чёрной смородины и сливы, завершающиеся лёгким оттенком специй и табака, барахатная медовая сладость во вкусе оттеняется ярким дубом и ванилью и балансируется сухостью индийского красного вина. ',
-									'Среднее по продолжительности послевкусие наполнено типично индийскими оттенками.',
-								]
-							},
-							{
-								img:'cat-item6.png',
-								title:'Officer’s choice Blue',
-								subtitle:'односолодовый виски',
-								notes:[
-									{icon:'ic-barrel', icon_width:'32', icon_height:'32', label:'Дуб'},
-									{icon:'ic-lemongrass', icon_width:'32', icon_height:'32', label:'Лемонграсс'},
-									{icon:'ic-cinnamon', icon_width:'32', icon_height:'32', label:'Корица'},
-								],
-								text:[
-									'Типичные тропические фруктовые ароматы, дополненные нотами абрикоса, чёрной смородины и сливы, завершающиеся лёгким оттенком специй и табака, барахатная медовая сладость во вкусе оттеняется ярким дубом и ванилью и балансируется сухостью индийского красного вина. ',
-									'Среднее по продолжительности послевкусие наполнено типично индийскими оттенками.',
-								]
-							},
-							{
-								img:'cat-item7.png',
-								title:'Sterling Reserve B7',
-								subtitle:'односолодовый виски',
-								notes:[
-									{icon:'ic-barrel', icon_width:'32', icon_height:'32', label:'Дуб'},
-									{icon:'ic-lemongrass', icon_width:'32', icon_height:'32', label:'Лемонграсс'},
-									{icon:'ic-cinnamon', icon_width:'32', icon_height:'32', label:'Корица'},
-								],
-								text:[
-									'Типичные тропические фруктовые ароматы, дополненные нотами абрикоса, чёрной смородины и сливы, завершающиеся лёгким оттенком специй и табака, барахатная медовая сладость во вкусе оттеняется ярким дубом и ванилью и балансируется сухостью индийского красного вина. ',
-									'Среднее по продолжительности послевкусие наполнено типично индийскими оттенками.',
-								]
-							},
-							{
-								img:'cat-item8.png',
-								title:'Sterling Reserve B10',
-								subtitle:'односолодовый виски',
-								notes:[
-									{icon:'', icon_width:'32', icon_height:'32', label:''},
-								],
-								text:[
-									{icon:'ic-barrel', icon_width:'32', icon_height:'32', label:'Дуб'},
-									{icon:'ic-lemongrass', icon_width:'32', icon_height:'32', label:'Лемонграсс'},
-									{icon:'ic-cinnamon', icon_width:'32', icon_height:'32', label:'Корица'},
-								]
-							},
-							{
-								img:'cat-item9.png',
-								title:'Jaisalmer',
-								subtitle:'Джин',
-								notes:[
-									{icon:'ic-barrel', icon_width:'32', icon_height:'32', label:'Дуб'},
-									{icon:'ic-lemongrass', icon_width:'32', icon_height:'32', label:'Лемонграсс'},
-									{icon:'ic-cinnamon', icon_width:'32', icon_height:'32', label:'Корица'},
-								],
-								text:[
-									'Типичные тропические фруктовые ароматы, дополненные нотами абрикоса, чёрной смородины и сливы, завершающиеся лёгким оттенком специй и табака, барахатная медовая сладость во вкусе оттеняется ярким дубом и ванилью и балансируется сухостью индийского красного вина. ',
-									'Среднее по продолжительности послевкусие наполнено типично индийскими оттенками.',
-								]
-							},
-							{
-								img:'cat-item10.png',
-								title:'Jaisalmer Gold',
-								subtitle:'Джин',
-								notes:[
-									{icon:'ic-barrel', icon_width:'32', icon_height:'32', label:'Дуб'},
-									{icon:'ic-lemongrass', icon_width:'32', icon_height:'32', label:'Лемонграсс'},
-									{icon:'ic-cinnamon', icon_width:'32', icon_height:'32', label:'Корица'},
-								],
-								text:[
-									'Типичные тропические фруктовые ароматы, дополненные нотами абрикоса, чёрной смородины и сливы, завершающиеся лёгким оттенком специй и табака, барахатная медовая сладость во вкусе оттеняется ярким дубом и ванилью и балансируется сухостью индийского красного вина. ',
-									'Среднее по продолжительности послевкусие наполнено типично индийскими оттенками.',
-								]
-							},
-							{
-								img:'cat-item11.png',
-								title:'Calenter',
-								subtitle:'Джин',
-								notes:[
-									{icon:'ic-barrel', icon_width:'32', icon_height:'32', label:'Дуб'},
-									{icon:'ic-lemongrass', icon_width:'32', icon_height:'32', label:'Лемонграсс'},
-									{icon:'ic-cinnamon', icon_width:'32', icon_height:'32', label:'Корица'},
-								],
-								text:[
-									'Типичные тропические фруктовые ароматы, дополненные нотами абрикоса, чёрной смородины и сливы, завершающиеся лёгким оттенком специй и табака, барахатная медовая сладость во вкусе оттеняется ярким дубом и ванилью и балансируется сухостью индийского красного вина. ',
-									'Среднее по продолжительности послевкусие наполнено типично индийскими оттенками.',
-								]
-							},
-						]
-					each item in list
-						.col-6
-							.catalog-item
+							each item in list
+								.col-6
+									.catalog-item
+										.catalog-item__bg-img-wrap
+											.catalog-item__bg-img(style="background-image: url(assets/img/cat-img1.jpg)")
+
+										.catalog-item__img
+											img(src="assets/img/"+item.img, alt="")
+
+										.catalog-item__content
+											.catalog-item__info
+												.catalog-item__title= item.title
+
+												.catalog-item__type= item.subtitle
+
+												.catalog-item__subtitle Ведущие ноты
+
+												.cat-notes.cat-notes_hor
+													each note in item.notes
+														.cat-notes__item
+															.cat-notes__icon
+																+svg(note.icon, note.icon, note.icon_width, note.icon_height)
+															.cat-notes__label= note.label
+
+												.catalog-item__subtitle Вкусовой профиль
+
+												.catalog-item__text
+													each text in item.text
+														p= text
+
+											.catalog-item__tag Коктейли

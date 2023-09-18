@@ -1,0 +1,118 @@
+/*-------------- catalog-list -----------------*/
+.catalog-item{
+	display: flex;
+	// align-items: center;
+	gap: 16px;
+	height: calc(100% - 16px);
+	padding: 32px 32px 32px 16px;
+	background: #1F272F;
+	border-radius: 8px;
+	margin-bottom: 16px;
+	position: relative;
+	overflow: hidden;
+
+	&__bg-img-wrap{
+		width: 41%;
+		position: absolute;
+		top: 40px;
+		right: 89%;
+		transition: all 0.5s ease 0s;
+
+		&::before{
+			content: '';
+			display: block;
+			width: 125%;
+			height: 125%;
+			background: url(/assets/img/mandala-pattern-grey.svg) no-repeat 0 0;
+			background-size: contain;
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%,-50%);
+		}
+	}
+
+	&__bg-img{
+		padding-bottom: 100%;
+		background-repeat: no-repeat;
+		background-position: center;
+		background-size: cover;
+		border-radius: 50%;
+		position: relative;
+		-webkit-filter: grayscale(1); /* Webkit браузеры */  
+		filter: gray; /* для IE6-9 */  
+		filter: grayscale(1);
+		transition: filter 0.5s ease 0s;
+	}
+
+	&__img{
+		flex-shrink: 0;
+		width: 35%;
+		position: relative;
+	}
+
+	&__content{
+		display: flex;
+		flex-direction: column;
+		gap: 50px;
+		justify-content: space-between;
+		align-items: flex-end;
+		position: relative;
+	}
+
+	&__title{
+		font-family: var(--font-header);
+		font-size: 3.2rem;
+		font-weight: 600;
+		line-height: 1.15;
+		color: var(---color-warm-gold);
+		margin-bottom: 10px;
+	}
+
+	&__type{
+		font-family: var(--font-jaipur);
+		font-size: 1.8rem;
+		line-height: 1.15;
+		margin-bottom: 15px;
+	}
+
+	&__subtitle{
+		font-size: 1.4rem;
+		font-weight: bold;
+		margin-bottom: 15px;
+	}
+
+	.cat-notes{margin: 15px 0;}
+
+	&__text{font-size: 1.2rem;}
+
+	&__tag{
+		display: inline-flex; 
+		align-items: center;
+		justify-content: center;
+		gap: 16px;
+		height: 4.8rem;
+		background: transparent;
+		border: 1px solid var(--color-btn);
+		border-radius: 2.4rem;
+		font-family: var(--font-ebgaramond);
+		font-size: 2.4rem;
+		line-height: 1;
+		color: var(--color-btn);
+		text-transform: uppercase;
+		text-decoration: none;
+		text-align: center;
+		padding: 0 24px;
+	}
+
+	&:hover &__bg-img-wrap{
+		transform: scale(2);
+		right: 80%;
+	}
+
+	&:hover &__bg-img{
+		-webkit-filter: grayscale(0); /* Webkit браузеры */  
+		// filter: gray; /* для IE6-9 */  
+		filter: grayscale(0);
+	}
+}
