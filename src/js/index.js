@@ -1,4 +1,4 @@
-import {$, Swiper, Navigation, Pagination, Mousewheel, EffectFade} from './common';
+import {$, Swiper, Navigation, Pagination, Mousewheel, EffectFade, Fancybox, Inputmask} from './common';
 
 // $(window).scroll(function(){
 // 	if($(this).scrollTop()>300){
@@ -206,6 +206,88 @@ $(function(){
 
 			$(this).addClass("active");
 			$parent.find('#' + $(this).attr('data-item')).fadeIn();
+		});
+	}
+
+	if($('#age-gate').length){
+		//После загрузки страницы открываем окно с проверкой возраста
+		Fancybox.show([{ 
+			src: "#age-gate", 
+			type: "inline",
+			closeButton: false,
+			dragToClose: false,
+			wheel: false,
+			keyboard: false,
+			backdropClick: false,
+			contentClick: false,
+			click: (fancybox, slide) => {
+				// Fancybox.close();
+			},
+		}]);
+	
+		// Маска для телефона
+		Inputmask("datetime", {
+			inputFormat: "dd.mm.yyyy",
+			placeholder: "_",
+			leapday: "-02-29",
+			alias: "tt.mm.jjjj"
+		}).mask(".js-input-age");
+
+		//Функция подсчета лет
+		function calculateAge (birthDate, otherDate) {
+			birthDate = new Date(birthDate);
+			otherDate = new Date(otherDate);
+			var years = (otherDate.getFullYear() - birthDate.getFullYear());
+			if (otherDate.getMonth() < birthDate.getMonth() ||
+				otherDate.getMonth() == birthDate.getMonth() && otherDate.getDate() < birthDate.getDate()) {
+				years--;
+			}
+			return years;
+		}
+
+		//Получаем текущую дату
+		var today = new Date();
+		var dd = String(today.getDate()).padStart(2, '0');
+		var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
+		var yyyy = today.getFullYear();
+		today = mm + '/' + dd + '/' + yyyy;
+
+		var age = 0;
+
+
+		//Проврка возраста, если поле уже заполнено после загрузки страницы
+		checkAge($('.js-input-age').val());
+
+		//Функция проверки заполнения поля и его валидация
+		function checkAge(val) {
+			if(val.includes("_") != true && val!=''){
+				let arrValDate = [];
+
+				arrValDate = val.split('.');
+				age = calculateAge(arrValDate[1]+'/'+arrValDate[0]+'/'+arrValDate[2], today);
+
+				if(age < 18){
+					$('.js-input-age').closest('.js-form-site-item').addClass('error');
+					$('.js-submit-age').attr('disabled','disabled');
+				}else{
+					$('.js-submit-age').removeAttr('disabled');
+				}
+			}else{
+				$('.js-input-age').closest('.js-form-site-item').removeClass('error');
+				$('.js-submit-age').attr('disabled','disabled');
+			}
+		}
+
+		//Закрываем попап при правильном заполнении возраста
+		$('.js-submit-age').on('click', function(e){
+			e.preventDefault();
+			Fancybox.close();
+		});
+
+		
+		//Проверка возраста при заполнении поля с клавиатуры
+		$('.js-input-age').on('keyup', function(){
+			checkAge($(this).val());
 		});
 	}
 });

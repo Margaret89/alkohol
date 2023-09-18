@@ -1,0 +1,23 @@
+/*-------------- popup-window -----------------*/
+.popup-window{
+	width: 1000px;
+}
+
+@keyframes fancybox-slideIn {
+    from {transform: translateY(-100vh);}
+    to {transform: translateY(0);}
+}
+
+@keyframes fancybox-slideOut {
+    to {transform: translateY(-100vh);}
+}
+
+.fancybox__container.is-animated[aria-hidden="false"] .popup-window,
+.fancybox__container.is-animated[aria-hidden="false"] .popup-age{
+	animation: 0.15s ease backwards fancybox-slideIn;
+}
+
+.fancybox__container.is-animated.is-closing .popup-window,
+.fancybox__container.is-animated.is-closing .popup-age{
+	animation: 0.15s ease both fancybox-slideOut;
+}

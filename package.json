@@ -62,7 +62,7 @@
     "webpack-merge": "^4.2.2"
   },
   "dependencies": {
-    "@fancyapps/fancybox": "^3.5.7",
+    "@fancyapps/ui": "^4.0.26",
     "bootstrap": "^4.5.3",
     "inputmask": "^4.0.9",
     "jquery": "^3.5.1",

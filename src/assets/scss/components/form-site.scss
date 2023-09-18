@@ -12,6 +12,7 @@
 	}
 
 	input[type="text"],
+	input[type="date"],
 	input[type="email"],
 	input[type="number"],
 	input[type="password"],
@@ -40,7 +41,17 @@
 		padding-bottom: 1.5rem;
 	}
 
+	input[type="text"]:hover,
+	input[type="date"]:hover,
+	input[type="number"]:hover,
+	input[type="email"]:hover,
+	input[type="password"]:hover,
+	textarea:hover{
+		border-color: var(--color-grey);
+	}
+
 	input[type="text"]:focus,
+	input[type="date"]:focus,
 	input[type="number"]:focus,
 	input[type="email"]:focus,
 	input[type="password"]:focus,
@@ -49,6 +60,7 @@
 	}
 
 	input[type="text"]::placeholder,
+	input[type="date"]::placeholder,
 	input[type="number"]::placeholder,
 	input[type="email"]::placeholder,
 	input[type="password"]::placeholder,
@@ -59,11 +71,13 @@
 
 	&__item.error{
 		input[type="text"],
+		input[type="date"],
 		input[type="number"],
 		input[type="email"],
 		input[type="password"],
 		textarea{
 			border-color: var(--color-dander);
+			color: var(--color-dander);
 		}
 
 		// input[type="text"]::placeholder,
@@ -85,4 +99,20 @@
 	// }
 
 	&__btn{margin-top: 50px;}
+
+	&_line{
+		display: flex;
+		gap: 32px;
+
+		input[type="text"],
+		input[type="date"],
+		input[type="email"],
+		input[type="number"],
+		input[type="password"],
+		textarea{
+			width: 100%;
+		}
+	}
+
+	&_line &__btn{margin-top: 0;}
 }

@@ -1,0 +1,43 @@
+/*-------------- popup-age -----------------*/
+.popup-age{
+	width: 1000px;
+	max-width: calc(100% - 32px);
+	background: #141D26;
+	border-radius: 8px;
+	text-align: center;
+	padding: 95px 40px;
+	overflow: hidden;
+
+	&::before{
+		content: '';
+		display: block;
+		width: 370px;
+		height: 370px;
+		background: url(/assets/img/compas-light.svg) no-repeat 0 0;
+		background-size: contain;
+		position: absolute;
+		top: -120px;
+		right: -120px;
+		z-index: -1;
+	}
+
+	&__logo{margin-bottom: 50px;}
+
+	&__title{
+		font-family: var(--font-header);
+		@include font(none, none, 4.8rem, 1.15, var(--color-warm-gold));
+		margin-bottom: 30px;
+	}
+
+	.form-site{
+		justify-content: center;
+		&__item{width: 320px;}
+
+		input[type="text"],
+		input[type="date"]{
+			font-size: 3.2rem;
+			text-transform: uppercase;
+			text-align: center;
+		}
+	}
+}

@@ -1,6 +1,3 @@
-// fancybox
-// @import '~@fancyapps/fancybox/dist/jquery.fancybox.css';
-
 @import "utils/vars";
 
 // bootstrap
@@ -12,7 +9,8 @@
 @import "~bootstrap/scss/grid";
 // @import "~bootstrap/scss/modal";
 
-// @import "~sass-rem/_rem.scss";
+// fancybox
+@import '~@fancyapps/ui/dist/fancybox.css';
 
 // swiper
 @import '~swiper/swiper-bundle.css';
@@ -46,3 +44,6 @@
 @import "components/about";
 @import "components/catalog-filter";
 @import "components/catalog-list";
+@import "components/fancybox";
+@import "components/popup-window";
+@import "components/popup-age";
