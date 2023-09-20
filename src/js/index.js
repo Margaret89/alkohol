@@ -59,6 +59,11 @@ $(function(){
 		let startCloudSecondLeft = Math.round(parseInt($('.js-history-animate-cloud-second').css('left').replace('px','')) / $('.js-history-animate-map-wrap').width() * 100); //Отступ первого облока по горизонтали (в процентах)
 		let moveCloudFirst = startCloudFirstLeft; //Смещение первого облока по горизонтали (в процентах)
 		let moveCloudSecond = startCloudSecondLeft; //Смещение первого облока по горизонтали (в процентах)
+		let moveCloudFirstTop = 0; //Паралакс первого облака
+		let moveCloudSecondTop = 0; //Паралакс второго облака
+
+		let prevMousePos = { x: -1, y: -1 };//Предыдущее положение мышки
+		let curMousePos = { x: -1, y: -1 };//Текуее положение мышки
 
 
 		console.log('startCloudFirstLeft = ', startCloudFirstLeft);
@@ -167,7 +172,7 @@ $(function(){
 			}else if(scroll > thirdPointAnimMap && scroll < startOpacityClouds){
 				opacityClouds = (scroll - thirdPointAnimMap) / (startOpacityClouds - thirdPointAnimMap);
 			}else if(scroll > startOpacityClouds && scroll < finishOpacityClouds){
-				opacityClouds = 1 - ((scroll - startOpacityClouds) / (finishOpacityClouds - startOpacityClouds));;
+				opacityClouds = 1 - ((scroll - startOpacityClouds) / (finishOpacityClouds - startOpacityClouds));
 			}else if(scroll > finishOpacityClouds){
 				opacityClouds = 0;
 			}
@@ -175,29 +180,16 @@ $(function(){
 			$('.js-history-animate-cloud-first').css('opacity', opacityClouds);
 			$('.js-history-animate-cloud-second').css('opacity', opacityClouds);
 
-		// // 	let startOpacityClouds = fourthPointAnimMap;
-		// // let finishOpacityClouds = fourthPointAnimMap + (fourthPointAnimMap - thirdPointAnimMap);
-		// 	// Перемещение облаков
-		// 	if(scroll <= thirdPointAnimMap){
-		// 		// opacityClouds = 0;
-		// 	}else if(scroll > thirdPointAnimMap && scroll < finishOpacityClouds){
-		// 		moveCloudFirst = startCloudFirstLeft - ((scroll - thirdPointAnimMap) * startCloudFirstLeft/ (finishOpacityClouds - thirdPointAnimMap));
-		// 		// moveCloudSecond = (scroll - thirdPointAnimMap) * startCloudSecondLeft/ (finishOpacityClouds - thirdPointAnimMap);
-				
-		// 		console.log('moveCloudFirst = ', moveCloudFirst);
-		// 		console.log('moveCloudSecond = ', moveCloudSecond);
+			// Перемещение облаков
+			if(scroll > thirdPointAnimMap && scroll < finishOpacityClouds){
+				moveCloudFirst = startCloudFirstLeft - ((scroll - thirdPointAnimMap) * startCloudFirstLeft/ (finishOpacityClouds - thirdPointAnimMap));
+				moveCloudSecond = startCloudSecondLeft + ((scroll - thirdPointAnimMap) * startCloudSecondLeft/ (finishOpacityClouds - thirdPointAnimMap));
+				moveCloudFirstTop = ((scroll - thirdPointAnimMap)*.05);
+				moveCloudSecondTop = 0-((scroll - thirdPointAnimMap)*.1);
+			}
 
-		// // 		moveCloudFirst
-		// // 		let moveCloudFirstLeft = 30; //Смещение первого облока по горизонтали (в процентах)
-		// // let moveCloudSecondLeft = 20; //Смещение первого облока по горизонтали (в процентах)
-
-		// 	}else if(scroll > finishOpacityClouds){
-		// 		// opacityClouds = 1;
-		// 	}
-
-		// 	$('.js-history-animate-cloud-first').css('left', moveCloudFirst+'%');
-			// $('.js-history-animate-cloud-second').css('left', moveCloudSecond+'%');
-			// $('.js-history-animate-cloud-second').css('opacity', opacityClouds);
+			$('.js-history-animate-cloud-first').css({'left': moveCloudFirst+'%', 'margin-top':moveCloudFirstTop+'px'});
+			$('.js-history-animate-cloud-second').css({'left': moveCloudSecond+'%', 'margin-top':moveCloudSecondTop+'px'});
 
 			// function parallaxScroll(){
 			// 	var scrolled = $(window).scrollTop();
@@ -205,6 +197,35 @@ $(function(){
 			// 	$('#parallax-bg2').css('top',(0-(scrolled*.5))+'px');
 			// 	$('#parallax-bg3').css('top',(0-(scrolled*.75))+'px');
 			// }
+
+			// $('.js-history-animate-map-wrap').hover(function() {
+			// 	console.log('hover');
+			// 	console.log($(this).);
+
+
+
+			// 	// if(prevMouseX)
+			// });
+
+			$('.js-history-animate-map-wrap').mousemove(function(event) {
+				if(scroll > thirdPointAnimMap && scroll < finishOpacityClouds){
+					curMousePos.x = event.pageX;
+					curMousePos.y = event.pageY;
+					let transformCloudFirst = $('.js-history-animate-cloud-first').width() * 0.1;
+					let transformCloudSecond = $('.js-history-animate-cloud-second').width() * 0.1;
+					
+					console.log('transformCloudFirst = ', transformCloudFirst);
+
+					// if(curMousePos.x > prevMousePos.x){
+					// 	$('.js-history-animate-cloud-first').animate({'left': 'translateX('+transformCloudFirst+'px)'});
+					// 	// $('.js-history-animate-cloud-first').css('transform', 'translateX('+transformCloudFirst+'px)')
+					// }
+
+					// console.log('currentMousePos.x = ', curMousePos.x);
+					// console.log('currentMousePos.y = ', curMousePos.y);
+				}
+				
+			});
 
 			//Увеличение карты
 			if(scroll <= fourthPointAnimMap){
@@ -220,32 +241,6 @@ $(function(){
 
 			$('.js-history-animate-map-wrap').css({'opacity': opacityFullMap, 'transform':'scale('+scaleFullMap+')'});
 
-
-			//Изменение прозрачности карты (первый слой)
-			// if(scroll <= (pointAnimStart + sratPosMap)){
-			// 	opacityFirstMap = 0;
-			// 	$('.js-history-animate-map-color').css('opacity', opacityFirstMap);
-			// }else if(scroll > (pointAnimStart + sratPosMap) && scroll < pointAnimFirstMap){
-			// 	opacityFirstMap = (scroll - (pointAnimStart + sratPosMap)) / firstAnimSect;
-			// 	$('.js-history-animate-map-color').css('opacity', opacityFirstMap);
-			// 	console.log('1111111111');
-			// 	// console.log('path1 = ', scroll - (pointAnimStart + sratPosMap));
-			// 	// console.log('path2 = ', firstAnimSect - (pointAnimFirstMap - scroll));
-			// }
-
-			// //Изменение прозрачности карты (второй слой)
-			// if(scroll <= pointAnimFirstMap){
-			// 	opacitySecondMap = 0;
-			// 	$('.js-history-animate-map-color-full').css('opacity', opacitySecondMap);
-			// }else if(scroll > pointAnimFirstMap && scroll < pointAnimSecondMap){
-			// 	opacitySecondMap = (scroll - pointAnimFirstMap) / secondAnimSect;
-			// 	// opacitySecondMap = (scroll - (pointAnimStart + sratPosMap + firstAnimSect)) / (firstAnimSect - sratPosMap*2 - $('.js-history-animate-map').outerHeight()/2);
-			// 	// $('.js-history-animate-map-color-full').css('opacity', opacitySecondMap);
-			// 	console.log('2222');
-			// 	console.log('opacitySecondMap = ', opacitySecondMap);
-			// }
-
-			
 
 			//Перемещение карты
 			if(scroll > pointAnimStart && scroll < pointAnimFinishMap){
