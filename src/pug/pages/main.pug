@@ -7,7 +7,7 @@ block label
 	img(src="assets/img/vertical-text.png", alt="")
 	
 block content
-	section.history.js-history
+	.animation-map-wrap
 		.history-animate.js-history-animate
 			.container-fluid
 				.row
@@ -19,201 +19,200 @@ block content
 							img.history-animate__compas.js-history-animate-compas(src="assets/img/compas.svg", alt="")
 							img.history-animate__map.js-history-animate-map(src="assets/img/india-continent-map.png", alt="")
 							img.history-animate__map-color.js-history-animate-map-color(src="assets/img/india-continent-map-color.png", alt="")
+							img.history-animate__map-color-full.js-history-animate-map-color-full(src="assets/img/india-continent-map-color-full.png", alt="")
 
 
-		.history__sect
-			.history__line(style="background-image: url('assets/img/pattern-line.svg')")
-			.scroll-arrow
-				+svg('ic-circle-arrow','ic-circle-arrow', '58', '70')
+							.history-path.js-history-path
+								.history-path__content
+									.history-path__line
+										svg.js-path-line(x='0px' y='0px' width='1127' viewBox='0 0 1127 287' style='enable-background:new 0 0 1127 287;' xml:space='preserve')
+											path.js-path-line-item(d='M19.1,203.3c-4.4-5.2-8.5-10.6-12.3-16.2l5-3.3c3.6,5.4,7.6,10.7,11.9,15.7L19.1,203.3z')
+											path.js-path-line-item(d='M48.4,231.3c-5.4-4.2-10.5-8.6-15.4-13.2l4.1-4.3c4.7,4.5,9.7,8.8,14.9,12.8L48.4,231.3z')
+											path.js-path-line-item(d='M82.5,253.1c-6.1-3.1-12-6.5-17.6-10.1l3.2-5.1c5.4,3.5,11.2,6.8,17.1,9.8L82.5,253.1z')
+											path.js-path-line-item(d='M119.7,268.8c-6.4-2.2-12.8-4.6-18.9-7.2l2.3-5.5c6,2.5,12.2,4.9,18.5,7L119.7,268.8z')
+											path.js-path-line-item(d='M158.7,279.2c-6.7-1.3-13.3-2.8-19.7-4.5l1.5-5.8c6.3,1.7,12.8,3.2,19.3,4.5L158.7,279.2z')
+											path.js-path-line-item(d='M198.7,284.7c-6.7-0.6-13.5-1.3-20-2.2l0.8-5.9c6.5,0.9,13.1,1.6,19.7,2.2L198.7,284.7z')
+											path.js-path-line-item(d='M231.3,286.1c-4.2,0-8.4-0.1-12.5-0.2l0.2-6c4.1,0.1,8.2,0.2,12.3,0.2c2.5,0,5,0,7.5-0.1l0.1,6\
+											C236.4,286,233.9,286.1,231.3,286.1z')
+											path.js-path-line-item(d='M259.1,285.1l-0.4-6c6.6-0.4,13.2-1,19.8-1.8l0.7,6C272.5,284.1,265.7,284.7,259.1,285.1z')
+											path.js-path-line-item(d='M299.1,280.6l-0.9-5.9c6.5-1,13.1-2.2,19.5-3.6l1.2,5.9C312.3,278.4,305.7,279.6,299.1,280.6z')
+											path.js-path-line-item(d='M338.5,272.5l-1.5-5.8c3.4-0.9,6.8-1.8,10.2-2.7c3-0.8,6-1.7,8.9-2.6l1.8,5.7c-3,1-6.1,1.9-9.1,2.7\
+											C345.4,270.8,342,271.7,338.5,272.5z')
+											path.js-path-line-item(d='M376.9,260.3l-2.2-5.6c6-2.4,12.1-5.1,18-8l2.6,5.4C389.3,255.1,383.1,257.8,376.9,260.3z')
+											path.js-path-line-item(d='M413.2,242.6l-3-5.2c5.6-3.2,11.2-6.8,16.8-10.5l3.3,5C424.7,235.7,418.9,239.3,413.2,242.6z')
+											path.js-path-line-item(d='M446.8,220.3l-3.6-4.8c5.1-3.8,10.3-8,15.6-12.3l3.8,4.6C457.3,212.2,452,216.4,446.8,220.3z')
+											path.js-path-line-item(d='M477.8,194.6l-4-4.5c4.7-4.3,9.5-8.7,14.5-13.6l4.2,4.3C487.4,185.7,482.5,190.2,477.8,194.6z')
+											path.js-path-line-item(d='M506.7,166.7l-4.3-4.2c4.3-4.3,8.8-9,13.9-14.3l4.3,4.2C515.6,157.7,511,162.4,506.7,166.7z')
+											path.js-path-line-item(d='M534.6,137.8l-4.4-4.1l3.1-3.3c3.6-3.8,7.1-7.5,10.7-11.3l4.3,4.1c-3.6,3.7-7.1,7.5-10.7,11.2L534.6,137.8z')
+											path.js-path-line-item(d='M562.2,108.9l-4.3-4.2c5.1-5.2,9.7-9.9,14.2-14.2l4.2,4.3C571.8,99.1,567.2,103.7,562.2,108.9z')
+											path.js-path-line-item(d='M590.7,81l-4.1-4.4c5.1-4.7,10.2-9.2,15.1-13.3l3.9,4.6C600.7,71.9,595.7,76.4,590.7,81z')
+											path.js-path-line-item(d='M621,55.4l-3.6-4.8c5.5-4.2,11-8.1,16.5-11.7l3.3,5C631.8,47.5,626.4,51.3,621,55.4z')
+											path.js-path-line-item(d='M654,33.7l-2.9-5.2c6-3.3,12-6.4,18.1-9.1l2.5,5.5C665.7,27.5,659.8,30.5,654,33.7z')
+											path.js-path-line-item(d='M689.9,17.7l-1.9-5.7c6.4-2.2,12.9-4.1,19.4-5.6l1.4,5.8C702.4,13.7,696.1,15.5,689.9,17.7z')
+											path.js-path-line-item(d='M728.1,8.5l-0.8-5.9c4.9-0.7,10-1.2,15-1.6c1.7-0.1,3.4-0.2,5.1-0.3l0.4,6c-1.7,0.1-3.3,0.2-5,0.3\
+											C737.8,7.3,732.9,7.8,728.1,8.5z')
+											path.js-path-line-item(d='M787.3,6.7C780.8,6.2,774.2,6,767.5,6l0-6c6.8,0,13.5,0.2,20.2,0.7L787.3,6.7z')
+											path.js-path-line-item(d='M826.5,11.9c-6.4-1.3-13-2.4-19.5-3.3l0.8-5.9c6.6,0.9,13.3,2,19.9,3.3L826.5,11.9z')
+											path.js-path-line-item(d='M864.6,22.3c-6.3-2.2-12.7-4.1-18.9-5.8l1.6-5.8c6.4,1.7,12.9,3.7,19.3,5.9L864.6,22.3z')
+											path.js-path-line-item(d='M901.4,37.1c-6.3-2.9-12.3-5.5-18.2-7.9l2.3-5.6c6,2.4,12.1,5.1,18.5,8L901.4,37.1z')
+											path.js-path-line-item(d='M937.1,54.9c-7.1-3.7-12.5-6.5-17.7-9.1l2.7-5.4c5.2,2.6,10.7,5.5,17.8,9.2L937.1,54.9z')
+											path.js-path-line-item(d='M972.7,73.3c-5.1-2.5-10.6-5.3-17.9-9.1l2.8-5.3c7.2,3.8,12.7,6.6,17.7,9.1L972.7,73.3z')
+											path.js-path-line-item(d='M1009.9,89c-6-2-12.2-4.3-18.9-7.2l2.4-5.5c6.5,2.8,12.6,5.1,18.4,7L1009.9,89z')
+											path.js-path-line-item(d='M1049.9,96.4c-6.6-0.2-13.5-0.9-20.3-2.2l1.1-5.9c6.5,1.2,13,2,19.4,2.1L1049.9,96.4z')
+											path.js-path-line-item(d='M1070.3,95.2l-0.9-5.9c6.3-0.9,12.7-2.4,19-4.3l1.8,5.7C1083.6,92.7,1076.9,94.2,1070.3,95.2z')
+											path.js-path-line-item(d='M1109.3,83.3l-2.5-5.4c5.3-2.5,10.8-5.3,16.2-8.5l3,5.2C1120.4,77.8,1114.8,80.7,1109.3,83.3z')
+											path.js-path-line-item(d='M-3.5,169.7c-3.1-5.9-5.9-12.2-8.4-18.5l5.6-2.2c2.4,6.1,5.1,12.1,8.1,17.9L-3.5,169.7z')
+											path.js-path-line-item(d='M-18.3,131.9c-1.8-6.4-3.2-13.1-4.4-19.8l5.9-1c1.1,6.5,2.6,13,4.3,19.2L-18.3,131.9z')
+											path.js-path-line-item(d='M-25.2,92.1c-0.5-6.6-0.8-13.4-0.8-20.2h6c0,6.7,0.3,13.3,0.8,19.7L-25.2,92.1z')
 
-			.container-fluid
+									.history-path__anchor.js-history-path-anchor
+										img(src="assets/img/anchor.svg", alt="")
+
+							img.history-animate__cloud-first.js-history-animate-cloud-first(src="assets/img/cloud1.png", alt="")
+							img.history-animate__cloud-second.js-history-animate-cloud-second(src="assets/img/cloud2.png", alt="")
+		section.history
+			.js-anim-start
+			.history__sect
+				.history__line(style="background-image: url('assets/img/pattern-line.svg')")
+				.scroll-arrow
+					+svg('ic-circle-arrow','ic-circle-arrow', '58', '70')
+
+				.container-fluid
+					.row
+						.col-6
+							.history__info
+								.history__title
+									span.text-gradient откройте индию
+						
+								.history__text Пройдя путь от колонии Великобритании до современной независимой страны, Индия создала уникальную традицию производства алкогольных напитков.
+
+								.history__links
+									a.btn.btn_small(href='#') Виски
+									a.btn.btn_small(href='#') Джин
+									a.btn.btn_small(href='#') Ром
+
+			.history__sect.history__sect_center
+				.anim-point-path.js-anim-point-path
+				.container-fluid
+					.row
+						.col-12
+							.info-block
+								h2 Начало XVII века
+
+								.info-block__text
+									p Британская Империя, в поисках пряностей, тканей и драгоценных камней, пускает якорь у берегов загадочного полуострова — Индии. 
+									p Вдохновлённые новыми культурами и обычаями, британцы открывают нечто большее, чем просто новый рынок — они обнаруживают в Индии потенциал для создания идеального «brown spirit».
+
+		section.p-indent.gallery-info
+			.anim-point-gallery.js-anim-point-gallery
+			.container
 				.row
-					.col-6
-						.history__info
-							.history__title
-								span.text-gradient откройте индию
-					
-							.history__text Пройдя путь от колонии Великобритании до современной независимой страны, Индия создала уникальную традицию производства алкогольных напитков.
-
-							.history__links
-								a.btn.btn_small(href='#') Виски
-								a.btn.btn_small(href='#') Джин
-								a.btn.btn_small(href='#') Ром
-
-
-		.history__sect.history__sect_center
-			.history-path
-				.history-path__content
-					.history-path__line
-						svg.js-path-line(x='0px' y='0px' width='1127' viewBox='0 0 1127 287' style='enable-background:new 0 0 1127 287;' xml:space='preserve')
-							path.js-path-line-item(d='M19.1,203.3c-4.4-5.2-8.5-10.6-12.3-16.2l5-3.3c3.6,5.4,7.6,10.7,11.9,15.7L19.1,203.3z')
-							path.js-path-line-item(d='M48.4,231.3c-5.4-4.2-10.5-8.6-15.4-13.2l4.1-4.3c4.7,4.5,9.7,8.8,14.9,12.8L48.4,231.3z')
-							path.js-path-line-item(d='M82.5,253.1c-6.1-3.1-12-6.5-17.6-10.1l3.2-5.1c5.4,3.5,11.2,6.8,17.1,9.8L82.5,253.1z')
-							path.js-path-line-item(d='M119.7,268.8c-6.4-2.2-12.8-4.6-18.9-7.2l2.3-5.5c6,2.5,12.2,4.9,18.5,7L119.7,268.8z')
-							path.js-path-line-item(d='M158.7,279.2c-6.7-1.3-13.3-2.8-19.7-4.5l1.5-5.8c6.3,1.7,12.8,3.2,19.3,4.5L158.7,279.2z')
-							path.js-path-line-item(d='M198.7,284.7c-6.7-0.6-13.5-1.3-20-2.2l0.8-5.9c6.5,0.9,13.1,1.6,19.7,2.2L198.7,284.7z')
-							path.js-path-line-item(d='M231.3,286.1c-4.2,0-8.4-0.1-12.5-0.2l0.2-6c4.1,0.1,8.2,0.2,12.3,0.2c2.5,0,5,0,7.5-0.1l0.1,6\
-							C236.4,286,233.9,286.1,231.3,286.1z')
-							path.js-path-line-item(d='M259.1,285.1l-0.4-6c6.6-0.4,13.2-1,19.8-1.8l0.7,6C272.5,284.1,265.7,284.7,259.1,285.1z')
-							path.js-path-line-item(d='M299.1,280.6l-0.9-5.9c6.5-1,13.1-2.2,19.5-3.6l1.2,5.9C312.3,278.4,305.7,279.6,299.1,280.6z')
-							path.js-path-line-item(d='M338.5,272.5l-1.5-5.8c3.4-0.9,6.8-1.8,10.2-2.7c3-0.8,6-1.7,8.9-2.6l1.8,5.7c-3,1-6.1,1.9-9.1,2.7\
-							C345.4,270.8,342,271.7,338.5,272.5z')
-							path.js-path-line-item(d='M376.9,260.3l-2.2-5.6c6-2.4,12.1-5.1,18-8l2.6,5.4C389.3,255.1,383.1,257.8,376.9,260.3z')
-							path.js-path-line-item(d='M413.2,242.6l-3-5.2c5.6-3.2,11.2-6.8,16.8-10.5l3.3,5C424.7,235.7,418.9,239.3,413.2,242.6z')
-							path.js-path-line-item(d='M446.8,220.3l-3.6-4.8c5.1-3.8,10.3-8,15.6-12.3l3.8,4.6C457.3,212.2,452,216.4,446.8,220.3z')
-							path.js-path-line-item(d='M477.8,194.6l-4-4.5c4.7-4.3,9.5-8.7,14.5-13.6l4.2,4.3C487.4,185.7,482.5,190.2,477.8,194.6z')
-							path.js-path-line-item(d='M506.7,166.7l-4.3-4.2c4.3-4.3,8.8-9,13.9-14.3l4.3,4.2C515.6,157.7,511,162.4,506.7,166.7z')
-							path.js-path-line-item(d='M534.6,137.8l-4.4-4.1l3.1-3.3c3.6-3.8,7.1-7.5,10.7-11.3l4.3,4.1c-3.6,3.7-7.1,7.5-10.7,11.2L534.6,137.8z')
-							path.js-path-line-item(d='M562.2,108.9l-4.3-4.2c5.1-5.2,9.7-9.9,14.2-14.2l4.2,4.3C571.8,99.1,567.2,103.7,562.2,108.9z')
-							path.js-path-line-item(d='M590.7,81l-4.1-4.4c5.1-4.7,10.2-9.2,15.1-13.3l3.9,4.6C600.7,71.9,595.7,76.4,590.7,81z')
-							path.js-path-line-item(d='M621,55.4l-3.6-4.8c5.5-4.2,11-8.1,16.5-11.7l3.3,5C631.8,47.5,626.4,51.3,621,55.4z')
-							path.js-path-line-item(d='M654,33.7l-2.9-5.2c6-3.3,12-6.4,18.1-9.1l2.5,5.5C665.7,27.5,659.8,30.5,654,33.7z')
-							path.js-path-line-item(d='M689.9,17.7l-1.9-5.7c6.4-2.2,12.9-4.1,19.4-5.6l1.4,5.8C702.4,13.7,696.1,15.5,689.9,17.7z')
-							path.js-path-line-item(d='M728.1,8.5l-0.8-5.9c4.9-0.7,10-1.2,15-1.6c1.7-0.1,3.4-0.2,5.1-0.3l0.4,6c-1.7,0.1-3.3,0.2-5,0.3\
-							C737.8,7.3,732.9,7.8,728.1,8.5z')
-							path.js-path-line-item(d='M787.3,6.7C780.8,6.2,774.2,6,767.5,6l0-6c6.8,0,13.5,0.2,20.2,0.7L787.3,6.7z')
-							path.js-path-line-item(d='M826.5,11.9c-6.4-1.3-13-2.4-19.5-3.3l0.8-5.9c6.6,0.9,13.3,2,19.9,3.3L826.5,11.9z')
-							path.js-path-line-item(d='M864.6,22.3c-6.3-2.2-12.7-4.1-18.9-5.8l1.6-5.8c6.4,1.7,12.9,3.7,19.3,5.9L864.6,22.3z')
-							path.js-path-line-item(d='M901.4,37.1c-6.3-2.9-12.3-5.5-18.2-7.9l2.3-5.6c6,2.4,12.1,5.1,18.5,8L901.4,37.1z')
-							path.js-path-line-item(d='M937.1,54.9c-7.1-3.7-12.5-6.5-17.7-9.1l2.7-5.4c5.2,2.6,10.7,5.5,17.8,9.2L937.1,54.9z')
-							path.js-path-line-item(d='M972.7,73.3c-5.1-2.5-10.6-5.3-17.9-9.1l2.8-5.3c7.2,3.8,12.7,6.6,17.7,9.1L972.7,73.3z')
-							path.js-path-line-item(d='M1009.9,89c-6-2-12.2-4.3-18.9-7.2l2.4-5.5c6.5,2.8,12.6,5.1,18.4,7L1009.9,89z')
-							path.js-path-line-item(d='M1049.9,96.4c-6.6-0.2-13.5-0.9-20.3-2.2l1.1-5.9c6.5,1.2,13,2,19.4,2.1L1049.9,96.4z')
-							path.js-path-line-item(d='M1070.3,95.2l-0.9-5.9c6.3-0.9,12.7-2.4,19-4.3l1.8,5.7C1083.6,92.7,1076.9,94.2,1070.3,95.2z')
-							path.js-path-line-item(d='M1109.3,83.3l-2.5-5.4c5.3-2.5,10.8-5.3,16.2-8.5l3,5.2C1120.4,77.8,1114.8,80.7,1109.3,83.3z')
-							path.js-path-line-item(d='M-3.5,169.7c-3.1-5.9-5.9-12.2-8.4-18.5l5.6-2.2c2.4,6.1,5.1,12.1,8.1,17.9L-3.5,169.7z')
-							path.js-path-line-item(d='M-18.3,131.9c-1.8-6.4-3.2-13.1-4.4-19.8l5.9-1c1.1,6.5,2.6,13,4.3,19.2L-18.3,131.9z')
-							path.js-path-line-item(d='M-25.2,92.1c-0.5-6.6-0.8-13.4-0.8-20.2h6c0,6.7,0.3,13.3,0.8,19.7L-25.2,92.1z')
-
-					.history-path__anchor.js-history-path-anchor
-						img(src="assets/img/anchor.svg", alt="")
-
-
-			.container-fluid
-				.row
-					.col-12
+					.col-5
 						.info-block
-							h2 Начало XVII века
+							h2 Британско- индийский симбиоз
 
 							.info-block__text
-								p Британская Империя, в поисках пряностей, тканей и драгоценных камней, пускает якорь у берегов загадочного полуострова — Индии. 
-								p Вдохновлённые новыми культурами и обычаями, британцы открывают нечто большее, чем просто новый рынок — они обнаруживают в Индии потенциал для создания идеального «brown spirit».
+								p Проходит время, и британцы привозят свои технологии и традиции производства алкоголя в Индию. Индийские винокурни начинают применять эти методы, адаптируя их под свои условия и ингредиенты. 
+								p Это рождение нового стиля дистилляции, симбиоза британских традиций и индийского терруара.
 
+					.col-7
+						.gallery-slider-wrap
+							.gallery-slider.swiper.js-gallery-slider
+								.swiper-buttons
+									.swiper-button-prev.js-gallery-slider-prev
+										+svg('ic-decor-arrow-left','ic-decor-arrow-left', '52', '25')
+									.swiper-button-next.js-gallery-slider-next
+										+svg('ic-decor-arrow-right','ic-decor-arrow-right', '52', '25')
 
-	section.p-indent.gallery-info
-		.container
-			.row
-				.col-5
-					.info-block
-						h2 Британско- индийский симбиоз
+								.swiper-wrapper
+									-
+										var list=[
+											{
+												img:'gallery-slider1.jpg',
+												label: 'radico',
+											},
+											{
+												img:'gallery-slider2.jpg',
+												label: 'ads group',
+											},
+											{
+												img:'gallery-slider3.jpg',
+											},
+											{
+												img:'gallery-slider4.jpg',
+											},
+											{
+												img:'gallery-slider2.jpg',
+												label: 'ads group',
+											},
+										]
+									each item in list
+										.swiper-slide.gallery-slider__item
+											.gallery-slider__img(style="background-image: url(assets/img/"+item.img+")")
 
-						.info-block__text
-							p Проходит время, и британцы привозят свои технологии и традиции производства алкоголя в Индию. Индийские винокурни начинают применять эти методы, адаптируя их под свои условия и ингредиенты. 
-							p Это рождение нового стиля дистилляции, симбиоза британских традиций и индийского терруара.
+											if(item.label)
+												.gallery-slider__label= item.label
 
-				.col-7
-					.gallery-slider-wrap
-						.gallery-slider.swiper.js-gallery-slider
-							.swiper-buttons
-								.swiper-button-prev.js-gallery-slider-prev
-									+svg('ic-decor-arrow-left','ic-decor-arrow-left', '52', '25')
-								.swiper-button-next.js-gallery-slider-next
-									+svg('ic-decor-arrow-right','ic-decor-arrow-right', '52', '25')
+		section.p-indent.climate
+			.anim-point-clouds.js-anim-point-clouds
+			.container
+				.row.align-items-center
+					.col-5
+						.info-block
+							h2 Климатический бонус
 
-							.swiper-wrapper
-								-
-									var list=[
-										{
-											img:'gallery-slider1.jpg',
-											label: 'radico',
-										},
-										{
-											img:'gallery-slider2.jpg',
-											label: 'ads group',
-										},
-										{
-											img:'gallery-slider3.jpg',
-										},
-										{
-											img:'gallery-slider4.jpg',
-										},
-										{
-											img:'gallery-slider2.jpg',
-											label: 'ads group',
-										},
-									]
-								each item in list
-									.swiper-slide.gallery-slider__item
-										.gallery-slider__img(style="background-image: url(assets/img/"+item.img+")")
+							.info-block__text
+								p Внешний мир быстро обнаруживает особенность индийских «brown spirits». В теплом и влажном климате Индии процесс выдержки в бочке происходит в 3 раза быстрее, придавая напиткам глубокий и сложный вкус, которого нельзя достичь в более умеренном климате.
 
-										if(item.label)
-											.gallery-slider__label= item.label
+		section.p-indent.briefcase-wrap
+			.container
+				.row.align-items-center
+					.col-5
+						.briefcase
+							.briefcase__title
+								span.text-gradient Портфель
 
-						
-	section.p-indent.climate
-		.container
-			.row.align-items-center
-				.col-5
-					.info-block
-						h2 Климатический бонус
+							.briefcase__text <b>Ключевые бренды</b> представляют <b>три региона</b> северной Индии
 
-						.info-block__text
-							p Внешний мир быстро обнаруживает особенность индийских «brown spirits». В теплом и влажном климате Индии процесс выдержки в бочке происходит в 3 раза быстрее, придавая напиткам глубокий и сложный вкус, которого нельзя достичь в более умеренном климате.
+							.choose-brand
+								.choose-brand__arr
+									.choose-brand__arr-prev.js-choose-brand-arr-prev
+										+svg('ic-decor-arrow-left','ic-decor-arrow-left', '39', '20')
+									.choose-brand__arr-next.js-choose-brand-arr-next
+										+svg('ic-decor-arrow-right','ic-decor-arrow-right', '39', '20')
 
-				.col-7
-					.climate-anim
-						img.climate-anim__map(src="assets/img/ind-map.png", alt="")
+								.choose-brand__list
+									.choose-brand__item.js-choose-brand-item(data-choose='1')
+										img(src="assets/img/jaisalmer.png", alt="")
+									.choose-brand__item.js-choose-brand-item.active(data-choose='2')
+										img(src="assets/img/ranthambore.png", alt="")
+									.choose-brand__item.js-choose-brand-item(data-choose='3')
+										img(src="assets/img/rampur.png", alt="")
 
-						img.climate-anim__cloud-first(src="assets/img/cloud1.png", alt="")
-						img.climate-anim__cloud-second(src="assets/img/cloud2.png", alt="")
+							.briefcase__text <b class="text-accent">Заповедник Ranthhambore</b> на краю пустыни, путь на арабский восток
 
-	section.p-indent.briefcase-wrap
-		.container
-			.row.align-items-center
-				.col-5
-					.briefcase
-						.briefcase__title
-							span.text-gradient Портфель
-
-						.briefcase__text <b>Ключевые бренды</b> представляют <b>три региона</b> северной Индии
-
-						.choose-brand
-							.choose-brand__arr
-								.choose-brand__arr-prev.js-choose-brand-arr-prev
-									+svg('ic-decor-arrow-left','ic-decor-arrow-left', '39', '20')
-								.choose-brand__arr-next.js-choose-brand-arr-next
+							a.btn(href='#') К портфелю
+								span.btn__icon-hide
 									+svg('ic-decor-arrow-right','ic-decor-arrow-right', '39', '20')
 
-							.choose-brand__list
-								.choose-brand__item.js-choose-brand-item(data-choose='1')
-									img(src="assets/img/jaisalmer.png", alt="")
-								.choose-brand__item.js-choose-brand-item.active(data-choose='2')
-									img(src="assets/img/ranthambore.png", alt="")
-								.choose-brand__item.js-choose-brand-item(data-choose='3')
-									img(src="assets/img/rampur.png", alt="")
+					.col-7
+						.bottle-info
+							-
+								var list=[
+									{id:'1', img:'view1.jpg', bottle:'bottle1.png'},
+									{id:'2', img:'view2.jpg', bottle:'bottle2.png',status:'active'},
+									{id:'3', img:'view3.jpg', bottle:'bottle3.png'},
+								]
+							each item in list
+								.bottle-info__item.js-bottle-info-item(class=item.status?'active':'', data-choose=item.id)
+									.bottle-info__country(style="background-image: url(assets/img/"+item.img+")")
+									.bottle-info__img
+										.bottle-info__circles
+											span
+										img(src="assets/img/"+item.bottle, alt="")
 
-						.briefcase__text <b class="text-accent">Заповедник Ranthhambore</b> на краю пустыни, путь на арабский восток
-
-						a.btn(href='#') К портфелю
-							span.btn__icon-hide
-								+svg('ic-decor-arrow-right','ic-decor-arrow-right', '39', '20')
-
-				.col-7
-					.bottle-info
-						-
-							var list=[
-								{id:'1', img:'view1.jpg', bottle:'bottle1.png'},
-								{id:'2', img:'view2.jpg', bottle:'bottle2.png',status:'active'},
-								{id:'3', img:'view3.jpg', bottle:'bottle3.png'},
-							]
-						each item in list
-							.bottle-info__item.js-bottle-info-item(class=item.status?'active':'', data-choose=item.id)
-								.bottle-info__country(style="background-image: url(assets/img/"+item.img+")")
-								.bottle-info__img
-									.bottle-info__circles
-										span
-									img(src="assets/img/"+item.bottle, alt="")
-
+		.js-anim-finish
+	
 	section.m-indent
 		.container
 			.row
@@ -570,21 +569,21 @@ block content
 						a.btn(href='#') Связаться с нами
 
 
-	.popup-age(id="age-gate", style="display: none;")
-		.popup-age__logo
-			img(src="assets/img/logo-grey.svg", alt="")
+	//- .popup-age(id="age-gate", style="display: none;")
+	//- 	.popup-age__logo
+	//- 		img(src="assets/img/logo-grey.svg", alt="")
 
-		.popup-age__title
-			span.text-gradient Укажите дату своего рождения
+	//- 	.popup-age__title
+	//- 		span.text-gradient Укажите дату своего рождения
 
-		.js-valid-form-age
-			form.form-site.form-site_line
-				.form-site__content
-					.form-site__item.js-form-site-item
-						.form-site__field
-							input.js-input-age(type="text", placeholder="дд.мм.гггг")
+	//- 	.js-valid-form-age
+	//- 		form.form-site.form-site_line
+	//- 			.form-site__content
+	//- 				.form-site__item.js-form-site-item
+	//- 					.form-site__field
+	//- 						input.js-input-age(type="text", placeholder="дд.мм.гггг")
 
-				.form-site__btn
-					button(type="submit", disabled="disabled").btn.js-submit-age Продолжить
-						span.btn__icon-hide
-							+svg('ic-decor-arrow-right','ic-decor-arrow-right', '39', '20')
+	//- 			.form-site__btn
+	//- 				button(type="submit", disabled="disabled").btn.js-submit-age Продолжить
+	//- 					span.btn__icon-hide
+	//- 						+svg('ic-decor-arrow-right','ic-decor-arrow-right', '39', '20')

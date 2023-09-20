@@ -1,48 +1,48 @@
 /*-------------- gallery-slider -----------------*/
-@keyframes animate-map {
-	from {transform: translate(-50%, -50%) scale(1);}
-	50% {transform: translate(-50%, -50%) scale(0.9);}
-	to {transform: translate(-50%, -50%) scale(1);}
-}
+// @keyframes animate-map {
+// 	from {transform: translate(-50%, -50%) scale(1);}
+// 	50% {transform: translate(-50%, -50%) scale(0.9);}
+// 	to {transform: translate(-50%, -50%) scale(1);}
+// }
 
-@keyframes animate-pattern {
+// @keyframes animate-pattern {
 	
-	from {transform: translate(-50%, -50%) translate3d(0, 0, 0);}
-	50% {transform: translate(-50%, -50%) translate3d(-40px, 50px, 0);}
-	to {transform: translate(-50%, -50%) translate3d(0, 0, 0);}
-}
+// 	from {transform: translate(-50%, -50%) translate3d(0, 0, 0);}
+// 	50% {transform: translate(-50%, -50%) translate3d(-40px, 50px, 0);}
+// 	to {transform: translate(-50%, -50%) translate3d(0, 0, 0);}
+// }
 
-.gallery-slider-wrap{
-	&::before{
-		content: '';
-		display: inline-block;
-		width: 840px;
-		padding-bottom: 100%;
-		background: url(../img/pattern.png) no-repeat center;
-		background-size: contain;
-		position: absolute;
-		top: 50%;
-		left: 50%;
-		transform: translate(-50%, -50%);
-		animation: animate-pattern 10s infinite linear;
-		animation-fill-mode: forwards;
-	}
+// .gallery-slider-wrap{
+// 	&::before{
+// 		content: '';
+// 		display: inline-block;
+// 		width: 840px;
+// 		padding-bottom: 100%;
+// 		background: url(../img/pattern.png) no-repeat center;
+// 		background-size: contain;
+// 		position: absolute;
+// 		top: 50%;
+// 		left: 50%;
+// 		transform: translate(-50%, -50%);
+// 		animation: animate-pattern 10s infinite linear;
+// 		animation-fill-mode: forwards;
+// 	}
 
-	&::after{
-		content: '';
-		display: inline-block;
-		width: 840px;
-		padding-bottom: 90%;
-		background: url(../img/ind-map.png) no-repeat center;
-		background-size: contain;
-		position: absolute;
-		top: 50%;
-		left: 50%;
-		transform: translate(-50%, -50%);
-		animation: animate-map 10s infinite linear;
-		animation-fill-mode: forwards;
-	}
-}
+// 	&::after{
+// 		content: '';
+// 		display: inline-block;
+// 		width: 840px;
+// 		padding-bottom: 90%;
+// 		background: url(../img/ind-map.png) no-repeat center;
+// 		background-size: contain;
+// 		position: absolute;
+// 		top: 50%;
+// 		left: 50%;
+// 		transform: translate(-50%, -50%);
+// 		animation: animate-map 10s infinite linear;
+// 		animation-fill-mode: forwards;
+// 	}
+// }
 
 .gallery-slider{
 	width: calc(100% + (100vw - 1456px) / 2);
@@ -89,5 +89,11 @@
 }
 
 .gallery-info{
+	position: relative;
 	.info-block{margin: 45px 0;}
+
+	.anim-point-gallery{
+		position: absolute;
+		top: 50%;
+	}
 }
