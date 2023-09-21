@@ -145,6 +145,16 @@ block content
 												img:'gallery-slider2.jpg',
 												label: 'ads group',
 											},
+											{
+												img:'gallery-slider2.jpg',
+												label: 'ads group',
+											},
+											{
+												img:'gallery-slider3.jpg',
+											},
+											{
+												img:'gallery-slider4.jpg',
+											},
 										]
 									each item in list
 										.swiper-slide.gallery-slider__item
@@ -189,7 +199,13 @@ block content
 									.choose-brand__item.js-choose-brand-item(data-choose='3')
 										img(src="assets/img/rampur.png", alt="")
 
-							.briefcase__text <b class="text-accent">Заповедник Ranthhambore</b> на краю пустыни, путь на арабский восток
+								.choose-brand__text
+									.choose-brand__text-item.js-choose-brand-text-item(data-choose='1')
+										<b class="text-accent">Jaisalmer</b> на краю пустыни, путь на арабский восток
+									.choose-brand__text-item.active.js-choose-brand-text-item(data-choose='2')
+										<b class="text-accent">Заповедник Ranthhambore</b> на краю пустыни, путь на арабский восток
+									.choose-brand__text-item.js-choose-brand-text-item(data-choose='3')
+										<b class="text-accent">Rampur</b> на краю пустыни, путь на арабский восток
 
 							a.btn(href='#') К портфелю
 								span.btn__icon-hide
@@ -240,324 +256,323 @@ block content
 										each item in list
 											span.crumb-slider__item.js-crumb-slider-item(class=item.status?'active':'', data-slide=item.id)= item.text
 									
-									.catalog-slider.js-catalog-slider.swiper(data-id="0")
-										.swiper-wrapper
-											-
-												var list=[
-													{
-														img:'cat-img1.jpg',
-														bottle:'cat-bottle1.png',
-														title:'Rampur Asava',
-														subtitle:'Жемчужина индийского виски',
-														text:'1',
-														brand:['cat-brand-five.png', 'cat-brand-radico.png', 'cat-brand-rampur.png'],
-														notes:[
-															{icon:'ic-barrel', icon_width:'32', icon_height:'32', label:'Благородный дуб'},
-															{icon:'ic-grape', icon_width:'32', icon_height:'32', label:'Виноград'},
-															{icon:'ic-date-fruit', icon_width:'32', icon_height:'32', label:'Финик'},
-															{icon:'ic-citrus', icon_width:'32', icon_height:'32', label:'Цитрус'},
-														],
-														tag:'Коктейли',
-													},
-													{
-														img:'cat-img2.jpg',
-														bottle:'cat-bottle2.png',
-														title:'Rampur Double cask',
-														subtitle:'Жемчужина индийского виски',
-														text:'2',
-														brand:['cat-brand-five.png', 'cat-brand-radico.png', 'cat-brand-rampur.png'],
-														notes:[
-															{icon:'ic-barrel', icon_width:'32', icon_height:'32', label:'Благородный дуб'},
-															{icon:'ic-cinnamon', icon_width:'32', icon_height:'32', label:'Корица'},
-															{icon:'ic-lemongrass', icon_width:'32', icon_height:'32', label:'Лемонграсс'},
-														],
-														tag:'Коктейли',
-													},
-													{
-														img:'cat-img3.jpg',
-														bottle:'cat-bottle3.png',
-														title:'Royal Ranthambore',
-														subtitle:'Cердце древней Индии',
-														text:'3',
-														brand:['cat-brand-two.png', 'cat-brand-radico.png', 'cat-brand-ranthambore.png'],
-														notes:[
-															{icon:'ic-barrel', icon_width:'32', icon_height:'32', label:'Благородный дуб'},
-															{icon:'ic-cinnamon', icon_width:'32', icon_height:'32', label:'Корица'},
-															{icon:'ic-lemongrass', icon_width:'32', icon_height:'32', label:'Лемонграсс'},
-														],
-														tag:'Коктейли',
-													},
-													{
-														img:'cat-img4.jpg',
-														bottle:'cat-bottle4.png',
-														title:'Royal Green',
-														subtitle:'Король вечеринки',
-														text:'4',
-														brand:['cat-brand-two.png', 'cat-brand-ads.png'],
-														notes:[
-															{icon:'ic-apple', icon_width:'32', icon_height:'32', label:'Яблоко'},
-														],
-														tag:'Коктейли',
-													},
-													{
-														img:'cat-img5.jpg',
-														bottle:'cat-bottle5.png',
-														title:'The Generation',
-														subtitle:'Создавая наследие',
-														text:'5',
-														brand:['cat-brand-two.png', 'cat-brand-ads.png'],
-														notes:[
-															{icon:'ic-malt', icon_width:'32', icon_height:'32', label:'Солод'},
-														],
-														tag:'Коктейли',
-													},
-													{
-														img:'cat-img6.jpg',
-														bottle:'cat-bottle6.png',
-														title:'Officer’s choice BLUE',
-														subtitle:'Входит в ТОП-3 виски в мире',
-														text:'6',
-														brand:['cat-brand-one.png', 'cat-brand-abd.png'],
-														notes:[
-															{icon:'ic-spices', icon_width:'32', icon_height:'32', label:'Специи'},
-														],
-														tag:'Коктейли',
-													},
-													{
-														img:'cat-img7.jpg',
-														bottle:'cat-bottle7.png',
-														title:'Sterling Reserve B7',
-														subtitle:'Классика дополненная ярким характером',
-														text:'7',
-														brand:['cat-brand-one.png', 'cat-brand-abd.png'],
-														notes:[
-															{icon:'ic-fire', icon_width:'32', icon_height:'32', label:'Обугленный дуб'},
-														],
-														tag:'Коктейли',
-													},
-													{
-														img:'cat-img8.jpg',
-														bottle:'cat-bottle8.png',
-														title:'Sterling Reserve B10',
-														subtitle:'Классика в премиальном исполнении',
-														text:'8',
-														brand:['cat-brand-one.png', 'cat-brand-abd.png'],
-														notes:[
-															{icon:'ic-nuts', icon_width:'32', icon_height:'32', label:'Орехи'},
-														],
-														tag:'Коктейли',
-													},
-												]
-											each item in list
-												.swiper-slide.catalog-slider__item
-													.catalog-slider__img-wrap
-														.catalog-slider__img
-															.catalog-slider__img-content(style="background-image: url(assets/img/"+item.img+")")
+									.catalog-slider.js-catalog-slider(data-id="0")
+										-
+											var list=[
+												{
+													img:'cat-img1.jpg',
+													bottle:'cat-bottle1.png',
+													title:'Rampur Asava',
+													subtitle:'Жемчужина индийского виски',
+													text:'1',
+													brand:['cat-brand-five.png', 'cat-brand-radico.png', 'cat-brand-rampur.png'],
+													notes:[
+														{icon:'ic-barrel', icon_width:'32', icon_height:'32', label:'Благородный дуб'},
+														{icon:'ic-grape', icon_width:'32', icon_height:'32', label:'Виноград'},
+														{icon:'ic-date-fruit', icon_width:'32', icon_height:'32', label:'Финик'},
+														{icon:'ic-citrus', icon_width:'32', icon_height:'32', label:'Цитрус'},
+													],
+													tag:'Коктейли',
+												},
+												{
+													img:'cat-img2.jpg',
+													bottle:'cat-bottle2.png',
+													title:'Rampur Double cask',
+													subtitle:'Жемчужина индийского виски',
+													text:'2',
+													brand:['cat-brand-five.png', 'cat-brand-radico.png', 'cat-brand-rampur.png'],
+													notes:[
+														{icon:'ic-barrel', icon_width:'32', icon_height:'32', label:'Благородный дуб'},
+														{icon:'ic-cinnamon', icon_width:'32', icon_height:'32', label:'Корица'},
+														{icon:'ic-lemongrass', icon_width:'32', icon_height:'32', label:'Лемонграсс'},
+													],
+													tag:'Коктейли',
+												},
+												{
+													img:'cat-img3.jpg',
+													bottle:'cat-bottle3.png',
+													title:'Royal Ranthambore',
+													subtitle:'Cердце древней Индии',
+													text:'3',
+													brand:['cat-brand-two.png', 'cat-brand-radico.png', 'cat-brand-ranthambore.png'],
+													notes:[
+														{icon:'ic-barrel', icon_width:'32', icon_height:'32', label:'Благородный дуб'},
+														{icon:'ic-cinnamon', icon_width:'32', icon_height:'32', label:'Корица'},
+														{icon:'ic-lemongrass', icon_width:'32', icon_height:'32', label:'Лемонграсс'},
+													],
+													tag:'Коктейли',
+												},
+												{
+													img:'cat-img4.jpg',
+													bottle:'cat-bottle4.png',
+													title:'Royal Green',
+													subtitle:'Король вечеринки',
+													text:'4',
+													brand:['cat-brand-two.png', 'cat-brand-ads.png'],
+													notes:[
+														{icon:'ic-apple', icon_width:'32', icon_height:'32', label:'Яблоко'},
+													],
+													tag:'Коктейли',
+												},
+												{
+													img:'cat-img5.jpg',
+													bottle:'cat-bottle5.png',
+													title:'The Generation',
+													subtitle:'Создавая наследие',
+													text:'5',
+													brand:['cat-brand-two.png', 'cat-brand-ads.png'],
+													notes:[
+														{icon:'ic-malt', icon_width:'32', icon_height:'32', label:'Солод'},
+													],
+													tag:'Коктейли',
+												},
+												{
+													img:'cat-img6.jpg',
+													bottle:'cat-bottle6.png',
+													title:'Officer’s choice BLUE',
+													subtitle:'Входит в ТОП-3 виски в мире',
+													text:'6',
+													brand:['cat-brand-one.png', 'cat-brand-abd.png'],
+													notes:[
+														{icon:'ic-spices', icon_width:'32', icon_height:'32', label:'Специи'},
+													],
+													tag:'Коктейли',
+												},
+												{
+													img:'cat-img7.jpg',
+													bottle:'cat-bottle7.png',
+													title:'Sterling Reserve B7',
+													subtitle:'Классика дополненная ярким характером',
+													text:'7',
+													brand:['cat-brand-one.png', 'cat-brand-abd.png'],
+													notes:[
+														{icon:'ic-fire', icon_width:'32', icon_height:'32', label:'Обугленный дуб'},
+													],
+													tag:'Коктейли',
+												},
+												{
+													img:'cat-img8.jpg',
+													bottle:'cat-bottle8.png',
+													title:'Sterling Reserve B10',
+													subtitle:'Классика в премиальном исполнении',
+													text:'8',
+													brand:['cat-brand-one.png', 'cat-brand-abd.png'],
+													notes:[
+														{icon:'ic-nuts', icon_width:'32', icon_height:'32', label:'Орехи'},
+													],
+													tag:'Коктейли',
+												},
+											]
+										each item, index in list
+											.catalog-slider__item.js-catalog-slider-item(class=index==0?'active':'')
+												.catalog-slider__img-wrap.js-catalog-slider-img-wrap
+													.catalog-slider__img
+														.catalog-slider__img-content(style="background-image: url(assets/img/"+item.img+")")
+												
+												.catalog-slider__bottle
+													img(src="assets/img/"+item.bottle, alt="")
+
+												.catalog-slider__content
+													.catalog-slider__title
+														span.text-gradient= item.title
+
+													.catalog-slider__subtitle= item.subtitle
+
+													.catalog-slider__text
+														if(item.text==1)
+															p Односолодовый виски Rampur Asava выдерживается сначала в бочках из-под бурбона, а затем в бочках из-под индийского вина каберне-совиньон.
+															p Вкусовой профиль: Типичные тропические фруктовые ароматы Rampur, дополненные нотами абрикоса, чёрной смородины и сливы, завершающиеся лёгким оттенком специй и табака барахатная медовая сладость во вкусе оттеняется ярким дубом и ванилью и балансируется сухостью индийского красного вина. Среднее по продолжительности послевкусие наполнено типично индийскими оттенками.
+														else if(item.text==2)
+															p Односолодовый виски <b>Rampur Double Cask</b> выдерживается сначала в бочках из-под бурбона, а затем в бочках из-под европейского хереса.
+															p Вкусовой профиль: Интенсивный аромат тропических фруктов в сочетании с дубовыми нотами от двух типов бочек рождают яркую палитру запахов. Чарующая элегантность сладких фруктов во вкусе в сочетании с яркими нотами хереса и длительное и щедрое послевкусие.
+														else if(item.text==3)
+															p В основе купажа солодовые дистилляты из нескольких регионов Шотландии, а индийские дистилляты придают напитку интенсивные ароматы и вкусовые ноты, создавая необычные сочетания. <b>Royal Ranthambore</b> удостоен двух международных наград Spiritz Selection за безупречный вкус и премиальную упаковку, благодаря которой виски идеально подходит в подарок.
+														else if(item.text==4)
+															p Royal Green был создан мастером-купажистом ADS Spirits для самых взыскательных гурманов и представляет собой тщательно подобранный купаж лучших индийских зерновых спиртов премиум-класса и импортного шотландского солода.
+														else if(item.text==5)
+															p Переосмысленная классика. Купаж состоит из лучших импортных шотландских солодовых дистиллятов, выдержанных в дубовых бочках ручной работы, и тщательно отобранных индийских зерновых дистиллятов.
+															p Яркий купаж этого бренда отражает стремление создать полнотелый виски с хорошо сбалансированным солодовым вкусом, древесным ароматом и продолжительным, мягким послевкусием с лёгким торфяным оттенком. 
+														else if(item.text==6)
+															p Деликатный вкус шотландского солода в купаже с лучшими зерновыми дистиллятами из Индии. 
+															p Янтарно-золотистый цвет, сладковатый аромат с нотами вереска, мягкий вкус с приятным пряным послевкусием, идеально подходит для лёгких коктейлей.
+														else if(item.text==7)
+															p В основе вкуса Sterling Reserve В7 аккорд из семи вкусовых нот: обугленный дуб, солод, фрукты, лёгкая торфянистость и цветочные оттенки. Благодаря своему деликатному вкусу, Sterling Reserve B7 окажется идеальным продуктом для тех, кто только начинает свой путь исследования виски, а также отличный напиток для приготовления лёгких коктейлей.
+														else if(item.text==8)
+															p Позволяет опытным ценителям виски расширить грани вкуса благодаря более сложному и многогранному вкусовому и ароматическому профилю.
+															p Этот купаж выдерживается в дубовых бочках и доводится до совершенства благодаря технологии холодной фильтрации, что придаёт напитку глубокий янтарный цвет и многогранный вкус. Медовая сладость в аромате гармонирует с тонами фруктов, орехов и ячменя. Насыщенный дубовый вкус сочетается с нотами цитрусов, ванили и ягод в послевкусии.
+														
+													.catalog-slider__brands
+														each brand in item.brand
+															.catalog-slider__brand
+																img(src="assets/img/"+brand, alt="")
 													
-													.catalog-slider__bottle
-														img(src="assets/img/"+item.bottle, alt="")
+													.catalog-slider__notes
+														.catalog-slider__subtitle Главные ноты
 
-													.catalog-slider__content
-														.catalog-slider__title
-															span.text-gradient= item.title
-
-														.catalog-slider__subtitle= item.subtitle
-
-														.catalog-slider__text
-															if(item.text==1)
-																p Односолодовый виски Rampur Asava выдерживается сначала в бочках из-под бурбона, а затем в бочках из-под индийского вина каберне-совиньон.
-																p Вкусовой профиль: Типичные тропические фруктовые ароматы Rampur, дополненные нотами абрикоса, чёрной смородины и сливы, завершающиеся лёгким оттенком специй и табака барахатная медовая сладость во вкусе оттеняется ярким дубом и ванилью и балансируется сухостью индийского красного вина. Среднее по продолжительности послевкусие наполнено типично индийскими оттенками.
-															else if(item.text==2)
-																p Односолодовый виски <b>Rampur Double Cask</b> выдерживается сначала в бочках из-под бурбона, а затем в бочках из-под европейского хереса.
-																p Вкусовой профиль: Интенсивный аромат тропических фруктов в сочетании с дубовыми нотами от двух типов бочек рождают яркую палитру запахов. Чарующая элегантность сладких фруктов во вкусе в сочетании с яркими нотами хереса и длительное и щедрое послевкусие.
-															else if(item.text==3)
-																p В основе купажа солодовые дистилляты из нескольких регионов Шотландии, а индийские дистилляты придают напитку интенсивные ароматы и вкусовые ноты, создавая необычные сочетания. <b>Royal Ranthambore</b> удостоен двух международных наград Spiritz Selection за безупречный вкус и премиальную упаковку, благодаря которой виски идеально подходит в подарок.
-															else if(item.text==4)
-																p Royal Green был создан мастером-купажистом ADS Spirits для самых взыскательных гурманов и представляет собой тщательно подобранный купаж лучших индийских зерновых спиртов премиум-класса и импортного шотландского солода.
-															else if(item.text==5)
-																p Переосмысленная классика. Купаж состоит из лучших импортных шотландских солодовых дистиллятов, выдержанных в дубовых бочках ручной работы, и тщательно отобранных индийских зерновых дистиллятов.
-																p Яркий купаж этого бренда отражает стремление создать полнотелый виски с хорошо сбалансированным солодовым вкусом, древесным ароматом и продолжительным, мягким послевкусием с лёгким торфяным оттенком. 
-															else if(item.text==6)
-																p Деликатный вкус шотландского солода в купаже с лучшими зерновыми дистиллятами из Индии. 
-																p Янтарно-золотистый цвет, сладковатый аромат с нотами вереска, мягкий вкус с приятным пряным послевкусием, идеально подходит для лёгких коктейлей.
-															else if(item.text==7)
-																p В основе вкуса Sterling Reserve В7 аккорд из семи вкусовых нот: обугленный дуб, солод, фрукты, лёгкая торфянистость и цветочные оттенки. Благодаря своему деликатному вкусу, Sterling Reserve B7 окажется идеальным продуктом для тех, кто только начинает свой путь исследования виски, а также отличный напиток для приготовления лёгких коктейлей.
-															else if(item.text==8)
-																p Позволяет опытным ценителям виски расширить грани вкуса благодаря более сложному и многогранному вкусовому и ароматическому профилю.
-																p Этот купаж выдерживается в дубовых бочках и доводится до совершенства благодаря технологии холодной фильтрации, что придаёт напитку глубокий янтарный цвет и многогранный вкус. Медовая сладость в аромате гармонирует с тонами фруктов, орехов и ячменя. Насыщенный дубовый вкус сочетается с нотами цитрусов, ванили и ягод в послевкусии.
-															
-														.catalog-slider__brands
-															each brand in item.brand
-																.catalog-slider__brand
-																	img(src="assets/img/"+brand, alt="")
-														
-														.catalog-slider__notes
-															.catalog-slider__subtitle Главные ноты
-
-															.cat-notes
-																each note in item.notes
-																	.cat-notes__item
-																		.cat-notes__icon
-																			+svg(note.icon, note.icon, note.icon_width, note.icon_height)
-																		.cat-notes__label= note.label
-														
-														.catalog-slider__tag= item.tag
+														.cat-notes
+															each note in item.notes
+																.cat-notes__item
+																	.cat-notes__icon
+																		+svg(note.icon, note.icon, note.icon_width, note.icon_height)
+																	.cat-notes__label= note.label
+													
+													.catalog-slider__tag= item.tag
 
 							#tab2.tabs-page__content-item.js-tabs-page-content-item
-								.catalog-slider-wrap.js-catalog-slider-wrap
-									.crumb-slider
-										-
-											var list=[
-												{id:'0', text:'Jaisalmer', status:'active'},
-												{id:'1', text:'Jaisalmer Gold'},
-											]
-										each item in list
-											span.crumb-slider__item.js-crumb-slider-item(class=item.status?'active':'', data-slide=item.id)= item.text
+								//- .catalog-slider-wrap.js-catalog-slider-wrap
+								//- 	.crumb-slider
+								//- 		-
+								//- 			var list=[
+								//- 				{id:'0', text:'Jaisalmer', status:'active'},
+								//- 				{id:'1', text:'Jaisalmer Gold'},
+								//- 			]
+								//- 		each item in list
+								//- 			span.crumb-slider__item.js-crumb-slider-item(class=item.status?'active':'', data-slide=item.id)= item.text
 									
-									.catalog-slider.js-catalog-slider.swiper(data-id="1")
-										.swiper-wrapper
-											-
-												var list=[
-													{
-														img:'cat-img9.jpg',
-														bottle:'cat-bottle9.png',
-														title:'Jaisalmer',
-														subtitle:'Вся Индия в одном бокале',
-														text:'1',
-														brand:['cat-brand-five.png', 'cat-brand-radico.png', 'cat-brand-rampur.png'],
-														notes:[
-															{icon:'ic-juniper', icon_width:'32', icon_height:'32', label:'Можжевельник'},
-															{icon:'ic-spices', icon_width:'32', icon_height:'32', label:'Специи'},
-															{icon:'ic-lemongrass', icon_width:'32', icon_height:'32', label:'Лемонграсс'},
-															{icon:'ic-citrus', icon_width:'32', icon_height:'32', label:'Цитрус'},
-														],
-														tag:'Коктейли',
-													},
-													{
-														img:'cat-img10.jpg',
-														bottle:'cat-bottle10.png',
-														title:'Jaisalmer Gold',
-														subtitle:'Вся Индия в одном бокале',
-														text:'2',
-														brand:['cat-brand-five.png', 'cat-brand-radico.png', 'cat-brand-rampur.png'],
-														notes:[
-															{icon:'ic-juniper', icon_width:'32', icon_height:'32', label:'Можжевельник'},
-															{icon:'ic-spices', icon_width:'32', icon_height:'32', label:'Специи'},
-															{icon:'ic-lemongrass', icon_width:'32', icon_height:'32', label:'Лемонграсс'},
-															{icon:'ic-citrus', icon_width:'32', icon_height:'32', label:'Цитрус'},
-														],
-														tag:'Коктейли',
-													},
-												]
-											each item in list
-												.swiper-slide.catalog-slider__item
-													.catalog-slider__img-wrap
-														.catalog-slider__img
-															.catalog-slider__img-content(style="background-image: url(assets/img/"+item.img+")")
+								//- 	.catalog-slider.js-catalog-slider.swiper(data-id="1")
+								//- 		.swiper-wrapper
+								//- 			-
+								//- 				var list=[
+								//- 					{
+								//- 						img:'cat-img9.jpg',
+								//- 						bottle:'cat-bottle9.png',
+								//- 						title:'Jaisalmer',
+								//- 						subtitle:'Вся Индия в одном бокале',
+								//- 						text:'1',
+								//- 						brand:['cat-brand-five.png', 'cat-brand-radico.png', 'cat-brand-rampur.png'],
+								//- 						notes:[
+								//- 							{icon:'ic-juniper', icon_width:'32', icon_height:'32', label:'Можжевельник'},
+								//- 							{icon:'ic-spices', icon_width:'32', icon_height:'32', label:'Специи'},
+								//- 							{icon:'ic-lemongrass', icon_width:'32', icon_height:'32', label:'Лемонграсс'},
+								//- 							{icon:'ic-citrus', icon_width:'32', icon_height:'32', label:'Цитрус'},
+								//- 						],
+								//- 						tag:'Коктейли',
+								//- 					},
+								//- 					{
+								//- 						img:'cat-img10.jpg',
+								//- 						bottle:'cat-bottle10.png',
+								//- 						title:'Jaisalmer Gold',
+								//- 						subtitle:'Вся Индия в одном бокале',
+								//- 						text:'2',
+								//- 						brand:['cat-brand-five.png', 'cat-brand-radico.png', 'cat-brand-rampur.png'],
+								//- 						notes:[
+								//- 							{icon:'ic-juniper', icon_width:'32', icon_height:'32', label:'Можжевельник'},
+								//- 							{icon:'ic-spices', icon_width:'32', icon_height:'32', label:'Специи'},
+								//- 							{icon:'ic-lemongrass', icon_width:'32', icon_height:'32', label:'Лемонграсс'},
+								//- 							{icon:'ic-citrus', icon_width:'32', icon_height:'32', label:'Цитрус'},
+								//- 						],
+								//- 						tag:'Коктейли',
+								//- 					},
+								//- 				]
+								//- 			each item in list
+								//- 				.swiper-slide.catalog-slider__item
+								//- 					.catalog-slider__img-wrap
+								//- 						.catalog-slider__img
+								//- 							.catalog-slider__img-content(style="background-image: url(assets/img/"+item.img+")")
 													
-													.catalog-slider__bottle
-														img(src="assets/img/"+item.bottle, alt="")
+								//- 					.catalog-slider__bottle
+								//- 						img(src="assets/img/"+item.bottle, alt="")
 
-													.catalog-slider__content
-														.catalog-slider__title
-															span.text-gradient= item.title
+								//- 					.catalog-slider__content
+								//- 						.catalog-slider__title
+								//- 							span.text-gradient= item.title
 
-														.catalog-slider__subtitle= item.subtitle
+								//- 						.catalog-slider__subtitle= item.subtitle
 
-														.catalog-slider__text
-															if(item.text==1)
-																p Для производства джина Jaisalmer на заводе в Рампуре используется особый перегонный куб с «головой» в форме песочных часов, делающий дистиллят более лёгким за счёт многократной перегонки и конденсации. В нем перегоняется спирт тройной дистилляции, настоянный на 11 растениях.
-																p Обладатель международных наград и признан лучшим джином, произведённым в Азии.
-															else if(item.text==2)
-																p Для производства джина Jaisalmer на заводе в Рампуре используется особый перегонный куб с «головой» в форме песочных часов, делающий дистиллят более лёгким за счёт многократной перегонки и конденсации. В нем перегоняется спирт тройной дистилляции, настоянный на 11 растениях.
-																p Обладатель международных наград и признан лучшим джином, произведённым в Азии.
+								//- 						.catalog-slider__text
+								//- 							if(item.text==1)
+								//- 								p Для производства джина Jaisalmer на заводе в Рампуре используется особый перегонный куб с «головой» в форме песочных часов, делающий дистиллят более лёгким за счёт многократной перегонки и конденсации. В нем перегоняется спирт тройной дистилляции, настоянный на 11 растениях.
+								//- 								p Обладатель международных наград и признан лучшим джином, произведённым в Азии.
+								//- 							else if(item.text==2)
+								//- 								p Для производства джина Jaisalmer на заводе в Рампуре используется особый перегонный куб с «головой» в форме песочных часов, делающий дистиллят более лёгким за счёт многократной перегонки и конденсации. В нем перегоняется спирт тройной дистилляции, настоянный на 11 растениях.
+								//- 								p Обладатель международных наград и признан лучшим джином, произведённым в Азии.
 															
-														.catalog-slider__brands
-															each brand in item.brand
-																.catalog-slider__brand
-																	img(src="assets/img/"+brand, alt="")
+								//- 						.catalog-slider__brands
+								//- 							each brand in item.brand
+								//- 								.catalog-slider__brand
+								//- 									img(src="assets/img/"+brand, alt="")
 														
-														.catalog-slider__notes
-															.catalog-slider__subtitle Главные ноты
+								//- 						.catalog-slider__notes
+								//- 							.catalog-slider__subtitle Главные ноты
 
-															.cat-notes
-																each note in item.notes
-																	.cat-notes__item
-																		.cat-notes__icon
-																			+svg(note.icon, note.icon, note.icon_width, note.icon_height)
-																		.cat-notes__label= note.label
+								//- 							.cat-notes
+								//- 								each note in item.notes
+								//- 									.cat-notes__item
+								//- 										.cat-notes__icon
+								//- 											+svg(note.icon, note.icon, note.icon_width, note.icon_height)
+								//- 										.cat-notes__label= note.label
 														
-														.catalog-slider__tag= item.tag
+								//- 						.catalog-slider__tag= item.tag
 
 							#tab3.tabs-page__content-item.js-tabs-page-content-item
-								.catalog-slider-wrap.js-catalog-slider-wrap
-									.crumb-slider
-										-
-											var list=[
-												{id:'0', text:'Calenter', status:'active'},
-											]
-										each item in list
-											span.crumb-slider__item.js-crumb-slider-item(class=item.status?'active':'', data-slide=item.id)= item.text
+								//- .catalog-slider-wrap.js-catalog-slider-wrap
+								//- 	.crumb-slider
+								//- 		-
+								//- 			var list=[
+								//- 				{id:'0', text:'Calenter', status:'active'},
+								//- 			]
+								//- 		each item in list
+								//- 			span.crumb-slider__item.js-crumb-slider-item(class=item.status?'active':'', data-slide=item.id)= item.text
 									
-									.catalog-slider.js-catalog-slider.swiper(data-id="2")
-										.swiper-wrapper
-											-
-												var list=[
-													{
-														img:'cat-img11.jpg',
-														bottle:'cat-bottle11.png',
-														title:'Calenter',
-														subtitle:'Фантастический аромат',
-														text:'1',
-														brand:['cat-brand-ads.png'],
-														notes:[
-															{icon:'ic-juniper', icon_width:'32', icon_height:'32', label:'Можжевельник'},
-															{icon:'ic-spices', icon_width:'32', icon_height:'32', label:'Специи'},
-															{icon:'ic-lemongrass', icon_width:'32', icon_height:'32', label:'Лемонграсс'},
-															{icon:'ic-gold', icon_width:'32', icon_height:'32', label:'Ионы золота'},
-														],
-														tag:'Коктейли',
-													},
-												]
-											each item in list
-												.swiper-slide.catalog-slider__item
-													.catalog-slider__img-wrap
-														.catalog-slider__img
-															.catalog-slider__img-content(style="background-image: url(assets/img/"+item.img+")")
+								//- 	.catalog-slider.js-catalog-slider.swiper(data-id="2")
+								//- 		.swiper-wrapper
+								//- 			-
+								//- 				var list=[
+								//- 					{
+								//- 						img:'cat-img11.jpg',
+								//- 						bottle:'cat-bottle11.png',
+								//- 						title:'Calenter',
+								//- 						subtitle:'Фантастический аромат',
+								//- 						text:'1',
+								//- 						brand:['cat-brand-ads.png'],
+								//- 						notes:[
+								//- 							{icon:'ic-juniper', icon_width:'32', icon_height:'32', label:'Можжевельник'},
+								//- 							{icon:'ic-spices', icon_width:'32', icon_height:'32', label:'Специи'},
+								//- 							{icon:'ic-lemongrass', icon_width:'32', icon_height:'32', label:'Лемонграсс'},
+								//- 							{icon:'ic-gold', icon_width:'32', icon_height:'32', label:'Ионы золота'},
+								//- 						],
+								//- 						tag:'Коктейли',
+								//- 					},
+								//- 				]
+								//- 			each item in list
+								//- 				.swiper-slide.catalog-slider__item
+								//- 					.catalog-slider__img-wrap
+								//- 						.catalog-slider__img
+								//- 							.catalog-slider__img-content(style="background-image: url(assets/img/"+item.img+")")
 													
-													.catalog-slider__bottle
-														img(src="assets/img/"+item.bottle, alt="")
+								//- 					.catalog-slider__bottle
+								//- 						img(src="assets/img/"+item.bottle, alt="")
 
-													.catalog-slider__content
-														.catalog-slider__title
-															span.text-gradient= item.title
+								//- 					.catalog-slider__content
+								//- 						.catalog-slider__title
+								//- 							span.text-gradient= item.title
 
-														.catalog-slider__subtitle= item.subtitle
+								//- 						.catalog-slider__subtitle= item.subtitle
 
-														.catalog-slider__text
-															if(item.text==1)
-																p Для производства джина Jaisalmer на заводе в Рампуре используется особый перегонный куб с «головой» в форме песочных часов, делающий дистиллят более лёгким за счёт многократной перегонки и конденсации. В нем перегоняется спирт тройной дистилляции, настоянный на 11 растениях.
-																p Обладатель международных наград и признан лучшим джином, произведённым в Азии.
-															else if(item.text==2)
-																p Для производства джина Jaisalmer на заводе в Рампуре используется особый перегонный куб с «головой» в форме песочных часов, делающий дистиллят более лёгким за счёт многократной перегонки и конденсации. В нем перегоняется спирт тройной дистилляции, настоянный на 11 растениях.
-																p Обладатель международных наград и признан лучшим джином, произведённым в Азии.
+								//- 						.catalog-slider__text
+								//- 							if(item.text==1)
+								//- 								p Для производства джина Jaisalmer на заводе в Рампуре используется особый перегонный куб с «головой» в форме песочных часов, делающий дистиллят более лёгким за счёт многократной перегонки и конденсации. В нем перегоняется спирт тройной дистилляции, настоянный на 11 растениях.
+								//- 								p Обладатель международных наград и признан лучшим джином, произведённым в Азии.
+								//- 							else if(item.text==2)
+								//- 								p Для производства джина Jaisalmer на заводе в Рампуре используется особый перегонный куб с «головой» в форме песочных часов, делающий дистиллят более лёгким за счёт многократной перегонки и конденсации. В нем перегоняется спирт тройной дистилляции, настоянный на 11 растениях.
+								//- 								p Обладатель международных наград и признан лучшим джином, произведённым в Азии.
 															
-														.catalog-slider__brands
-															each brand in item.brand
-																.catalog-slider__brand
-																	img(src="assets/img/"+brand, alt="")
+								//- 						.catalog-slider__brands
+								//- 							each brand in item.brand
+								//- 								.catalog-slider__brand
+								//- 									img(src="assets/img/"+brand, alt="")
 														
-														.catalog-slider__notes
-															.catalog-slider__subtitle Главные ноты
+								//- 						.catalog-slider__notes
+								//- 							.catalog-slider__subtitle Главные ноты
 
-															.cat-notes
-																each note in item.notes
-																	.cat-notes__item
-																		.cat-notes__icon
-																			+svg(note.icon, note.icon, note.icon_width, note.icon_height)
-																		.cat-notes__label= note.label
+								//- 							.cat-notes
+								//- 								each note in item.notes
+								//- 									.cat-notes__item
+								//- 										.cat-notes__icon
+								//- 											+svg(note.icon, note.icon, note.icon_width, note.icon_height)
+								//- 										.cat-notes__label= note.label
 														
-														.catalog-slider__tag= item.tag
+								//- 						.catalog-slider__tag= item.tag
 
 
 	section

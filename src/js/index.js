@@ -20,15 +20,6 @@ $(function(){
 		let opacityFullMap = 0;//Прозрачность всей карты
 		let scaleFullMap = 0;//Масштаб всей карты
 
-		// let pointAnimFirstMap = pointAnimPath - $('.js-history-animate-map').outerHeight()/2 - sratPosMap;
-		// let pointAnimSecondMap = $('.js-anim-point-gallery').offset().top - pointAnimStart - sratPosMap -  $('.js-history-animate-map').outerHeight()/2;
-
-
-		// let pointMapAnimFirst = pointAnimStart + sratPosMap;
-		// let pointMapAnimSect = pointMapAnimFirst + firstAnimSect;
-
-		// let secondAnimSect = $('.js-anim-point-gallery').offset().top - pointMapAnimSect;//Второй отрезок анимации
-
 
 		let firstPointAnimMap = pointAnimStart + sratPosMap;
 		let secondPointAnimMap = $('.js-anim-point-path').offset().top - $('.js-history-animate-map').outerHeight()/2 - sratPosMap;
@@ -62,15 +53,44 @@ $(function(){
 		let moveCloudFirstTop = 0; //Паралакс первого облака
 		let moveCloudSecondTop = 0; //Паралакс второго облака
 
-		let prevMousePos = { x: -1, y: -1 };//Предыдущее положение мышки
-		let curMousePos = { x: -1, y: -1 };//Текуее положение мышки
+		// let prevMousePos = { x: -1, y: -1 };//Предыдущее положение мышки
+		// let curMousePos = { x: -1, y: -1 };//Текуее положение мышки
 
-
-		console.log('startCloudFirstLeft = ', startCloudFirstLeft);
-		console.log('startCloudSecondLeft = ', startCloudSecondLeft);
 
 		animateMap(scrollWindow);
+		
 
+		//Паралакс при наведении мышкой на первое облако
+		let cloudFirst = document.querySelector('.js-history-animate-cloud-first');
+		window.addEventListener('mousemove', function(e) {
+			let x = e.clientX / window.innerWidth;
+			let y = e.clientY / window.innerHeight;  
+			cloudFirst.style.transform = 'translate(-' + x * 50 + 'px, -' + y * 50 + 'px)';
+		});
+
+		//Паралакс при наведении мышкой на второе облако
+		let cloudSecond = document.querySelector('.js-history-animate-cloud-second');
+		window.addEventListener('mousemove', function(e) {
+			let x = e.clientX / window.innerWidth;
+			let y = e.clientY / window.innerHeight;  
+			cloudSecond.style.transform = 'translate(-' + x * 50 + 'px, -' + y * 50 + 'px)';
+		});
+
+		let indentTopCatImg = ($(window).height() - $('.js-catalog-slider-img-wrap').height()) / 2;
+		let indentTopCat = $('.js-catalog-slider').offset().top;
+		let indentTopImgScroll = 0;//Смещение картинки каталога
+		let startImgScroll = $('.js-catalog-slider-img-wrap').offset().top - indentTopCatImg;//Точка старта скрола картинки каталога
+		let finishImgScroll = indentTopCat + $('.js-catalog-slider').height() - $('.js-catalog-slider-img-wrap').height();//Точка финиша скрола картинки каталога
+
+		let arrPointChangeImg = [];
+
+		$('.js-tabs-page-content-item.active .js-catalog-slider-item').each(function( index ) {
+			arrPointChangeImg.push($(this).offset().top);
+		});
+
+		console.log('arrPointChangeImg = ', arrPointChangeImg);
+
+		scrollImgCat(scrollWindow);
 
 		function animateMap(scroll) {
 			// if(scroll <= firstPointAnimMap){
@@ -207,25 +227,32 @@ $(function(){
 			// 	// if(prevMouseX)
 			// });
 
-			$('.js-history-animate-map-wrap').mousemove(function(event) {
-				if(scroll > thirdPointAnimMap && scroll < finishOpacityClouds){
-					curMousePos.x = event.pageX;
-					curMousePos.y = event.pageY;
-					let transformCloudFirst = $('.js-history-animate-cloud-first').width() * 0.1;
-					let transformCloudSecond = $('.js-history-animate-cloud-second').width() * 0.1;
+			// $('.js-history-animate-map-wrap').mousemove(function(event) {
+			// 	if(scroll > thirdPointAnimMap && scroll < finishOpacityClouds){
+			// 		curMousePos.x = event.pageX;
+			// 		curMousePos.y = event.pageY;
+			// 		let transformCloudFirst = $('.js-history-animate-cloud-first').width() * 0.1;
+			// 		let transformCloudSecond = $('.js-history-animate-cloud-second').width() * 0.1;
 					
-					console.log('transformCloudFirst = ', transformCloudFirst);
+			// 		console.log('transformCloudFirst = ', transformCloudFirst);
 
-					// if(curMousePos.x > prevMousePos.x){
-					// 	$('.js-history-animate-cloud-first').animate({'left': 'translateX('+transformCloudFirst+'px)'});
-					// 	// $('.js-history-animate-cloud-first').css('transform', 'translateX('+transformCloudFirst+'px)')
-					// }
+			// 		if(curMousePos.x > prevMousePos.x){
+			// 			console.log('1111');
+			// 			$('.js-history-animate-cloud-first').animate({'margin-left': transformCloudFirst+'px'}, 300);
+			// 			// $('.js-history-animate-cloud-first').css('transform', 'translateX('+transformCloudFirst+'px)')
+			// 			prevMousePos.x = curMousePos.x;
+			// 		}else if(curMousePos.x < prevMousePos.x){
+			// 			console.log('2222');
+			// 			$('.js-history-animate-cloud-first').animate({'margin-left': '-'+transformCloudFirst+'px'}, 300);
+			// 			// $('.js-history-animate-cloud-first').css('transform', 'translateX('+transformCloudFirst+'px)')
+			// 			prevMousePos.y = curMousePos.y;
+			// 		}
 
-					// console.log('currentMousePos.x = ', curMousePos.x);
-					// console.log('currentMousePos.y = ', curMousePos.y);
-				}
+			// 		// console.log('currentMousePos.x = ', curMousePos.x);
+			// 		// console.log('currentMousePos.y = ', curMousePos.y);
+			// 	}
 				
-			});
+			// });
 
 			//Увеличение карты
 			if(scroll <= fourthPointAnimMap){
@@ -251,10 +278,31 @@ $(function(){
 				}
 
 				$('.js-history-animate-map-wrap').css('top', scrollMap);
+				// $('.js-history-animate-map-wrap').animate({'top': scrollMap}, 10);
 			}else{
 				// console.log('2222');
 			}
 			
+		}
+
+		function scrollImgCat(scroll) {
+			//Скролл картинки каталога
+			if(scroll < startImgScroll){
+				indentTopImgScroll = 0;
+			}else if(scroll > startImgScroll && scroll < finishImgScroll){
+				indentTopImgScroll = scroll - indentTopCat + indentTopCatImg;
+
+				// for (let index = 0; index < arrPointChangeImg.length; index++) {
+				// 	// const element = array[index];
+					
+				// 	if(scroll < arrPointChangeImg[index]){
+
+				// 		break;
+				// 	}
+				// }
+			}
+
+			$('.js-catalog-slider-img-wrap').css('top', indentTopImgScroll);
 		}
 
 		$(window).on('scroll', function(){
@@ -263,6 +311,8 @@ $(function(){
 			// console.log('scrollWindow = ', scrollWindow);
 
 			animateMap(scrollWindow);
+			scrollImgCat(scrollWindow);
+			
 
 			
 
@@ -328,15 +378,27 @@ $(function(){
 		// 		}
 		// 	}
 		});
+
+		//Паралакс для бутылок
+		// function parallaxScroll(){
+		// 	var scrolled = $(window).scrollTop() - $('.js-catalog-slider-wrap').offset().top;
+		// 	console.log('scrolled = ', scrolled);
+		// 	$('.js-catalog-slider-bottle').css('top',(0-(scrolled*.25))+'px');
+		// }
+
+		// $(window).on('scroll', function(){
+		// 	parallaxScroll();
+		// });
 	}
 
-	//Слайдер галерет картинок
+	//Слайдер галерея картинок
 	if($('.js-gallery-slider').length){
 		var gallerySlider = new Swiper('.js-gallery-slider', {
 			loop: false,
 			spaceBetween: 40,
 			slidesPerView: 3.4,
-			modules: [Navigation, Pagination],
+			modules: [Navigation, Pagination, Mousewheel],
+			mousewheel: true,
 			navigation: {
 				nextEl: '.js-gallery-slider-next',
 				prevEl: '.js-gallery-slider-prev',
@@ -345,51 +407,56 @@ $(function(){
 	}
 
 	//Слайдер каталога
-	if($('.js-catalog-slider').length){
-		let catalogSlider = {};
+	// if($('.js-catalog-slider').length){
+	// 	// let catalogSlider = {};
 
-		$('.js-catalog-slider').each(function(index) {//Задаем множественные слайдеры каталога
-			let swiperSliderId = $(this).data('id');
+	// 	// $('.js-catalog-slider').each(function(index) {//Задаем множественные слайдеры каталога
+	// 	// 	let swiperSliderId = $(this).data('id');
 
-			catalogSlider[index] = new Swiper('.js-catalog-slider[data-id="'+swiperSliderId+'"]', {
-				slidesPerView: 1,
-				spaceBetween: 30,
-				loop: true,
-				modules: [Mousewheel, EffectFade],
-				mousewheel: true,
-				fadeEffect: { crossFade: true },
-				effect: 'fade',
-				on: {
-					slideChange: function (elem) {
-						//Задаем активный пункт в крошках
-						var activeIndex = this.realIndex;
-						var $parentBlock = $('.js-catalog-slider[data-id="'+swiperSliderId+'"]').closest('.js-catalog-slider-wrap');
+	// 	// 	catalogSlider[index] = new Swiper('.js-catalog-slider[data-id="'+swiperSliderId+'"]', {
+	// 	// 		slidesPerView: 1,
+	// 	// 		spaceBetween: 30,
+	// 	// 		loop: true,
+	// 	// 		modules: [Mousewheel, EffectFade],
+	// 	// 		mousewheel: true,
+	// 	// 		fadeEffect: { crossFade: true },
+	// 	// 		effect: 'fade',
+	// 	// 		on: {
+	// 	// 			slideChange: function (elem) {
+	// 	// 				//Задаем активный пункт в крошках
+	// 	// 				var activeIndex = this.realIndex;
+	// 	// 				var $parentBlock = $('.js-catalog-slider[data-id="'+swiperSliderId+'"]').closest('.js-catalog-slider-wrap');
 
-						$parentBlock.find('.js-crumb-slider-item').removeClass('active');
-						$parentBlock.find('.js-crumb-slider-item[data-slide="'+activeIndex+'"]').addClass('active');
-					},
-				},
-			});
+	// 	// 				$parentBlock.find('.js-crumb-slider-item').removeClass('active');
+	// 	// 				$parentBlock.find('.js-crumb-slider-item[data-slide="'+activeIndex+'"]').addClass('active');
+	// 	// 			},
+	// 	// 		},
+	// 	// 	});
 
-		});
+	// 	// });
 
-		//Переключаем слайдер при клике по крошкам
-		$('.js-crumb-slider-item').on('click', function(){
-			var $parentBlock = $(this).closest('.js-catalog-slider-wrap');
-			var $idBlock = $parentBlock.find('.js-catalog-slider').data('id');
+	// 	// //Переключаем слайдер при клике по крошкам
+	// 	// $('.js-crumb-slider-item').on('click', function(){
+	// 	// 	var $parentBlock = $(this).closest('.js-catalog-slider-wrap');
+	// 	// 	var $idBlock = $parentBlock.find('.js-catalog-slider').data('id');
 
-			$parentBlock.find('.js-crumb-slider-item').removeClass('active');
-			$(this).addClass('active');
+	// 	// 	$parentBlock.find('.js-crumb-slider-item').removeClass('active');
+	// 	// 	$(this).addClass('active');
 
-			catalogSlider[$idBlock].update();
-			catalogSlider[$idBlock].slideToLoop($(this).data('slide'),0,false);
-		});
-	}
+	// 	// 	catalogSlider[$idBlock].update();
+	// 	// 	catalogSlider[$idBlock].slideToLoop($(this).data('slide'),0,false);
+	// 	// });
+	// }
 
 	//Переключение брендов
 	if($('.js-choose-brand-item').length){
 		//Клик по иконкам брендов
 		$('.js-choose-brand-item').on('click', function(){
+			chooseBrand($(this).data('choose'));
+		});
+
+		//Клик по стране
+		$('.js-bottle-info-item').on('click', function(){
 			chooseBrand($(this).data('choose'));
 		});
 
@@ -416,6 +483,10 @@ $(function(){
 			//Активируем иконку страны
 			$('.js-bottle-info-item').removeClass('active')
 			$('.js-bottle-info-item[data-choose="'+num+'"]').addClass('active');
+
+			//Активируем текст
+			$('.js-choose-brand-text-item').removeClass('active')
+			$('.js-choose-brand-text-item[data-choose="'+num+'"]').addClass('active');
 
 			//Деавтивируем стрелки
 			$('.js-choose-brand-arr-prev').removeClass('disable');

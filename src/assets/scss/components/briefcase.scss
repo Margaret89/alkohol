@@ -48,7 +48,7 @@
 
 	&__text{max-width: 450px;}
 
-	.choose-brand{margin: 4.6rem 0 2.7rem;}
+	.choose-brand{margin: 4.6rem 0 0;}
 	.btn{margin-top: 5rem;}
 }
 
@@ -92,6 +92,14 @@
 	}
 
 	&__item:not(.active) img{cursor: pointer;}
+
+	&__text{margin-top: 2.7rem;}
+
+	&__text-item{
+		display: none;
+
+		&.active{display: block;}
+	}
 }
 
 @keyframes pulse-circle {
@@ -151,7 +159,7 @@
 		background-repeat: no-repeat;
 		background-position: center;
 		background-size: cover;
-		margin-bottom: 15px;
+		margin-bottom: 40px;
 		transition: filter 0.2s ease 0s;
 	}
 
@@ -161,14 +169,13 @@
 		filter: grayscale(1);
 	}
 
-	&__item:nth-child(1){margin-top: 80px;}
 
 	&__item:nth-child(2){
-		margin-top: 123px;
-  		margin-left: -40px;
+		margin-top: 152px;
+  		margin-left: 43px;
 	}
 
-	&__item:nth-child(3){margin-left: -68px;}
+	&__item:nth-child(3){margin-left: 20px;}
 
 	&__img{
 		position: relative;
@@ -233,6 +240,7 @@
 		}
 	}
 
+	&__item:not(.active){cursor: pointer;}
 	&__item.active{z-index: 2;}
 	&__item.active &__circles{display: inline-block;}
 }
