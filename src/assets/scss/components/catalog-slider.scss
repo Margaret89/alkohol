@@ -187,12 +187,13 @@
 		margin-top: 37px;
 	}
 
+	// &__item.active{background: red;}
 	&__item.active &__img-wrap{opacity: 1;}
 
 	&__item.active &__img{
 		transform-origin: center;
 		backface-visibility: visible;
-		animation: flip 1s 1 linear;
+		animation: flip 0.5s 1 linear;
 		animation-fill-mode: forwards;
 	}
 		

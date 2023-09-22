@@ -84,11 +84,13 @@ $(function(){
 
 		let arrPointChangeImg = [];
 
-		$('.js-tabs-page-content-item.active .js-catalog-slider-item').each(function( index ) {
-			arrPointChangeImg.push($(this).offset().top);
+		$('.js-tabs-page-content-item.active').find('.js-catalog-slider-bottle').each(function( index ) {
+			// let point = $(this).offset().top - ($(window).height() - $(this).height()) / 2;
+			// let minPoint = $(this).offset().top - ($(window).height() - $(this).height()) / 2;
+			let minPoint = $(this).offset().top;
+			let maxPoint = $(this).offset().top + $(this).height();
+			arrPointChangeImg[index] = [minPoint, maxPoint];
 		});
-
-		console.log('arrPointChangeImg = ', arrPointChangeImg);
 
 		scrollImgCat(scrollWindow);
 
@@ -292,14 +294,15 @@ $(function(){
 			}else if(scroll > startImgScroll && scroll < finishImgScroll){
 				indentTopImgScroll = scroll - indentTopCat + indentTopCatImg;
 
-				// for (let index = 0; index < arrPointChangeImg.length; index++) {
-				// 	// const element = array[index];
-					
-				// 	if(scroll < arrPointChangeImg[index]){
+				//Переключаем активную карточку
+				for (let index = 0; index < arrPointChangeImg.length; index++) {
+					if(scroll+$(window).height()/2 > arrPointChangeImg[index][0]  && scroll+$(window).height()/2 < arrPointChangeImg[index][1]){
+						$('.js-tabs-page-content-item.active').find('.js-catalog-slider-item').removeClass('active');
+						$('.js-tabs-page-content-item.active').find('.js-catalog-slider-item[data-id='+index+']').addClass('active');
 
-				// 		break;
-				// 	}
-				// }
+						break;
+					}
+				}
 			}
 
 			$('.js-catalog-slider-img-wrap').css('top', indentTopImgScroll);
@@ -379,11 +382,11 @@ $(function(){
 		// 	}
 		});
 
-		//Паралакс для бутылок
+		// Паралакс для бутылок
 		// function parallaxScroll(){
 		// 	var scrolled = $(window).scrollTop() - $('.js-catalog-slider-wrap').offset().top;
 		// 	console.log('scrolled = ', scrolled);
-		// 	$('.js-catalog-slider-bottle').css('top',(0-(scrolled*.25))+'px');
+		// 	$('.js-catalog-slider-bottle').css('top',(0-(scrolled*.05))+'px');
 		// }
 
 		// $(window).on('scroll', function(){
@@ -435,17 +438,18 @@ $(function(){
 
 	// 	// });
 
-	// 	// //Переключаем слайдер при клике по крошкам
-	// 	// $('.js-crumb-slider-item').on('click', function(){
-	// 	// 	var $parentBlock = $(this).closest('.js-catalog-slider-wrap');
-	// 	// 	var $idBlock = $parentBlock.find('.js-catalog-slider').data('id');
+		//Переключаем слайдер при клике по крошкам
+		$('.js-crumb-slider-item').on('click', function(){
+			var $parentBlock = $(this).closest('.js-catalog-slider-wrap');
+			var $idBlock = $(this).data('id');
+			var top = $parentBlock.find('.js-catalog-slider-item[data-id='+$idBlock+']').offset().top - ($(window).height() - $parentBlock.find('.js-catalog-slider-item[data-id='+$idBlock+'] .js-catalog-slider-bottle').height()) / 2;
 
-	// 	// 	$parentBlock.find('.js-crumb-slider-item').removeClass('active');
-	// 	// 	$(this).addClass('active');
+			$parentBlock.find('.js-crumb-slider-item').removeClass('active');
+			$(this).addClass('active');
 
-	// 	// 	catalogSlider[$idBlock].update();
-	// 	// 	catalogSlider[$idBlock].slideToLoop($(this).data('slide'),0,false);
-	// 	// });
+			// $('.js-catalog-slider-item').offset().top
+			$('body,html').animate({scrollTop: top}, 1000);
+		});
 	// }
 
 	//Переключение брендов
@@ -510,6 +514,7 @@ $(function(){
 
 		$('.js-tabs-page-content').each(function(){
 			$(this).find('.js-tabs-page-content-item:first').fadeIn();
+			$(this).find('.js-tabs-page-content-item:first').addClass('active');
 		});
 
 		$('.js-tabs-page-item').on('click',function(e) {
@@ -517,10 +522,24 @@ $(function(){
 			var $parent = $(this).parents('.js-tabs-page');
 
 			$parent.find('.js-tabs-page-content-item').hide();
+			$parent.find('.js-tabs-page-content-item').removeClass('active');
 			$parent.find('.js-tabs-page-item').removeClass('active');
 
 			$(this).addClass("active");
 			$parent.find('#' + $(this).attr('data-item')).fadeIn();
+			$parent.find('#' + $(this).attr('data-item')).addClass("active");
+
+			let arrPointChangeImg = [];
+
+			$('.js-tabs-page-content-item.active').find('.js-catalog-slider-bottle').each(function( index ) {//Пересобираем массив для анимации бутылок
+				let minPoint = $(this).offset().top;
+				let maxPoint = $(this).offset().top + $(this).height();
+				arrPointChangeImg[index] = [minPoint, maxPoint];
+			});
+
+			console.log('arrPointChangeImg = ', arrPointChangeImg);
+
+			
 		});
 	}
 

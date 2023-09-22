@@ -254,9 +254,9 @@ block content
 												{id:'7', text:'Sterling Reserve B10'},
 											]
 										each item in list
-											span.crumb-slider__item.js-crumb-slider-item(class=item.status?'active':'', data-slide=item.id)= item.text
+											span.crumb-slider__item.js-crumb-slider-item(class=item.status?'active':'', data-id=item.id)= item.text
 									
-									.catalog-slider.js-catalog-slider(data-id="0")
+									.catalog-slider.js-catalog-slider
 										-
 											var list=[
 												{
@@ -364,12 +364,12 @@ block content
 												},
 											]
 										each item, index in list
-											.catalog-slider__item.js-catalog-slider-item(class=index==0?'active':'')
+											.catalog-slider__item.js-catalog-slider-item(class=index==0?'active':'', data-id=index)
 												.catalog-slider__img-wrap.js-catalog-slider-img-wrap
 													.catalog-slider__img
 														.catalog-slider__img-content(style="background-image: url(assets/img/"+item.img+")")
 												
-												.catalog-slider__bottle
+												.catalog-slider__bottle.js-catalog-slider-bottle
 													img(src="assets/img/"+item.bottle, alt="")
 
 												.catalog-slider__content
@@ -419,160 +419,155 @@ block content
 													.catalog-slider__tag= item.tag
 
 							#tab2.tabs-page__content-item.js-tabs-page-content-item
-								//- .catalog-slider-wrap.js-catalog-slider-wrap
-								//- 	.crumb-slider
-								//- 		-
-								//- 			var list=[
-								//- 				{id:'0', text:'Jaisalmer', status:'active'},
-								//- 				{id:'1', text:'Jaisalmer Gold'},
-								//- 			]
-								//- 		each item in list
-								//- 			span.crumb-slider__item.js-crumb-slider-item(class=item.status?'active':'', data-slide=item.id)= item.text
+								.catalog-slider-wrap.js-catalog-slider-wrap
+									.crumb-slider
+										-
+											var list=[
+												{id:'0', text:'Jaisalmer', status:'active'},
+												{id:'1', text:'Jaisalmer Gold'},
+											]
+										each item in list
+											span.crumb-slider__item.js-crumb-slider-item(class=item.status?'active':'', data-id=item.id)= item.text
 									
-								//- 	.catalog-slider.js-catalog-slider.swiper(data-id="1")
-								//- 		.swiper-wrapper
-								//- 			-
-								//- 				var list=[
-								//- 					{
-								//- 						img:'cat-img9.jpg',
-								//- 						bottle:'cat-bottle9.png',
-								//- 						title:'Jaisalmer',
-								//- 						subtitle:'Вся Индия в одном бокале',
-								//- 						text:'1',
-								//- 						brand:['cat-brand-five.png', 'cat-brand-radico.png', 'cat-brand-rampur.png'],
-								//- 						notes:[
-								//- 							{icon:'ic-juniper', icon_width:'32', icon_height:'32', label:'Можжевельник'},
-								//- 							{icon:'ic-spices', icon_width:'32', icon_height:'32', label:'Специи'},
-								//- 							{icon:'ic-lemongrass', icon_width:'32', icon_height:'32', label:'Лемонграсс'},
-								//- 							{icon:'ic-citrus', icon_width:'32', icon_height:'32', label:'Цитрус'},
-								//- 						],
-								//- 						tag:'Коктейли',
-								//- 					},
-								//- 					{
-								//- 						img:'cat-img10.jpg',
-								//- 						bottle:'cat-bottle10.png',
-								//- 						title:'Jaisalmer Gold',
-								//- 						subtitle:'Вся Индия в одном бокале',
-								//- 						text:'2',
-								//- 						brand:['cat-brand-five.png', 'cat-brand-radico.png', 'cat-brand-rampur.png'],
-								//- 						notes:[
-								//- 							{icon:'ic-juniper', icon_width:'32', icon_height:'32', label:'Можжевельник'},
-								//- 							{icon:'ic-spices', icon_width:'32', icon_height:'32', label:'Специи'},
-								//- 							{icon:'ic-lemongrass', icon_width:'32', icon_height:'32', label:'Лемонграсс'},
-								//- 							{icon:'ic-citrus', icon_width:'32', icon_height:'32', label:'Цитрус'},
-								//- 						],
-								//- 						tag:'Коктейли',
-								//- 					},
-								//- 				]
-								//- 			each item in list
-								//- 				.swiper-slide.catalog-slider__item
-								//- 					.catalog-slider__img-wrap
-								//- 						.catalog-slider__img
-								//- 							.catalog-slider__img-content(style="background-image: url(assets/img/"+item.img+")")
+									.catalog-slider.js-catalog-slider
+											-
+												var list=[
+													{
+														img:'cat-img9.jpg',
+														bottle:'cat-bottle9.png',
+														title:'Jaisalmer',
+														subtitle:'Вся Индия в одном бокале',
+														text:'1',
+														brand:['cat-brand-five.png', 'cat-brand-radico.png', 'cat-brand-rampur.png'],
+														notes:[
+															{icon:'ic-juniper', icon_width:'32', icon_height:'32', label:'Можжевельник'},
+															{icon:'ic-spices', icon_width:'32', icon_height:'32', label:'Специи'},
+															{icon:'ic-lemongrass', icon_width:'32', icon_height:'32', label:'Лемонграсс'},
+															{icon:'ic-citrus', icon_width:'32', icon_height:'32', label:'Цитрус'},
+														],
+														tag:'Коктейли',
+													},
+													{
+														img:'cat-img10.jpg',
+														bottle:'cat-bottle10.png',
+														title:'Jaisalmer Gold',
+														subtitle:'Вся Индия в одном бокале',
+														text:'2',
+														brand:['cat-brand-five.png', 'cat-brand-radico.png', 'cat-brand-rampur.png'],
+														notes:[
+															{icon:'ic-juniper', icon_width:'32', icon_height:'32', label:'Можжевельник'},
+															{icon:'ic-spices', icon_width:'32', icon_height:'32', label:'Специи'},
+															{icon:'ic-lemongrass', icon_width:'32', icon_height:'32', label:'Лемонграсс'},
+															{icon:'ic-citrus', icon_width:'32', icon_height:'32', label:'Цитрус'},
+														],
+														tag:'Коктейли',
+													},
+												]
+											each item, index in list
+												.catalog-slider__item.js-catalog-slider-item(class=index==0?'active':'', data-id=index)
+													.catalog-slider__img-wrap.js-catalog-slider-img-wrap
+														.catalog-slider__img
+															.catalog-slider__img-content(style="background-image: url(assets/img/"+item.img+")")
 													
-								//- 					.catalog-slider__bottle
-								//- 						img(src="assets/img/"+item.bottle, alt="")
+													.catalog-slider__bottle.js-catalog-slider-bottle
+														img(src="assets/img/"+item.bottle, alt="")
 
-								//- 					.catalog-slider__content
-								//- 						.catalog-slider__title
-								//- 							span.text-gradient= item.title
+													.catalog-slider__content
+														.catalog-slider__title
+															span.text-gradient= item.title
 
-								//- 						.catalog-slider__subtitle= item.subtitle
+														.catalog-slider__subtitle= item.subtitle
 
-								//- 						.catalog-slider__text
-								//- 							if(item.text==1)
-								//- 								p Для производства джина Jaisalmer на заводе в Рампуре используется особый перегонный куб с «головой» в форме песочных часов, делающий дистиллят более лёгким за счёт многократной перегонки и конденсации. В нем перегоняется спирт тройной дистилляции, настоянный на 11 растениях.
-								//- 								p Обладатель международных наград и признан лучшим джином, произведённым в Азии.
-								//- 							else if(item.text==2)
-								//- 								p Для производства джина Jaisalmer на заводе в Рампуре используется особый перегонный куб с «головой» в форме песочных часов, делающий дистиллят более лёгким за счёт многократной перегонки и конденсации. В нем перегоняется спирт тройной дистилляции, настоянный на 11 растениях.
-								//- 								p Обладатель международных наград и признан лучшим джином, произведённым в Азии.
-															
-								//- 						.catalog-slider__brands
-								//- 							each brand in item.brand
-								//- 								.catalog-slider__brand
-								//- 									img(src="assets/img/"+brand, alt="")
+														.catalog-slider__text
+															if(item.text==1)
+																p Для производства джина Jaisalmer на заводе в Рампуре используется особый перегонный куб с «головой» в форме песочных часов, делающий дистиллят более лёгким за счёт многократной перегонки и конденсации. В нем перегоняется спирт тройной дистилляции, настоянный на 11 растениях.
+																p Обладатель международных наград и признан лучшим джином, произведённым в Азии.
+															else if(item.text==2)
+																p Для производства джина Jaisalmer на заводе в Рампуре используется особый перегонный куб с «головой» в форме песочных часов, делающий дистиллят более лёгким за счёт многократной перегонки и конденсации. В нем перегоняется спирт тройной дистилляции, настоянный на 11 растениях.
+																p Обладатель международных наград и признан лучшим джином, произведённым в Азии.
+														.catalog-slider__brands
+															each brand in item.brand
+																.catalog-slider__brand
+																	img(src="assets/img/"+brand, alt="")
 														
-								//- 						.catalog-slider__notes
-								//- 							.catalog-slider__subtitle Главные ноты
+														.catalog-slider__notes
+															.catalog-slider__subtitle Главные ноты
 
-								//- 							.cat-notes
-								//- 								each note in item.notes
-								//- 									.cat-notes__item
-								//- 										.cat-notes__icon
-								//- 											+svg(note.icon, note.icon, note.icon_width, note.icon_height)
-								//- 										.cat-notes__label= note.label
+															.cat-notes
+																each note in item.notes
+																	.cat-notes__item
+																		.cat-notes__icon
+																			+svg(note.icon, note.icon, note.icon_width, note.icon_height)
+																		.cat-notes__label= note.label
 														
-								//- 						.catalog-slider__tag= item.tag
+														.catalog-slider__tag= item.tag
+
 
 							#tab3.tabs-page__content-item.js-tabs-page-content-item
-								//- .catalog-slider-wrap.js-catalog-slider-wrap
-								//- 	.crumb-slider
-								//- 		-
-								//- 			var list=[
-								//- 				{id:'0', text:'Calenter', status:'active'},
-								//- 			]
-								//- 		each item in list
-								//- 			span.crumb-slider__item.js-crumb-slider-item(class=item.status?'active':'', data-slide=item.id)= item.text
+								.catalog-slider-wrap.js-catalog-slider-wrap
+									.crumb-slider
+										-
+											var list=[
+												{id:'0', text:'Calenter', status:'active'},
+											]
+										each item in list
+											span.crumb-slider__item.js-crumb-slider-item(class=item.status?'active':'', data-id=item.id)= item.text
 									
-								//- 	.catalog-slider.js-catalog-slider.swiper(data-id="2")
-								//- 		.swiper-wrapper
-								//- 			-
-								//- 				var list=[
-								//- 					{
-								//- 						img:'cat-img11.jpg',
-								//- 						bottle:'cat-bottle11.png',
-								//- 						title:'Calenter',
-								//- 						subtitle:'Фантастический аромат',
-								//- 						text:'1',
-								//- 						brand:['cat-brand-ads.png'],
-								//- 						notes:[
-								//- 							{icon:'ic-juniper', icon_width:'32', icon_height:'32', label:'Можжевельник'},
-								//- 							{icon:'ic-spices', icon_width:'32', icon_height:'32', label:'Специи'},
-								//- 							{icon:'ic-lemongrass', icon_width:'32', icon_height:'32', label:'Лемонграсс'},
-								//- 							{icon:'ic-gold', icon_width:'32', icon_height:'32', label:'Ионы золота'},
-								//- 						],
-								//- 						tag:'Коктейли',
-								//- 					},
-								//- 				]
-								//- 			each item in list
-								//- 				.swiper-slide.catalog-slider__item
-								//- 					.catalog-slider__img-wrap
-								//- 						.catalog-slider__img
-								//- 							.catalog-slider__img-content(style="background-image: url(assets/img/"+item.img+")")
+									.catalog-slider.js-catalog-slider
+										-
+											var list=[
+												{
+													img:'cat-img11.jpg',
+													bottle:'cat-bottle11.png',
+													title:'Calenter',
+													subtitle:'Фантастический аромат',
+													text:'1',
+													brand:['cat-brand-ads.png'],
+													notes:[
+														{icon:'ic-juniper', icon_width:'32', icon_height:'32', label:'Можжевельник'},
+														{icon:'ic-spices', icon_width:'32', icon_height:'32', label:'Специи'},
+														{icon:'ic-lemongrass', icon_width:'32', icon_height:'32', label:'Лемонграсс'},
+														{icon:'ic-gold', icon_width:'32', icon_height:'32', label:'Ионы золота'},
+													],
+													tag:'Коктейли',
+												},
+											]
+										each item, index in list
+											.catalog-slider__item.js-catalog-slider-item(class=index==0?'active':'', data-id=index)
+												.catalog-slider__img-wrap.js-catalog-slider-img-wrap
+													.catalog-slider__img
+														.catalog-slider__img-content(style="background-image: url(assets/img/"+item.img+")")
+												
+												.catalog-slider__bottle.js-catalog-slider-bottle
+													img(src="assets/img/"+item.bottle, alt="")
+
+												.catalog-slider__content
+													.catalog-slider__title
+														span.text-gradient= item.title
+
+													.catalog-slider__subtitle= item.subtitle
+
+													.catalog-slider__text
+														if(item.text==1)
+															p Насыщенный купаж, выдержанный в дубовых бочках, объединят вкусы востока и запада. Оригинальный рецепт представляет собой идеально сбалансированный ром, полученный путём гармоничного бленда насыщенного рома Демерара из Карибского региона и премиальных индийских спиртов.
+															p Calenter Premium отличается гладкой шелковистой текстурой. Во вкусе чувствуется кленовый сироп, херес и фантастически долгий и нежный аромат ванильных сливок со сладкими нотами мёда и персика, перетекающие в долгое послевкусие с тёплыми специями.
+														
+													.catalog-slider__brands
+														each brand in item.brand
+															.catalog-slider__brand
+																img(src="assets/img/"+brand, alt="")
 													
-								//- 					.catalog-slider__bottle
-								//- 						img(src="assets/img/"+item.bottle, alt="")
+													.catalog-slider__notes
+														.catalog-slider__subtitle Главные ноты
 
-								//- 					.catalog-slider__content
-								//- 						.catalog-slider__title
-								//- 							span.text-gradient= item.title
-
-								//- 						.catalog-slider__subtitle= item.subtitle
-
-								//- 						.catalog-slider__text
-								//- 							if(item.text==1)
-								//- 								p Для производства джина Jaisalmer на заводе в Рампуре используется особый перегонный куб с «головой» в форме песочных часов, делающий дистиллят более лёгким за счёт многократной перегонки и конденсации. В нем перегоняется спирт тройной дистилляции, настоянный на 11 растениях.
-								//- 								p Обладатель международных наград и признан лучшим джином, произведённым в Азии.
-								//- 							else if(item.text==2)
-								//- 								p Для производства джина Jaisalmer на заводе в Рампуре используется особый перегонный куб с «головой» в форме песочных часов, делающий дистиллят более лёгким за счёт многократной перегонки и конденсации. В нем перегоняется спирт тройной дистилляции, настоянный на 11 растениях.
-								//- 								p Обладатель международных наград и признан лучшим джином, произведённым в Азии.
-															
-								//- 						.catalog-slider__brands
-								//- 							each brand in item.brand
-								//- 								.catalog-slider__brand
-								//- 									img(src="assets/img/"+brand, alt="")
-														
-								//- 						.catalog-slider__notes
-								//- 							.catalog-slider__subtitle Главные ноты
-
-								//- 							.cat-notes
-								//- 								each note in item.notes
-								//- 									.cat-notes__item
-								//- 										.cat-notes__icon
-								//- 											+svg(note.icon, note.icon, note.icon_width, note.icon_height)
-								//- 										.cat-notes__label= note.label
-														
-								//- 						.catalog-slider__tag= item.tag
+														.cat-notes
+															each note in item.notes
+																.cat-notes__item
+																	.cat-notes__icon
+																		+svg(note.icon, note.icon, note.icon_width, note.icon_height)
+																	.cat-notes__label= note.label
+													
+													.catalog-slider__tag= item.tag
 
 
 	section
