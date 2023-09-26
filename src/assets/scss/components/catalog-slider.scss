@@ -1,4 +1,17 @@
 /*-------------- catalog-slider -----------------*/
+@keyframes showImg {
+	from {
+		opacity: 0;
+		transform: scale(0);
+		
+	}
+  
+	to {
+		opacity: 1;
+		transform: scale(1);
+		// mask-image: radial-gradient(rgba(0, 0, 0, 0) 0%, transparent 40%)
+	}
+  }
 // @keyframes slideInRight {
 // 	from {
 // 	  -webkit-transform: translate3d(100%, 0, 0);
@@ -118,7 +131,10 @@
   		position: relative;
 		z-index: 2;
 
-		img{max-width: 68.5%;}
+		img{
+			max-height: 600px;
+			margin: 0 auto;
+		}
 	}
 
 	&__content{
@@ -196,9 +212,12 @@
 	&__item.active &__img-wrap{opacity: 1;}
 
 	&__item.active &__img{
+		mask-image: radial-gradient(rgba(0, 0, 0, 1) 0%, transparent 40%);
 		transform-origin: center;
-		backface-visibility: visible;
-		animation: flip 0.5s 1 linear;
+		// backface-visibility: visible;
+		// animation: flip 0.5s 1 linear;
+		// animation-fill-mode: forwards;
+		animation: showImg 0.5s 1 linear;
 		animation-fill-mode: forwards;
 	}
 		
