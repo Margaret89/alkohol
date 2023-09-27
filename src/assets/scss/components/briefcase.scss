@@ -93,7 +93,10 @@
 
 	&__item:not(.active) img{cursor: pointer;}
 
-	&__text{margin-top: 2.7rem;}
+	&__text{
+		min-height: 5.04rem;
+		margin-top: 2.7rem;
+	}
 
 	&__text-item{
 		display: none;

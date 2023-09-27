@@ -14,7 +14,8 @@ $(function(){
 		// let firstAnimSect = pointAnimPath - pointAnimStart - sratPosMap*2 - $('.js-history-animate-map').outerHeight()/2;//Первый отрезок анимации
 		
 		let scrollMap = 0;//Смещение карты
-		let pointAnimFinishMap = pointAnimFinish - $('.js-history-animate-map').outerHeight()/2 - sratPosMap;//Конец аимации для карты
+		// let pointAnimFinishMap = pointAnimFinish - $('.js-history-animate-map').outerHeight()/2 - sratPosMap;//Конец аимации для карты
+		let pointAnimFinishMap = pointAnimFinish - $('.js-history-animate-map').outerHeight() - sratPosMap;//Конец аимации для карты
 		let opacityFirstMap = 0;//Прозрачность первого слоя карты
 		let opacitySecondMap = 0;//Прозрачность второго слоя карты
 		let opacityFullMap = 0;//Прозрачность всей карты
@@ -83,6 +84,16 @@ $(function(){
 		let finishImgScroll = indentTopCat + $('.js-catalog-slider').height() - $('.js-catalog-slider-img-wrap').height();//Точка финиша скрола картинки каталога
 
 		let arrPointChangeImg = [];
+		// let scrollToElem = false;
+		let curIndexItem = $('.js-catalog-slider-item.active').data('id');
+		// let curIndexItem = $('.js-tabs-page-item.active').find('.js-catalog-slider-item.active').data('id');
+
+		let startPointAnimSlider = $('.js-anim-point-gallery').offset().top - $(window).outerHeight()*1.5;//Начало анимации слайдера
+		let finishPointAnimSlider = startPointAnimSlider + $(window).outerHeight();//Конец анимации слайдера
+		let moveSlider = 100;//Смещение слайдера
+
+		console.log('startPointAnimSlider = ', startPointAnimSlider);
+		console.log('finishPointAnimSlider = ', finishPointAnimSlider);
 
 		$('.js-tabs-page-content-item.active').find('.js-catalog-slider-bottle').each(function( index ) {
 			// let point = $(this).offset().top - ($(window).height() - $(this).height()) / 2;
@@ -187,6 +198,19 @@ $(function(){
 			}
 
 			$('.js-history-animate-map-color-full').css('opacity', opacitySecondMap);
+
+			//Анимация слайдера
+			if(scroll <= startPointAnimSlider){
+				moveSlider = 100;
+			}else if(scroll > startPointAnimSlider && scroll < finishPointAnimSlider){
+				moveSlider = 100 -((scroll - startPointAnimSlider) * 100 / (finishPointAnimSlider - startPointAnimSlider));
+				console.log('scroll = ', scroll);
+			console.log('moveSlider = ', moveSlider);
+			}else if(scroll > finishPointAnimSlider){
+				moveSlider = 0;
+			}
+
+			$('.js-gallery-slider').css('left', moveSlider+'%');
 
 			//Появление облаков
 			if(scroll <= thirdPointAnimMap){
@@ -299,6 +323,17 @@ $(function(){
 					if(scroll+$(window).height()/2 > arrPointChangeImg[index][0]  && scroll+$(window).height()/2 < arrPointChangeImg[index][1]){
 						$('.js-tabs-page-content-item.active').find('.js-catalog-slider-item').removeClass('active');
 						$('.js-tabs-page-content-item.active').find('.js-catalog-slider-item[data-id='+index+']').addClass('active');
+						// console.log('indexffffff = ', index);
+						// console.log('curIndexItemfffff = ', curIndexItem);
+						if(curIndexItem != index){
+							console.log('index = ', index);
+							console.log('curIndexItem = ', curIndexItem);
+
+
+							$('body,html').animate({scrollTop: arrPointChangeImg[index][0] - 100}, 1000);
+
+							curIndexItem = index;
+						}
 
 						break;
 					}
@@ -306,6 +341,7 @@ $(function(){
 			}
 
 			$('.js-catalog-slider-img-wrap').css('top', indentTopImgScroll);
+			// $('.js-catalog-slider-img-wrap').animate({'top': indentTopImgScroll}, 10);
 		}
 
 		$(window).on('scroll', function(){
@@ -400,8 +436,9 @@ $(function(){
 			loop: false,
 			spaceBetween: 40,
 			slidesPerView: 3.4,
-			modules: [Navigation, Pagination, Mousewheel],
-			mousewheel: true,
+			// modules: [Navigation, Pagination, Mousewheel],
+			modules: [Navigation, Pagination],
+			// mousewheel: true,
 			navigation: {
 				nextEl: '.js-gallery-slider-next',
 				prevEl: '.js-gallery-slider-prev',
@@ -536,13 +573,11 @@ $(function(){
 				let maxPoint = $(this).offset().top + $(this).height();
 				arrPointChangeImg[index] = [minPoint, maxPoint];
 			});
-
-			console.log('arrPointChangeImg = ', arrPointChangeImg);
-
 			
 		});
 	}
 
+	//Попап с выбором возраста
 	if($('#age-gate').length){
 		//После загрузки страницы открываем окно с проверкой возраста
 		Fancybox.show([{ 
