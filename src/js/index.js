@@ -1,6 +1,23 @@
 import {$, Swiper, Navigation, Pagination, Mousewheel, EffectFade, Fancybox, Inputmask} from './common';
 
 $(function(){
+	//Фиксированое меню
+	let heightHeader = $('.js-header').outerHeight();//Высота шапки
+
+	fixedHeader($(window).scrollTop());
+
+	function fixedHeader(scroll) {
+		if(scroll > heightHeader){
+			$('.js-header').addClass('fixed');
+		}else{
+			$('.js-header').removeClass('fixed');
+		}
+	}
+
+	$(window).on('scroll', function(){
+		fixedHeader($(this).scrollTop());
+	});
+
 
 	if($('.js-history-animate').length){
 		let pointAnimStart = $('.js-anim-start').offset().top;// Начало анимации (расстояние от верха страницы)
