@@ -1,15 +1,16 @@
 import {$, Swiper, Navigation, Pagination, Mousewheel, EffectFade, Fancybox, Inputmask} from './common';
 
 $(function(){
-	//Плавность скролла
-	$(document).bind( 'mousewheel', function (e) { 
-		var nt = $(document.body).scrollTop()-(e.deltaY*e.deltaFactor*100); 
-		e.preventDefault(); 
-		e.stopPropagation(); 
-		$(document.body).stop().animate( { 
-			 scrollTop : nt 
-		 } , 500 , 'easeInOutCubic' );  
-	} )
+	// //Плавность скролла
+	// $(document).bind( 'mousewheel', function (e) { 
+	// 	var nt = $(document.body).scrollTop()-(e.deltaY*e.deltaFactor*100); 
+	// 	e.preventDefault(); 
+	// 	e.stopPropagation(); 
+	// 	$(document.body).stop().animate( { 
+	// 		 scrollTop : nt,
+	// 		 behavior: 'smooth'
+	// 	 } , 500 , 'linier' );  
+	// } )
 
 	//Фиксированое меню
 	let heightHeader = $('.js-header').outerHeight();//Высота шапки
@@ -119,8 +120,9 @@ $(function(){
 		let finishPointAnimSlider = startPointAnimSlider + $(window).outerHeight();//Конец анимации слайдера
 		let moveSlider = 100;//Смещение слайдера
 
-		console.log('startPointAnimSlider = ', startPointAnimSlider);
-		console.log('finishPointAnimSlider = ', finishPointAnimSlider);
+		let mapScrolling = false;//Флаг перемещения карты
+		let beginScrolling = $(window).scrollTop();//Первоначальная позиция на экране
+
 
 		$('.js-tabs-page-content-item.active').find('.js-catalog-slider-bottle').each(function( index ) {
 			// let point = $(this).offset().top - ($(window).height() - $(this).height()) / 2;
@@ -130,7 +132,7 @@ $(function(){
 			arrPointChangeImg[index] = [minPoint, maxPoint];
 		});
 
-		scrollImgCat(scrollWindow);
+		// scrollImgCat(scrollWindow);
 
 		function animateMap(scroll) {
 			// if(scroll <= firstPointAnimMap){
@@ -231,8 +233,6 @@ $(function(){
 				moveSlider = 100;
 			}else if(scroll > startPointAnimSlider && scroll < finishPointAnimSlider){
 				moveSlider = 100 -((scroll - startPointAnimSlider) * 100 / (finishPointAnimSlider - startPointAnimSlider));
-				console.log('scroll = ', scroll);
-			console.log('moveSlider = ', moveSlider);
 			}else if(scroll > finishPointAnimSlider){
 				moveSlider = 0;
 			}
@@ -323,53 +323,72 @@ $(function(){
 
 
 			//Перемещение карты
-			if(scroll > pointAnimStart && scroll < pointAnimFinishMap){
-				scrollMap = scroll - pointAnimStart + sratPosMap;
+			if(scroll <= pointAnimStart){
+				mapScrolling = false;
+				$('.js-history-animate-map-wrap').animate({'top': '250px'}, 10);
+				$('.js-history-animate-map-wrap').removeClass('fixed');
+			}else if(scroll > pointAnimStart && scroll < pointAnimFinishMap){
+				// scrollMap = scroll - pointAnimStart + sratPosMap;
 
-				if(scrollMap < sratPosMap){
-					scrollMap = sratPosMap;
+				// if(scrollMap < sratPosMap){
+				// 	scrollMap = sratPosMap;
+				// }
+
+				// $('.js-history-animate-map-wrap').css('top', scrollMap);
+				// // $('.js-history-animate-map-wrap').animate({'top': scrollMap}, 10);
+				mapScrolling = true;
+				$('.js-history-animate-map-wrap').addClass('fixed');
+
+			}else  if(scroll >= pointAnimFinishMap){
+				if(beginScrolling > pointAnimFinishMap){
+					beginScrolling = 0;
+
+					$('.js-history-animate-map-wrap').animate({'top': pointAnimFinishMap+'px'}, 10);
 				}
 
-				$('.js-history-animate-map-wrap').css('top', scrollMap);
-				// $('.js-history-animate-map-wrap').animate({'top': scrollMap}, 10);
-			}else{
-				// console.log('2222');
+				if(mapScrolling == true){
+					mapScrolling = false;
+	
+					$('.js-history-animate-map-wrap').removeClass('fixed');
+					$('.js-history-animate-map-wrap').animate({'top': $('.js-history-animate-map-wrap').offset().top+'px'}, 10);
+				}
+
 			}
 			
 		}
 
-		function scrollImgCat(scroll) {
-			//Скролл картинки каталога
-			if(scroll < startImgScroll){
-				indentTopImgScroll = 0;
-			}else if(scroll > startImgScroll && scroll < finishImgScroll){
-				indentTopImgScroll = scroll - indentTopCat + indentTopCatImg;
+		// function scrollImgCat(scroll) {
+		// 	//Скролл картинки каталога
+		// 	if(scroll < startImgScroll){
+		// 		indentTopImgScroll = 0;
+		// 	}else if(scroll > startImgScroll && scroll < finishImgScroll){
+		// 		indentTopImgScroll = scroll - indentTopCat + indentTopCatImg;
 
-				//Переключаем активную карточку
-				for (let index = 0; index < arrPointChangeImg.length; index++) {
-					if(scroll+$(window).height()/2 > arrPointChangeImg[index][0]  && scroll+$(window).height()/2 < arrPointChangeImg[index][1]){
-						$('.js-tabs-page-content-item.active').find('.js-catalog-slider-item').removeClass('active');
-						$('.js-tabs-page-content-item.active').find('.js-catalog-slider-item[data-id='+index+']').addClass('active');
-						// console.log('indexffffff = ', index);
-						// console.log('curIndexItemfffff = ', curIndexItem);
-						if(curIndexItem != index){
-							console.log('index = ', index);
-							console.log('curIndexItem = ', curIndexItem);
+		// 		//Переключаем активную карточку
+		// 		for (let index = 0; index < arrPointChangeImg.length; index++) {
+		// 			if(scroll+$(window).height()/2 > arrPointChangeImg[index][0]  && scroll+$(window).height()/2 < arrPointChangeImg[index][1]){
+		// 				$('.js-tabs-page-content-item.active').find('.js-catalog-slider-item').removeClass('active');
+		// 				$('.js-tabs-page-content-item.active').find('.js-catalog-slider-item[data-id='+index+']').addClass('active');
+		// 				// console.log('indexffffff = ', index);
+		// 				// console.log('curIndexItemfffff = ', curIndexItem);
+		// 				if(curIndexItem != index){
+		// 					console.log('index = ', index);
+		// 					console.log('curIndexItem = ', curIndexItem);
 
 
-							$('body,html').animate({scrollTop: arrPointChangeImg[index][0] - 100}, 1000);
+		// 					$('body,html').animate({scrollTop: arrPointChangeImg[index][0] - 100}, 1000);
 
-							curIndexItem = index;
-						}
+		// 					curIndexItem = index;
+		// 				}
 
-						break;
-					}
-				}
-			}
+		// 				break;
+		// 			}
+		// 		}
+		// 	}
 
-			$('.js-catalog-slider-img-wrap').css('top', indentTopImgScroll);
-			// $('.js-catalog-slider-img-wrap').animate({'top': indentTopImgScroll}, 10);
-		}
+		// 	$('.js-catalog-slider-img-wrap').css('top', indentTopImgScroll);
+		// 	// $('.js-catalog-slider-img-wrap').animate({'top': indentTopImgScroll}, 10);
+		// }
 
 		$(window).on('scroll', function(){
 			scrollWindow = $(this).scrollTop();
@@ -377,7 +396,7 @@ $(function(){
 			// console.log('scrollWindow = ', scrollWindow);
 
 			animateMap(scrollWindow);
-			scrollImgCat(scrollWindow);
+			// scrollImgCat(scrollWindow);
 			
 
 			

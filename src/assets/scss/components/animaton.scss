@@ -19,6 +19,12 @@
 		top: 250px;
 		right: 0;
 		// transition: top 0.25s linear 0s;
+
+		&.fixed{
+			position: fixed;
+			top: 250px!important;
+			right: calc(50vw - 738px);
+		}
 	}
 
 	&__map{
