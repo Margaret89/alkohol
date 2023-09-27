@@ -105,14 +105,24 @@
 		padding: 0 24px;
 	}
 
-	&:hover &__bg-img-wrap{
+	&:not(.catalog-item_no-anim):hover &__bg-img-wrap{
 		transform: scale(2);
 		right: 80%;
 	}
 
-	&:hover &__bg-img{
+	&:not(.catalog-item_no-anim):hover &__bg-img{
 		-webkit-filter: grayscale(0); /* Webkit браузеры */  
 		// filter: gray; /* для IE6-9 */  
 		filter: grayscale(0);
+	}
+
+	&_no-anim{padding: 22px 16px;}
+	&_no-anim &__bg-img{background: transparent;}
+
+	&_no-anim &__img{
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		width: 51%;
 	}
 }

@@ -271,3 +271,8 @@ button.btn{
 .text-uppercase{text-transform: uppercase !important;}
 .text-bold{font-weight: 700 !important;}
 .text-accent{color: var(--color-warm-gold)!important;}
+
+.page-header h1,
+.page-header .h1{
+	margin-bottom: 0;
+}
