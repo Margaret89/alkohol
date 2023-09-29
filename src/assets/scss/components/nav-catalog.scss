@@ -1,5 +1,5 @@
-/*-------------- tabs-page -----------------*/
-.tabs-page{
+/*-------------- nav-catalog -----------------*/
+.nav-catalog{
 	&__list,
 	&__item{
 		@include reset-list;
@@ -51,6 +51,17 @@
 
 	&__content-item{display: none;}
 	&__content-item.active{display: block;}
+}
 
-	.cat-main-item{margin-left: -185px;}
+.nav-catalog-wrap{
+	&.fixed &__content{
+		background: #131c24;
+		width: 100%;
+		position: fixed;
+		top: 90px;
+		left: 0;
+		z-index: 1000;
+
+		.crumb-catalog{padding-bottom: 20px;}
+	}
 }

@@ -1,22 +1,22 @@
-/*-------------- catalog-slider -----------------*/
+/*-------------- cat-main -----------------*/
 @keyframes showImg {
 	from {
 		opacity: 0;
-		transform: scale(0);
+		// transform: scale(0);
 		mask-image: radial-gradient(rgba(0, 0, 0, 1) 0%, transparent 40%);
 		
 	}
 
 	40% {
 		opacity: 0;
-		transform: scale(0);
+		// transform: scale(0);
 		mask-image: radial-gradient(rgba(0, 0, 0, 1) 0%, transparent 100%);
 		
 	}
   
 	to {
 		opacity: 1;
-		transform: scale(1);
+		// transform: scale(1);
 		mask-image: radial-gradient(rgba(0, 0, 0, 1) 100%, transparent 100%);
 	}
   }
@@ -89,19 +89,21 @@
 // 	}
 //   }
 
-.catalog-slider{
+.cat-main{
 	position: relative;
+	margin-left: -185px;
+}
 
-	&__item{
-		display: flex;
-		align-items: flex-start;
-		padding-left: 34%;
-		margin-bottom: 100px;
-	}
+.cat-main-item{
+	display: flex;
+	align-items: flex-start;
+	padding-left: 34%;
+	margin-bottom: 100px;
 
 	&__img-wrap{
 		flex-shrink: 0;
-		width: 38.5%;
+		// width: 38.5%;
+		width: 625px;
 		background: url(/assets/img/mandala-pattern.svg) no-repeat 0 0;
 		background-size: contain;
 		opacity: 0;
@@ -109,6 +111,11 @@
 		top: 0;
 		left: 0;
 		// transition: top 0.05s linear 0s;
+
+		&.fixed{
+			position: fixed;
+			left: calc(50% - 913px);
+		}
 	}
 
 	&__img{
@@ -218,9 +225,9 @@
 	}
 
 	// &__item.active{background: red;}
-	&__item.active &__img-wrap{opacity: 1;}
+	&.active &__img-wrap{opacity: 1;}
 
-	&__item.active &__img{
+	&.active &__img{
 		mask-image: radial-gradient(rgba(0, 0, 0, 1) 0%, transparent 40%);
 		transform-origin: center;
 		// backface-visibility: visible;
@@ -229,32 +236,6 @@
 		animation: showImg 0.7s 1 linear;
 		animation-fill-mode: forwards;
 	}
-		
-
-	// &__item:not(.swiper-slide-active) &__img-wrap,
-	// &__item:not(.swiper-slide-active) &__bottle,
-	// &__item:not(.swiper-slide-active) &__content{
-	// 	opacity: 0;
-	// }
-
-	// .swiper-slide-active{
-	// 	.catalog-slider__img{
-	// 		transform-origin: center;
-	// 		backface-visibility: visible;
-	// 		animation: flip 1s 1 linear;
-	// 		animation-fill-mode: forwards;
-	// 	}
-
-	// 	.catalog-slider__bottle{
-	// 		animation: slideInDown 0.5s 1 linear;
-	// 		animation-fill-mode: forwards;
-	// 	}
-
-	// 	.catalog-slider__content{
-	// 		animation: slideInRight 0.6s 1 linear;
-	// 		animation-fill-mode: forwards;
-	// 	}
-	// }
 }
 
 .cat-notes{
