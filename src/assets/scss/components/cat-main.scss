@@ -19,7 +19,8 @@
 		// transform: scale(1);
 		mask-image: radial-gradient(rgba(0, 0, 0, 1) 100%, transparent 100%);
 	}
-  }
+}
+
 // @keyframes slideInRight {
 // 	from {
 // 	  -webkit-transform: translate3d(100%, 0, 0);
@@ -124,7 +125,8 @@
 		overflow: hidden;
 		position: relative;
 		margin: 12%;
-		transform-style: preserve-3d;
+		// transform-style: preserve-3d;
+		opacity: 0;
 	}
 
 	&__img-content{
@@ -228,13 +230,23 @@
 	&.active &__img-wrap{opacity: 1;}
 
 	&.active &__img{
-		mask-image: radial-gradient(rgba(0, 0, 0, 1) 0%, transparent 40%);
+		// transform: scale(1);
+		mask-image: radial-gradient(rgba(0, 0, 0, 1) 100%, transparent 100%);
 		transform-origin: center;
+		opacity: 1;
+
 		// backface-visibility: visible;
 		// animation: flip 0.5s 1 linear;
 		// animation-fill-mode: forwards;
-		animation: showImg 0.7s 1 linear;
-		animation-fill-mode: forwards;
+		animation: showImg 0.8s 1 linear;
+		// animation-fill-mode: forwards;
+	}
+
+	&__img-wrap.finished{
+		position: absolute;
+		left: 0;
+		top: auto;
+		bottom: 0;
 	}
 }
 
