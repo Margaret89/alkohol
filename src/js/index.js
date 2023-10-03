@@ -716,6 +716,23 @@ $(function(){
 				nextEl: '.js-gallery-slider-next',
 				prevEl: '.js-gallery-slider-prev',
 			},
+			breakpoints: {
+				// // when window width is >= 320px
+				// 320: {
+				//   slidesPerView: 2,
+				//   spaceBetween: 20
+				// },
+				// // when window width is >= 480px
+				992: {
+				  slidesPerView: 1.6,
+				},
+				1280: {
+					slidesPerView: 2.6,
+				},
+				1500: {
+					slidesPerView: 3.4,
+				}
+			}
 		});
 	}
 

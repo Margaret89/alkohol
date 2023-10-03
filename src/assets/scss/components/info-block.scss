@@ -18,3 +18,17 @@
 		}
 	}
 }
+
+@media (max-width: 1439px) {
+	.info-block{
+		max-width: 460px;
+		&__text{padding: 0 0 50px 40px;}
+	}
+}
+
+@media (max-width: 1279px) {
+	.info-block{
+		max-width: 392px;
+		&__text{padding: 0 0 50px 20px;}
+	}
+}

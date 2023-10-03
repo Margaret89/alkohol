@@ -2,13 +2,16 @@ footer.footer
 	.container-fluid
 		.row
 			.col-12
-				.footer__top
+				.footer__top.d-none.d-xxl-flex
 					img(src="assets/img/logo-explore.svg", alt="")
 					+svg('ic-flower','ic-flower', '18', '18')
+				
+				.footer__top.d-xxl-none
+					img(src="assets/img/logo-grey.svg", alt="")
 
 				.footer__main
 					.row
-						.col-5
+						.col-12.col-xl-6.col-xxl-5.order-2.order-xl-1
 							.footer__info
 								.footer__phone
 									a(href="tel:+74951392191") +7 495 139-21-91
@@ -19,12 +22,12 @@ footer.footer
 								.footer__mail
 									a(href="mailto:mariya.miroshnik@asg.ru") mariya.miroshnik@asg.ru
 
-						.col-2
+						.col-2.d-none.d-xxl-block
 							.footer__logo
 								a(href="/")
 									img(src="assets/img/asg-logo.svg", alt="")
 
-						.col-5
+						.col-12.col-xl-6.col-xxl-5.order-1.order-xl-2
 							ul.main-menu
 								li.main-menu__item
 									a(href="/")
@@ -42,13 +45,18 @@ footer.footer
 
 				.footer__bottom
 					.row
-						.col-5
-							.footer__copyright &copy; Все права защищены, Логотипы торговых марок принадлежат их владельцам.
+						.col-lg-6.col-xl-5
+							.footer__copyright
+								|&copy; Все права защищены, 
+								span.d-xl-none 2023 г.
+									br
+								|Логотипы торговых марок принадлежат их владельцам.
 
-						.col-2
+
+						.col-2.d-none.d-xl-block
 							.footer__year 2023 г.
 
-						.col-5
+						.col-lg-6.col-xl-5
 							ul.bottom-menu
 								-
 									var list=[

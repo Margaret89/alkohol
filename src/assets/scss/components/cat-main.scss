@@ -283,3 +283,9 @@
 	&_hor &__label{margin: 0;}
 	&_hor &__icon{flex-shrink: 0;}
 }
+
+@media (max-width: 1500px) {
+	.cat-main-item{
+		&__img-wrap.fixed{left: -153px;}
+	}
+}

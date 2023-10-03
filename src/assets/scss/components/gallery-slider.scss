@@ -1,49 +1,4 @@
 /*-------------- gallery-slider -----------------*/
-// @keyframes animate-map {
-// 	from {transform: translate(-50%, -50%) scale(1);}
-// 	50% {transform: translate(-50%, -50%) scale(0.9);}
-// 	to {transform: translate(-50%, -50%) scale(1);}
-// }
-
-// @keyframes animate-pattern {
-	
-// 	from {transform: translate(-50%, -50%) translate3d(0, 0, 0);}
-// 	50% {transform: translate(-50%, -50%) translate3d(-40px, 50px, 0);}
-// 	to {transform: translate(-50%, -50%) translate3d(0, 0, 0);}
-// }
-
-// .gallery-slider-wrap{
-// 	&::before{
-// 		content: '';
-// 		display: inline-block;
-// 		width: 840px;
-// 		padding-bottom: 100%;
-// 		background: url(../img/pattern.png) no-repeat center;
-// 		background-size: contain;
-// 		position: absolute;
-// 		top: 50%;
-// 		left: 50%;
-// 		transform: translate(-50%, -50%);
-// 		animation: animate-pattern 10s infinite linear;
-// 		animation-fill-mode: forwards;
-// 	}
-
-// 	&::after{
-// 		content: '';
-// 		display: inline-block;
-// 		width: 840px;
-// 		padding-bottom: 90%;
-// 		background: url(../img/ind-map.png) no-repeat center;
-// 		background-size: contain;
-// 		position: absolute;
-// 		top: 50%;
-// 		left: 50%;
-// 		transform: translate(-50%, -50%);
-// 		animation: animate-map 10s infinite linear;
-// 		animation-fill-mode: forwards;
-// 	}
-// }
-
 .gallery-slider-wrap{
 	width: calc(100% + (100vw - 1456px) / 2);
 	position: relative;
@@ -59,7 +14,6 @@
 		background-repeat: no-repeat;
 		background-position: center;
 		background-size: cover;
-		// box-shadow: 0px 0px 0px 0px rgba(18, 26, 33, 0.47), 0px 5px 11px 0px rgba(18, 26, 33, 0.46), 0px 21px 21px 0px rgba(18, 26, 33, 0.40), 0px 47px 28px 0px rgba(18, 26, 33, 0.23), 0px 84px 33px 0px rgba(18, 26, 33, 0.07), 0px 131px 37px 0px rgba(18, 26, 33, 0.01); 
 		box-shadow: 0 0 0 0 rgba(18,26,33,.47),0 5px 11px 0 rgba(18,26,33,.46),0 21px 21px 0 rgba(18,26,33,.4),0 0 28px 0 rgba(18,26,33,.23),0 30px 33px 0 rgba(18,26,33,.01);
 		border-radius: 8px;
 	}
@@ -102,4 +56,8 @@
 		position: absolute;
 		top: 50%;
 	}
+}
+
+@media (max-width: 1499px) {
+	.gallery-slider-wrap{width: calc(100% + 32px);}
 }

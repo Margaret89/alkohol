@@ -194,3 +194,35 @@
 		}
 	}
 }
+
+@media (max-width: 1439px) {
+	.history-animate{
+		.container-fluid{
+			padding-left: 0;
+			padding-right: 0;
+		}
+
+		&__map-wrap,
+		&__map-wrap.fixed{
+			right: 32px;
+		}
+	}
+}
+
+@media (max-width: 1279px) {
+	.history-animate{
+		&__glass{max-width: 400px;}
+
+		&__map-wrap{
+			max-width: 68%;
+			right: -95px;
+		}
+
+		&__map-wrap,
+		&__map-wrap.fixed{
+			right: -63px;
+		}
+
+		&__compas{max-width: 40%;}
+	}
+}

@@ -43,3 +43,25 @@
 
 	&__item .ic-home:hover{fill: var(--color-warm-gold);}
 }
+
+@media (max-width: 1279px) {
+	.main-menu{
+		gap: 9px;
+
+		&__item,
+		&__link{
+			font-size: 1.6rem;
+		}
+
+		&__item:not(:last-child)::after{margin-left: 9px;}
+	}
+}
+
+@media (max-width: 991px) {
+	.main-menu{
+		flex-wrap: wrap;
+		gap: 7px;
+
+		&__item:not(:last-child)::after{margin-left: 7px;}
+	}
+}

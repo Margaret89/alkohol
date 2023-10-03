@@ -1,7 +1,7 @@
 /*-------------- popup-age -----------------*/
 .popup-age{
 	width: 1000px;
-	max-width: calc(100% - 32px);
+	max-width: calc(100% - 100px);
 	background: #141D26;
 	border-radius: 8px;
 	text-align: center;
@@ -39,5 +39,49 @@
 			text-transform: uppercase;
 			text-align: center;
 		}
+	}
+}
+
+@media (max-width: 991px) {
+	.popup-age{
+		max-width: calc(100% - 52px);
+		padding: 50px 20px;
+
+		&::before{
+			width: 206px;
+			height: 206px;
+			top: -55px;
+  			right: -55px;
+		}
+
+		&__title{font-size: 4rem;}
+
+		.form-site{
+			&_line{
+				flex-direction: column;
+				justify-content: center;
+				gap: 25px;
+			}
+
+			&__item{margin: 0 auto;}
+		}
+	}
+}
+
+@media (max-width: 767px) {
+	.popup-age{
+		max-width: calc(100% - 4px);
+		padding: 50px;
+
+		&::before{display: none;}
+		&__title{margin-bottom: 50px;}
+	}
+}
+
+@media (max-width: 479px) {
+	.popup-age{
+		padding: 50px 20px;
+
+		.btn, button.btn{padding: 0 40px;}
 	}
 }

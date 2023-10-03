@@ -57,3 +57,30 @@
 		z-index: -1;
 	}
 }
+
+@media (max-width: 1439px) {
+	.history{
+		&__title{font-size: 10rem;}
+		&__links{margin-top: 50px;}
+
+		.info-block{max-width: 460px;}
+	}
+}
+
+@media (max-width: 1279px) {
+	.history{
+		&__title{
+			font-size: 7.2rem;
+			margin-left: 0;
+			margin-bottom: 30px;
+		}
+
+		&__links{
+			margin-top: 30px;
+
+			.btn{padding: 0 24px;}
+		}
+
+		.info-block{max-width: 392px;}
+	}
+}

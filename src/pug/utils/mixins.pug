@@ -1,5 +1,5 @@
 mixin h1(v)
-	.container
+	.container-fluid
 		.row
 			.col-12
 				h1= v
@@ -7,7 +7,7 @@ mixin h1(v)
 
 mixin breadcrumbs(links)
 	- var len=links.length
-	.container.d-none.d-md-block
+	.container-fluid.d-none.d-md-block
 		.row
 			.col-12
 				ul.breadcrumb
