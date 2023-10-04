@@ -289,3 +289,28 @@
 		&__img-wrap.fixed{left: -153px;}
 	}
 }
+
+@media (max-width: 991px) {
+	.cat-main-item{
+		&__img-wrap{width: 500px;}
+		&__title{font-size: 4rem;}
+		&__subtitle{font-size: 2.4rem;}
+	}
+}
+
+@media (max-width: 767px) {
+	.cat-main{margin-left: 0;}
+
+	.cat-main-item{
+		padding-left: 0;
+		&__img-wrap{display: none;}
+		&__title{font-size: 3.2rem;}
+		&__text{padding-left: 20px;}
+
+		&__brand img{max-height: 50px;}
+	}
+
+	.cat-notes{
+		&__item{width: 80px;}
+	}
+}

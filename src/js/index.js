@@ -1,16 +1,7 @@
 import {$, Swiper, Navigation, Pagination, Mousewheel, EffectFade, Fancybox, Inputmask} from './common';
 
 $(function(){
-	// //Плавность скролла
-	// $(document).bind( 'mousewheel', function (e) { 
-	// 	var nt = $(document.body).scrollTop()-(e.deltaY*e.deltaFactor*100); 
-	// 	e.preventDefault(); 
-	// 	e.stopPropagation(); 
-	// 	$(document.body).stop().animate( { 
-	// 		 scrollTop : nt,
-	// 		 behavior: 'smooth'
-	// 	 } , 500 , 'linier' );  
-	// } )
+	var widthWindow = $(window).width();
 
 	function returnFalse(e){
 		e = e||event;
@@ -38,9 +29,13 @@ $(function(){
 	//Фиксированые крошки
 	let crumbFixedStart = $('.js-nav-catalog-fixed-start').offset().top - heightHeader;
 	let crumbFixedFinish = $('.js-nav-catalog-fixed-finish').offset().top - heightHeader - $('.js-nav-catalog-wrap').outerHeight();
+
 	fixedCrumb($(window).scrollTop());
 
 	function fixedCrumb(scroll) {
+		crumbFixedStart = $('.js-nav-catalog-fixed-start').offset().top - heightHeader;
+		crumbFixedFinish = $('.js-nav-catalog-fixed-finish').offset().top - heightHeader - $('.js-nav-catalog-wrap').outerHeight();
+
 		if(scroll >= crumbFixedStart && scroll <= crumbFixedFinish){
 			$('.js-nav-catalog-wrap').css('height', $('.js-nav-catalog-wrap').outerHeight(true)+'px');
 			$('.js-nav-catalog-wrap').addClass('fixed');
@@ -62,17 +57,6 @@ $(function(){
 			$('.js-cat-main-item-img-wrap').addClass('finished');
 			$('.js-cat-main-item-img-wrap').css({'bottom':'0', 'top':'auto'});
 		}
-
-		// if(scroll >= crumbFixedStart && scroll <= crumbFixedFinish-$('.js-cat-main-item-img-wrap').outerHeight()){
-		// 	$('.js-cat-main-item-img-wrap').addClass('fixed');
-		// 	$('.js-cat-main-item-img-wrap').css('top',$('.js-header').outerHeight()+$('.js-nav-catalog-wrap').outerHeight()+'px');
-		// }else{
-		// 	$('.js-cat-main-item-img-wrap').removeClass('fixed');
-		// 	$('.js-cat-main-item-img-wrap').css('top','0');
-		// }
-
-
-		// js-cat-main-item-img-wrap
 	}
 
 	$(window).on('scroll', function(){
@@ -85,7 +69,7 @@ $(function(){
 		let arrPointSectCatalog = [];
 		let arrPointItemCatalog = [];
 		let heightCrumb = $('.js-nav-catalog-wrap').outerHeight();//Высота крошек
-		let animateScroll = true;//Разрешена наимация при скролле
+		let animateScroll = true;//Разрешена анимация при скролле
 
 		//Собираем точки разделов
 		$('.js-cat-main-sect').each(function( index ) {
@@ -97,38 +81,14 @@ $(function(){
 			arrPointItemCatalog.push([$(this).offset().top, $(this).offset().top + $(this).outerHeight()]);
 		});
 
-		console.log('arrPointItemCatalog = ', arrPointItemCatalog);
-
 		changeActiveCat($(window).scrollTop());
 
 		function changeActiveCat(scroll) {
 			let opacityImg = 0;
 
-	
-			
 			if(scroll > crumbFixedStart && scroll < crumbFixedFinish){
 				//Меняем активный элемент каталога и крошек при скроле
 				for (let index = 0; index < arrPointItemCatalog.length; index++) {
-					// if(scroll < arrPointItemCatalog[index][0] - heightHeader - heightCrumb){
-					// 	let curId = index - 1;
-					// 	$('.js-cat-main-item').removeClass('active');
-					// 	$('.js-cat-main-item[data-id="'+curId+'"]').addClass('active');
-					// 	$('.js-crumb-catalog-item').removeClass('active');
-					// 	$('.js-crumb-catalog-item[data-id="'+curId+'"]').addClass('active');
-					// 	console.log('111111111');
-					// 	console.log('index = ', index);
-						
-					// 	break;
-					// }else if(index == arrPointItemCatalog.length - 1 && scroll >= arrPointItemCatalog[index][0] - heightHeader - heightCrumb){
-					// 	let curId = index;
-
-					// 	$('.js-cat-main-item').removeClass('active');
-					// 	$('.js-cat-main-item[data-id="'+curId+'"]').addClass('active');
-					// 	$('.js-crumb-catalog-item').removeClass('active');
-					// 	$('.js-crumb-catalog-item[data-id="'+curId+'"]').addClass('active');
-					// 	break;
-					// }
-
 					let minPos = arrPointItemCatalog[index][0] - heightHeader - heightCrumb;
 					let maxPos = arrPointItemCatalog[index][1] - heightHeader - heightCrumb;
 
@@ -142,67 +102,38 @@ $(function(){
 							$('.js-cat-main-item[data-id="'+index+'"]').addClass('active');
 							$('.js-crumb-catalog-item').removeClass('active');
 							$('.js-crumb-catalog-item[data-id="'+index+'"]').addClass('active');
-							// console.log('111111111');
+	
 							
-							if(animateScroll == true){
-								// console.log('index = ', index);
-								// console.log('scroll = ', scroll);
-								animateScroll = false;
+							if(widthWindow > 991){
+								if(animateScroll == true){
+									animateScroll = false;
+									document.addEventListener("scroll", returnFalse);
 
-								document.addEventListener("scroll", returnFalse);
+									var top = $('.js-cat-main-item[data-id='+index+']').offset().top - heightHeader - $('.js-nav-catalog-wrap-content').outerHeight() ;
 
-								var top = $('.js-cat-main-item[data-id='+index+']').offset().top - heightHeader - $('.js-nav-catalog-wrap-content').outerHeight() ;
-								// console.log('top = ', top);
-		
-		
-								$('body,html').animate({scrollTop: top}, 500, function() {
-									animateScroll = true;
-									document.removeEventListener("scroll", returnFalse);
-								});
+									$('body,html').animate({scrollTop: top}, 500, function() {
+										animateScroll = true;
+										document.removeEventListener("scroll", returnFalse);
+									});
+								}
 							}
 						}
-
-
-
-						// console.log('scroll = ', scroll);
-						// console.log('arrPointItemCatalog[index][0] - heightHeader - heightCrumb = ', arrPointItemCatalog[index][0] - heightHeader - heightCrumb);
-
-						// if( scroll < minPos + halfPath - 200){
-						// 	console.log('min');
-
-						// 	opacityImg = (scroll - minPos) / halfPath;
-						// }else if( scroll > minPos + halfPath - 200){
-						// 	console.log('max');
-						// 	opacityImg = 1 - ((scroll - minPos - halfPath) / halfPath);
-
-						// }else{
-						// 	opacityImg = 1
-						// }
 
 						if( scroll > minPos + halfPath){
 							opacityImg = 1 - ((scroll - minPos - halfPath) / halfPath);
 							$('.js-cat-main-item.active .js-cat-main-item-img').css('opacity',opacityImg);
-
-							console.log('2222222');
 						}
-						
 
-						// console.log('opacityImg = ', opacityImg);
-						
 						break;
 					}
 				}
 
 				//Меняем активный раздел каталога при скроле
 				for (let index = 0; index < arrPointSectCatalog.length; index++) {
-					// console.log('arrPointSectCatalog[index] = ', arrPointSectCatalog[index]);
-					// console.log('scroll = ', scroll);
 					if(scroll < arrPointSectCatalog[index] - heightHeader - heightCrumb){
 						let curId = index - 1;
 						$('.js-nav-catalog-item').removeClass('active');
 						$('.js-nav-catalog-item[data-sect="'+curId+'"]').addClass('active');
-						// $('.js-crumb-catalog-item').removeClass('active');
-						// $('.js-crumb-catalog-item[data-id="'+curId+'"]').addClass('active');
 						
 						break;
 					}else if(index == arrPointSectCatalog.length - 1 && scroll >= arrPointSectCatalog[index] - heightHeader - heightCrumb){
@@ -210,16 +141,12 @@ $(function(){
 
 						$('.js-nav-catalog-item').removeClass('active');
 						$('.js-nav-catalog-item[data-sect="'+curId+'"]').addClass('active');
-						// $('.js-crumb-catalog-item').removeClass('active');
-						// $('.js-crumb-catalog-item[data-id="'+curId+'"]').addClass('active');
+
 						break;
 					}
 				}
 			}
-	
-
 		}
-
 
 		$(window).on('scroll', function(){
 			changeActiveCat($(this).scrollTop());
@@ -253,42 +180,25 @@ $(function(){
 				document.removeEventListener("scroll", returnFalse);
 			});
 		});
-	
 	}
-
-
-
 
 	if($('.js-history-animate').length){
 		let pointAnimStart = $('.js-anim-start').offset().top;// Начало анимации (расстояние от верха страницы)
 		let pointAnimFinish = $('.js-anim-finish').offset().top;// Конец анимации
-		// let pointAnimPath = $('.js-anim-point-path').offset().top;//Начало анимации пути
 		let scrollWindow = $(window).scrollTop();//текущее положение на странице
-
-
-		
 		let sratPosMap = parseInt($('.js-history-animate-map-wrap').css('top').replace('px',''));//Первоначальное положение карты
-		// let firstAnimSect = pointAnimPath - pointAnimStart - sratPosMap*2 - $('.js-history-animate-map').outerHeight()/2;//Первый отрезок анимации
-		
-		let scrollMap = 0;//Смещение карты
-		// let pointAnimFinishMap = pointAnimFinish - $('.js-history-animate-map').outerHeight()/2 - sratPosMap;//Конец аимации для карты
 		let pointAnimFinishMap = pointAnimFinish - $('.js-history-animate-map').outerHeight() - sratPosMap;//Конец аимации для карты
 		let opacityFirstMap = 0;//Прозрачность первого слоя карты
 		let opacitySecondMap = 0;//Прозрачность второго слоя карты
 		let opacityFullMap = 0;//Прозрачность всей карты
 		let scaleFullMap = 0;//Масштаб всей карты
-
-
 		let firstPointAnimMap = pointAnimStart + sratPosMap;
 		let secondPointAnimMap = $('.js-anim-point-path').offset().top - $('.js-history-animate-map').outerHeight()/2 - sratPosMap;
 		let thirdPointAnimMap = $('.js-anim-point-gallery').offset().top  - $('.js-history-animate-map').outerHeight()/2 - sratPosMap;
 		let fourthPointAnimMap = $('.js-anim-point-clouds').offset().top - $('.js-history-animate-map').outerHeight()/2 - sratPosMap;
-		// let fifthPointAnimMap = $('.js-anim-point-gallery').offset().top - secondPointAnimMap;
-
 		let startPosCompas = parseInt($('.js-history-animate-compas').css('left').replace('px',''));//Начальная позиция компаса
 		let moveCompas = startPosCompas;//Перемещение компаса
 		let scalePatern = 0;//Масштаб патерна
-
 		let opacityPath = 0;//Прозрачность пути
 		let countLines = $('.js-path-line-item').length;//Получаем количество пунктиров
 		let startPath = secondPointAnimMap - (thirdPointAnimMap - secondPointAnimMap) / 2;//Начало анимации пути
@@ -329,61 +239,16 @@ $(function(){
 			cloudSecond.style.transform = 'translate(-' + x * 50 + 'px, -' + y * 50 + 'px)';
 		});
 
-		// let indentTopCatImg = ($(window).height() - $('.js-catalog-slider-img-wrap').height()) / 2;
-		// let indentTopCat = $('.js-catalog-slider').offset().top;
-		let indentTopImgScroll = 0;//Смещение картинки каталога
-		// let startImgScroll = $('.js-catalog-slider-img-wrap').offset().top - indentTopCatImg;//Точка старта скрола картинки каталога
-		// let finishImgScroll = indentTopCat + $('.js-catalog-slider').height() - $('.js-catalog-slider-img-wrap').height();//Точка финиша скрола картинки каталога
-
-		let arrPointChangeImg = [];
-		// let scrollToElem = false;
-		// let curIndexItem = $('.js-catalog-slider-item.active').data('id');
-
 		let startPointAnimSlider = $('.js-anim-point-gallery').offset().top - $(window).outerHeight()*1.5;//Начало анимации слайдера
 		let finishPointAnimSlider = startPointAnimSlider + $(window).outerHeight();//Конец анимации слайдера
 		let moveSlider = 100;//Смещение слайдера
-
 		let mapScrolling = false;//Флаг перемещения карты
 		let beginScrolling = $(window).scrollTop();//Первоначальная позиция на экране
 
 
 		animateMap(scrollWindow);
 
-
-		// $('.js-tabs-page-content-item.active').find('.js-catalog-slider-bottle').each(function( index ) {
-		// 	// let point = $(this).offset().top - ($(window).height() - $(this).height()) / 2;
-		// 	// let minPoint = $(this).offset().top - ($(window).height() - $(this).height()) / 2;
-		// 	let minPoint = $(this).offset().top;
-		// 	let maxPoint = $(this).offset().top + $(this).height();
-		// 	arrPointChangeImg[index] = [minPoint, maxPoint];
-		// });
-
-		// scrollImgCat(scrollWindow);
-
 		function animateMap(scroll) {
-			// pointAnimStart = $('.js-anim-start').offset().top;
-			// if(scroll <= firstPointAnimMap){
-			// 	console.log('1111111');
-			// 	// $('.js-kv').css('background-color','green');
-			// 	// $('.js-kv').html('0');
-			// }else if(scroll > firstPointAnimMap && scroll < secondPointAnimMap){
-			// 	console.log('2222');
-			// 	// $('.js-kv').css('background-color','pink');
-			// 	// $('.js-kv').html('1');
-			// }else if(scroll >= secondPointAnimMap  && scroll < thirdPointAnimMap){
-			// 	console.log('3333');
-			// 	// $('.js-kv').css('background-color','grey');
-			// 	// $('.js-kv').html('2');
-			// }else if(scroll >= thirdPointAnimMap  && scroll < fourthPointAnimMap){
-			// 	console.log('4444');
-			// 	// $('.js-kv').css('background-color','yellow');
-			// 	// $('.js-kv').html('3');
-			// }else if(scroll >= fourthPointAnimMap  && scroll < pointAnimFinish){
-			// 	console.log('5555');
-			// 	// $('.js-kv').css('background-color','purple');
-			// 	// $('.js-kv').html('4');
-			// }
-
 			//Изменение прозрачности карты (первый слой)
 			if(scroll <= firstPointAnimMap){
 				opacityFirstMap = 0;
@@ -491,49 +356,6 @@ $(function(){
 			$('.js-history-animate-cloud-first').css({'left': moveCloudFirst+'%', 'margin-top':moveCloudFirstTop+'px'});
 			$('.js-history-animate-cloud-second').css({'left': moveCloudSecond+'%', 'margin-top':moveCloudSecondTop+'px'});
 
-			// function parallaxScroll(){
-			// 	var scrolled = $(window).scrollTop();
-			// 	$('#parallax-bg1').css('top',(0-(scrolled*.25))+'px');
-			// 	$('#parallax-bg2').css('top',(0-(scrolled*.5))+'px');
-			// 	$('#parallax-bg3').css('top',(0-(scrolled*.75))+'px');
-			// }
-
-			// $('.js-history-animate-map-wrap').hover(function() {
-			// 	console.log('hover');
-			// 	console.log($(this).);
-
-
-
-			// 	// if(prevMouseX)
-			// });
-
-			// $('.js-history-animate-map-wrap').mousemove(function(event) {
-			// 	if(scroll > thirdPointAnimMap && scroll < finishOpacityClouds){
-			// 		curMousePos.x = event.pageX;
-			// 		curMousePos.y = event.pageY;
-			// 		let transformCloudFirst = $('.js-history-animate-cloud-first').width() * 0.1;
-			// 		let transformCloudSecond = $('.js-history-animate-cloud-second').width() * 0.1;
-					
-			// 		console.log('transformCloudFirst = ', transformCloudFirst);
-
-			// 		if(curMousePos.x > prevMousePos.x){
-			// 			console.log('1111');
-			// 			$('.js-history-animate-cloud-first').animate({'margin-left': transformCloudFirst+'px'}, 300);
-			// 			// $('.js-history-animate-cloud-first').css('transform', 'translateX('+transformCloudFirst+'px)')
-			// 			prevMousePos.x = curMousePos.x;
-			// 		}else if(curMousePos.x < prevMousePos.x){
-			// 			console.log('2222');
-			// 			$('.js-history-animate-cloud-first').animate({'margin-left': '-'+transformCloudFirst+'px'}, 300);
-			// 			// $('.js-history-animate-cloud-first').css('transform', 'translateX('+transformCloudFirst+'px)')
-			// 			prevMousePos.y = curMousePos.y;
-			// 		}
-
-			// 		// console.log('currentMousePos.x = ', curMousePos.x);
-			// 		// console.log('currentMousePos.y = ', curMousePos.y);
-			// 	}
-				
-			// });
-
 			//Увеличение карты
 			if(scroll <= fourthPointAnimMap){
 				opacityFullMap = 1;
@@ -555,14 +377,6 @@ $(function(){
 				$('.js-history-animate-map-wrap').animate({'top': '250px'}, 10);
 				$('.js-history-animate-map-wrap').removeClass('fixed');
 			}else if(scroll > pointAnimStart && scroll < pointAnimFinishMap){
-				// scrollMap = scroll - pointAnimStart + sratPosMap;
-
-				// if(scrollMap < sratPosMap){
-				// 	scrollMap = sratPosMap;
-				// }
-
-				// $('.js-history-animate-map-wrap').css('top', scrollMap);
-				// // $('.js-history-animate-map-wrap').animate({'top': scrollMap}, 10);
 				mapScrolling = true;
 				$('.js-history-animate-map-wrap').addClass('fixed');
 
@@ -581,148 +395,86 @@ $(function(){
 					$('.js-history-animate-map-wrap').removeClass('fixed');
 				}
 			}
-			
 		}
-
-		// function scrollImgCat(scroll) {
-		// 	//Скролл картинки каталога
-		// 	if(scroll < startImgScroll){
-		// 		indentTopImgScroll = 0;
-		// 	}else if(scroll > startImgScroll && scroll < finishImgScroll){
-		// 		indentTopImgScroll = scroll - indentTopCat + indentTopCatImg;
-
-		// 		//Переключаем активную карточку
-		// 		for (let index = 0; index < arrPointChangeImg.length; index++) {
-		// 			if(scroll+$(window).height()/2 > arrPointChangeImg[index][0]  && scroll+$(window).height()/2 < arrPointChangeImg[index][1]){
-		// 				$('.js-tabs-page-content-item.active').find('.js-catalog-slider-item').removeClass('active');
-		// 				$('.js-tabs-page-content-item.active').find('.js-catalog-slider-item[data-id='+index+']').addClass('active');
-		// 				// console.log('indexffffff = ', index);
-		// 				// console.log('curIndexItemfffff = ', curIndexItem);
-		// 				if(curIndexItem != index){
-		// 					console.log('index = ', index);
-		// 					console.log('curIndexItem = ', curIndexItem);
-
-
-		// 					$('body,html').animate({scrollTop: arrPointChangeImg[index][0] - 100}, 1000);
-
-		// 					curIndexItem = index;
-		// 				}
-
-		// 				break;
-		// 			}
-		// 		}
-		// 	}
-
-		// 	$('.js-catalog-slider-img-wrap').css('top', indentTopImgScroll);
-		// 	// $('.js-catalog-slider-img-wrap').animate({'top': indentTopImgScroll}, 10);
-		// }
 
 		$(window).on('scroll', function(){
 			scrollWindow = $(this).scrollTop();
 
-			// console.log('scrollWindow = ', scrollWindow);
-
 			animateMap(scrollWindow);
-			// scrollImgCat(scrollWindow);
-			
-
-			
-
-
-		// 	scrollHistoryVal = $(this).scrollTop();
-
-		// 	//Анимация карты
-		// 	if(scrollHistoryVal <= scrollMapBegin){
-		// 		$('.js-history-animate-map-color').css('opacity', '0');
-		// 		$('.js-history-animate-map-wrap').css('top', topMapBegin);
-		// 		$('.js-history-animate-pattern').css('transform', 'translateX(-50%) translateY(-50%) scale(0)');
-		// 		$('.js-history-animate-compas').css('opacity', '0');
-		// 	}else if(scrollHistoryVal > scrollMapBegin  && scrollHistoryVal < scrollMapFinish){
-		// 		opacityMap = scrollHistoryVal * 1 / (scrollMapFinish - scrollMapBegin);
-		// 		scrollMap = scrollHistoryVal - (scrollMapBegin - beginAnimHist);
-		// 		scalePattern = scrollHistoryVal * 1 / (scrollMapFinish - scrollMapBegin);
-
-		// 		if(scalePattern > 1){
-		// 			scalePattern = 1;
-		// 		}
-
-		// 		$('.js-history-animate-map-color').css('opacity', opacityMap);
-		// 		$('.js-history-animate-map-wrap').css('top', scrollMap);
-		// 		$('.js-history-animate-pattern').css('transform', 'translateX(-50%) translateY(-50%) scale('+scalePattern+')');
-		// 		$('.js-history-animate-compas').css('opacity', opacityMap);
-		// 	}
-
-		// 	//Анимация стакана
-		// 	let rotateGlass = 0;
-		// 	let scaleGlass = 1;
-
-		// 	if(scrollHistoryVal > 0  && scrollHistoryVal < finishAnimHist/2){
-		// 		rotateGlass = scrollHistoryVal * 60 / ((finishAnimHist - beginAnimHist) / 2);
-		// 		scaleGlass = 1 + (scrollHistoryVal * 0.05 / ((finishAnimHist - beginAnimHist) / 2));
-
-		// 		$('.js-history-animate-glass').css('transform', 'rotate('+rotateGlass+'deg) scale('+scaleGlass+')');
-		// 	}
-
-		// 	//Анимация пути
-		// 	let countLines = $('.js-path-line-item').length;//Получаем количество пунктиров
-		// 	let intervalPath = (scrollMapFinish - 100 - scrollMapFinish/2) / countLines;//Получаем интервал, через который будет появляться следующая линия
-		// 	let arrOpacityLines = [];//Массив для хранения прозрачности пунктиров
-
-		// 	for (let index = 0; index < countLines; index++) {//Получаем прозрачность для каждого пунктира
-		// 		arrOpacityLines.push(index/countLines);
-		// 	}
-
-		// 	if(scrollHistoryVal > scrollMapFinish/2  && scrollHistoryVal < scrollMapFinish-100){
-		// 		let curPath = scrollHistoryVal - scrollMapFinish/2;
-		// 		let curCountLines = 0;
-
-		// 		$('.js-path-line-item').css('opacity','0');//Скрываем все пунктиры
-		// 		curCountLines = Math.round(curPath/intervalPath);//Вычисляем текущие пунктиры
-				
-		// 		for (let index = 0; index < curCountLines; index++) {//Показываем пунктиры в соответствии с прозрачностью
-		// 			$('.js-path-line-item:nth-child('+index+')').css('opacity', arrOpacityLines[index]);
-
-		// 			if(index > countLines - 5){
-		// 				$('.js-history-path-anchor').addClass('active');
-		// 			}else{
-		// 				$('.js-history-path-anchor').removeClass('active');
-		// 			}
-		// 		}
-		// 	}
 		});
-
-		// Паралакс для бутылок
-		// function parallaxScroll(){
-		// 	var scrolled = $(window).scrollTop() - $('.js-catalog-slider-wrap').offset().top;
-		// 	console.log('scrolled = ', scrolled);
-		// 	$('.js-catalog-slider-bottle').css('top',(0-(scrolled*.05))+'px');
-		// }
-
-		// $(window).on('scroll', function(){
-		// 	parallaxScroll();
-		// });
 	}
+
+
+	$(window).on('resize', function(){
+		widthWindow = $(window).width();
+
+		arrPointSectCatalog = [];
+		arrPointItemCatalog = [];
+		heightCrumb = $('.js-nav-catalog-wrap').outerHeight();//Высота крошек
+		animateScroll = true;//Разрешена наимация при скролле
+
+		heightHeader = $('.js-header').outerHeight();//Высота шапки
+
+		crumbFixedStart = $('.js-nav-catalog-fixed-start').offset().top - heightHeader;
+		crumbFixedFinish = $('.js-nav-catalog-fixed-finish').offset().top - heightHeader - $('.js-nav-catalog-wrap').outerHeight();
+
+		pointAnimStart = $('.js-anim-start').offset().top;// Начало анимации (расстояние от верха страницы)
+		pointAnimFinish = $('.js-anim-finish').offset().top;// Конец анимации
+		scrollWindow = $(window).scrollTop();//текущее положение на странице
+		sratPosMap = parseInt($('.js-history-animate-map-wrap').css('top').replace('px',''));//Первоначальное положение карты
+		pointAnimFinishMap = pointAnimFinish - $('.js-history-animate-map').outerHeight() - sratPosMap;//Конец аимации для карты
+		opacityFirstMap = 0;//Прозрачность первого слоя карты
+		opacitySecondMap = 0;//Прозрачность второго слоя карты
+		opacityFullMap = 0;//Прозрачность всей карты
+		scaleFullMap = 0;//Масштаб всей карты
+		firstPointAnimMap = pointAnimStart + sratPosMap;
+		secondPointAnimMap = $('.js-anim-point-path').offset().top - $('.js-history-animate-map').outerHeight()/2 - sratPosMap;
+		thirdPointAnimMap = $('.js-anim-point-gallery').offset().top  - $('.js-history-animate-map').outerHeight()/2 - sratPosMap;
+		fourthPointAnimMap = $('.js-anim-point-clouds').offset().top - $('.js-history-animate-map').outerHeight()/2 - sratPosMap;
+		startPosCompas = parseInt($('.js-history-animate-compas').css('left').replace('px',''));//Начальная позиция компаса
+		moveCompas = startPosCompas;//Перемещение компаса
+		scalePatern = 0;//Масштаб патерна
+		opacityPath = 0;//Прозрачность пути
+		countLines = $('.js-path-line-item').length;//Получаем количество пунктиров
+		startPath = secondPointAnimMap - (thirdPointAnimMap - secondPointAnimMap) / 2;//Начало анимации пути
+		finishPath = thirdPointAnimMap - (thirdPointAnimMap - secondPointAnimMap) / 2;//Конец анимации пути
+		intervalPath = ((finishPath - startPath) - ((finishPath - startPath)/3)) / countLines;//Получаем интервал, через который будет появляться следующая линия
+		arrOpacityLines = [];//Массив для хранения прозрачности пунктиров
+		curCountLines = 0;//Текущее количество пунктиров, которые показываются на данный момент
+
+		for (let index = 0; index < countLines; index++) {//Получаем прозрачность для каждого пунктира
+			arrOpacityLines.push(index/countLines);
+		}
+
+		opacityClouds = 0;
+		startOpacityClouds = fourthPointAnimMap;
+		finishOpacityClouds = fourthPointAnimMap + (fourthPointAnimMap - thirdPointAnimMap);
+		startCloudFirstLeft = Math.round(parseInt($('.js-history-animate-cloud-first').css('left').replace('px','')) / $('.js-history-animate-map-wrap').width() * 100); //Отступ первого облока по горизонтали (в процентах)
+		startCloudSecondLeft = Math.round(parseInt($('.js-history-animate-cloud-second').css('left').replace('px','')) / $('.js-history-animate-map-wrap').width() * 100); //Отступ первого облока по горизонтали (в процентах)
+		moveCloudFirst = startCloudFirstLeft; //Смещение первого облока по горизонтали (в процентах)
+		moveCloudSecond = startCloudSecondLeft; //Смещение первого облока по горизонтали (в процентах)
+		moveCloudFirstTop = 0; //Паралакс первого облака
+		moveCloudSecondTop = 0; //Паралакс второго облака
+		startPointAnimSlider = $('.js-anim-point-gallery').offset().top - $(window).outerHeight()*1.5;//Начало анимации слайдера
+		finishPointAnimSlider = startPointAnimSlider + $(window).outerHeight();//Конец анимации слайдера
+		moveSlider = 100;//Смещение слайдера
+		mapScrolling = false;//Флаг перемещения карты
+		beginScrolling = $(window).scrollTop();//Первоначальная позиция на экране
+
+	});
 
 	//Слайдер галерея картинок
 	if($('.js-gallery-slider').length){
 		var gallerySlider = new Swiper('.js-gallery-slider', {
 			loop: false,
 			spaceBetween: 40,
-			slidesPerView: 3.4,
-			// modules: [Navigation, Pagination, Mousewheel],
+			slidesPerView: 1.6,
 			modules: [Navigation, Pagination],
-			// mousewheel: true,
 			navigation: {
 				nextEl: '.js-gallery-slider-next',
 				prevEl: '.js-gallery-slider-prev',
 			},
 			breakpoints: {
-				// // when window width is >= 320px
-				// 320: {
-				//   slidesPerView: 2,
-				//   spaceBetween: 20
-				// },
-				// // when window width is >= 480px
 				992: {
 				  slidesPerView: 1.6,
 				},
@@ -735,38 +487,6 @@ $(function(){
 			}
 		});
 	}
-
-	//Слайдер каталога
-	// if($('.js-catalog-slider').length){
-	// 	// let catalogSlider = {};
-
-	// 	// $('.js-catalog-slider').each(function(index) {//Задаем множественные слайдеры каталога
-	// 	// 	let swiperSliderId = $(this).data('id');
-
-	// 	// 	catalogSlider[index] = new Swiper('.js-catalog-slider[data-id="'+swiperSliderId+'"]', {
-	// 	// 		slidesPerView: 1,
-	// 	// 		spaceBetween: 30,
-	// 	// 		loop: true,
-	// 	// 		modules: [Mousewheel, EffectFade],
-	// 	// 		mousewheel: true,
-	// 	// 		fadeEffect: { crossFade: true },
-	// 	// 		effect: 'fade',
-	// 	// 		on: {
-	// 	// 			slideChange: function (elem) {
-	// 	// 				//Задаем активный пункт в крошках
-	// 	// 				var activeIndex = this.realIndex;
-	// 	// 				var $parentBlock = $('.js-catalog-slider[data-id="'+swiperSliderId+'"]').closest('.js-catalog-slider-wrap');
-
-	// 	// 				$parentBlock.find('.js-crumb-catalog-item').removeClass('active');
-	// 	// 				$parentBlock.find('.js-crumb-catalog-item[data-slide="'+activeIndex+'"]').addClass('active');
-	// 	// 			},
-	// 	// 		},
-	// 	// 	});
-
-	// 	// });
-
-		
-	// }
 
 	//Переключение брендов
 	if($('.js-choose-brand-item').length){
@@ -821,8 +541,6 @@ $(function(){
 			}
 		}
 	}
-
-	
 
 	//Попап с выбором возраста
 	if($('#age-gate').length){
@@ -906,4 +624,15 @@ $(function(){
 			checkAge($(this).val());
 		});
 	}
+
+	//Открыть/Закрыть мобильное меню
+	$('.js-open-main-menu').on('click', function(){
+		$('.js-main-menu-wrap').addClass('open');
+		$('.js-body').addClass('no-scroll');
+	});
+
+	$('.js-close-main-menu').on('click', function(){
+		$('.js-main-menu-wrap').removeClass('open');
+		$('.js-body').removeClass('no-scroll');
+	});
 });

@@ -65,3 +65,28 @@
 		.crumb-catalog{padding-bottom: 20px;}
 	}
 }
+
+@media (max-width: 991px) {
+	.nav-catalog{
+		&__item{
+			height: 6rem;
+			border-radius: 3rem;
+			font-size: 2.8rem;
+		}
+	}
+}
+
+@media (max-width: 991px) {
+	.nav-catalog-wrap{
+		&.fixed &__content{top: 80px;}
+	}
+
+	.nav-catalog{
+		&__item{
+			height: 4rem;
+			border-radius: 2rem;
+			font-size: 2.4rem;
+			padding: 0 20px;
+		}
+	}
+}

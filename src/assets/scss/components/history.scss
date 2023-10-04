@@ -84,3 +84,20 @@
 		.info-block{max-width: 392px;}
 	}
 }
+
+@media (max-width: 991px) {
+	.history{
+		&__title{font-size: 6rem;}
+	}
+}
+
+@media (max-width: 767px) {
+	.history{
+		&__title{font-size: 5.2rem;}
+		
+		&__sect{
+			height: auto;
+			min-height: calc(100vh - 100px);
+		}
+	}
+}

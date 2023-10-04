@@ -226,3 +226,21 @@
 		&__compas{max-width: 40%;}
 	}
 }
+
+@media (max-width: 767px) {
+	.history-animate{
+		&__glass{right: -60%;}
+
+		&__cloud-first{max-width: 40%;}
+		&__cloud-second{max-width: 30%;}
+	}
+
+	.history-path{
+		&__line svg{width: 500px;}
+
+		&__anchor{
+			width: 40px;
+			right: -24px;
+		}
+	}
+}

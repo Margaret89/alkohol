@@ -19,8 +19,30 @@
 
 	&.fixed{background: #131C24;}
 	&.fixed &__logo{max-width: 150px;}
+
 	&.fixed &__content{
 		height: 90px;
 		padding: 10px 0;
+	}
+}
+
+@media (max-width: 991px) {
+	.header{
+		&__logo,
+		&.fixed &__logo{
+			max-width: 140px;
+		}
+	}
+}
+
+@media (max-width: 767px) {
+	.header{
+		&__content,
+		&.fixed &__content{
+			height: 80px;
+			padding: 5px 0;
+		}
+
+		&__logo img{max-height: 100%;}
 	}
 }

@@ -247,3 +247,33 @@
 	&__item.active{z-index: 2;}
 	&__item.active &__circles{display: inline-block;}
 }
+
+@media (max-width: 991px) {
+	.briefcase{
+		margin-top: 6rem;
+
+		.btn{margin-top: 3rem;}
+	}
+}
+
+@media (max-width: 767px) {
+	.bottle-info{
+		&__country{
+			width: 120px;
+			height: 120px;
+		}
+
+		&__item:nth-child(2),
+		&__item:nth-child(3){
+			margin-left: 10px;
+		}
+	}
+
+	.briefcase{
+		&__title{font-size: 4rem;}
+	}
+
+	.choose-brand{
+		&__item{max-width: calc(33.33% - 4px);}
+	}
+}
