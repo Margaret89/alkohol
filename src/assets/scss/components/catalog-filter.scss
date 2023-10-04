@@ -42,3 +42,16 @@
 		&.active{cursor: auto;}
 	}
 }
+
+@media (max-width: 991px) {
+	.catalog-filter{
+		margin-bottom: 80px;
+		
+		&__item{
+			height: 4rem;
+			border-radius: 2rem;
+			font-size: 2.4rem;
+			padding: 0 20px;
+		}
+	}
+}

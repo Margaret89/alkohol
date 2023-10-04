@@ -32,7 +32,7 @@ block content
 		.catalog-list
 			.container-fluid
 				.row
-					.col-11
+					.col-xxl-11
 						.row
 							-
 								var list=[
@@ -185,7 +185,7 @@ block content
 									},
 								]
 							each item in list
-								.col-6
+								.col-xl-6
 									.catalog-item
 										.catalog-item__bg-img-wrap
 											.catalog-item__bg-img(style="background-image: url(assets/img/cat-img1.jpg)")
@@ -195,7 +195,8 @@ block content
 
 										.catalog-item__content
 											.catalog-item__info
-												.catalog-item__title= item.title
+												.catalog-item__title
+													span.text-gradient= item.title
 
 												.catalog-item__type= item.subtitle
 

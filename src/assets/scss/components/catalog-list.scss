@@ -126,3 +126,32 @@
 		width: 51%;
 	}
 }
+
+@media (max-width: 1439px) {
+	.catalog-item{
+		&__img,
+		&_no-anim &__img{
+			width: 42%;
+		}
+	}
+}
+
+@media (max-width: 1279px) {
+	.catalog-item{
+		&__img,
+		&_no-anim &__img{
+			width: 240px;
+		}
+
+		&_no-anim &__img{align-items: flex-start;}
+	}
+}
+
+@media (max-width: 1279px) {
+	.catalog-item{
+		&__img,
+		&_no-anim &__img{
+			width: 36%;
+		}
+	}
+}
