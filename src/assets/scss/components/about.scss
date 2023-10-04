@@ -21,3 +21,25 @@
 		p{break-inside: avoid;}
 	}
 }
+
+@media (max-width: 1279px) {
+	.about{
+		&__content{column-count: 2;}
+	}
+}
+
+@media (max-width: 991px) {
+	.about{
+		&__content{
+			column-count: 1;
+
+			p:last-child{margin-bottom: 0;}
+		}
+	}
+}
+
+@media (max-width: 767px) {
+	.about{
+		&__content{padding-left: 0;}
+	}
+}

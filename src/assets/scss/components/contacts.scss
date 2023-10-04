@@ -29,3 +29,13 @@
 
 	&__label{width: 40%;}
 }
+
+@media (max-width: 1279px) {
+	.contacts{margin-bottom: 100px;}
+}
+
+@media (max-width: 767px) {
+	.contacts{
+		&__content{padding-left: 0;}
+	}
+}

@@ -116,3 +116,41 @@
 
 	&_line &__btn{margin-top: 0;}
 }
+
+@media (max-width: 1279px) {
+	.form-site{
+		input[type="text"],
+		input[type="date"],
+		input[type="email"],
+		input[type="number"],
+		input[type="password"],
+		textarea{
+			border-radius: 3rem;
+			font-size: 2.8rem;
+		}
+
+		input[type="text"],
+		input[type="date"],
+		input[type="email"],
+		input[type="number"],
+		input[type="password"]{
+			height: 6rem;
+		}
+	}
+}
+
+@media (max-width: 991px) {
+	.form-site{max-width: 565px;}
+}
+
+@media (max-width: 767px) {
+	.form-site{
+		input[type="text"],
+		input[type="date"],
+		input[type="email"],
+		input[type="number"],
+		input[type="password"],{
+			width: 80%;
+		}
+	}
+}
