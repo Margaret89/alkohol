@@ -61,3 +61,22 @@
 @media (max-width: 1499px) {
 	.gallery-slider-wrap{width: calc(100% + 32px);}
 }
+
+@media (max-width: 991px) {
+	.gallery-slider{
+		&__label{font-size: 1.1rem;}
+	}
+}
+
+@media (max-width: 767px) {
+	.gallery-climate{
+		position: relative;
+
+		.gallery-info{position: static;}
+	}
+
+	.gallery-info{
+		.anim-point-gallery{top: 100%;}
+		.info-block{padding-bottom: 0;}
+	}
+}

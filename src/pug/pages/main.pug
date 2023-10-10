@@ -74,8 +74,7 @@ block content
 			.anim-start.js-anim-start
 			.history__sect
 				.history__line(style="background-image: url('assets/img/pattern-line.svg')")
-				.scroll-arrow
-					+svg('ic-circle-arrow','ic-circle-arrow', '58', '70')
+				
 
 				.container-fluid
 					.row
@@ -91,6 +90,9 @@ block content
 									a.btn.btn_small(href='#') Джин
 									a.btn.btn_small(href='#') Ром
 
+								.scroll-arrow
+									+svg('ic-circle-arrow','ic-circle-arrow', '58', '70')
+
 			.history__sect.history__sect_center
 				.anim-point-path.js-anim-point-path
 				.container-fluid
@@ -103,81 +105,82 @@ block content
 									p Британская Империя, в поисках пряностей, тканей и драгоценных камней, пускает якорь у берегов загадочного полуострова — Индии. 
 									p Вдохновлённые новыми культурами и обычаями, британцы открывают нечто большее, чем просто новый рынок — они обнаруживают в Индии потенциал для создания идеального «brown spirit».
 
-		section.p-indent.gallery-info
-			.anim-point-gallery.js-anim-point-gallery
-			.container-fluid
-				.row
-					.col-md-6.col-xl-5
-						.info-block
-							h2 Британско- индийский симбиоз
+		.gallery-climate
+			section.p-indent.gallery-info
+				.anim-point-gallery.js-anim-point-gallery
+				.container-fluid
+					.row
+						.col-md-6.col-xl-5
+							.info-block
+								h2 Британско- индийский симбиоз
 
-							.info-block__text
-								p Проходит время, и британцы привозят свои технологии и традиции производства алкоголя в Индию. Индийские винокурни начинают применять эти методы, адаптируя их под свои условия и ингредиенты. 
-								p Это рождение нового стиля дистилляции, симбиоза британских традиций и индийского терруара.
+								.info-block__text
+									p Проходит время, и британцы привозят свои технологии и традиции производства алкоголя в Индию. Индийские винокурни начинают применять эти методы, адаптируя их под свои условия и ингредиенты. 
+									p Это рождение нового стиля дистилляции, симбиоза британских традиций и индийского терруара.
 
-					.col-md-6.col-xl-7
-						.gallery-slider-wrap
-							.gallery-slider.swiper.js-gallery-slider
-								.swiper-buttons
-									.swiper-button-prev.js-gallery-slider-prev
-										+svg('ic-decor-arrow-left','ic-decor-arrow-left', '52', '25')
-									.swiper-button-next.js-gallery-slider-next
-										+svg('ic-decor-arrow-right','ic-decor-arrow-right', '52', '25')
+						.col-md-6.col-xl-7
+							.gallery-slider-wrap
+								.gallery-slider.swiper.js-gallery-slider
+									.swiper-buttons
+										.swiper-button-prev.js-gallery-slider-prev
+											+svg('ic-decor-arrow-left','ic-decor-arrow-left', '52', '25')
+										.swiper-button-next.js-gallery-slider-next
+											+svg('ic-decor-arrow-right','ic-decor-arrow-right', '52', '25')
 
-								.swiper-wrapper
-									-
-										var list=[
-											{
-												img:'gallery-slider1.jpg',
-												label: 'radico',
-											},
-											{
-												img:'gallery-slider2.jpg',
-												label: 'ads group',
-											},
-											{
-												img:'gallery-slider3.jpg',
-											},
-											{
-												img:'gallery-slider4.jpg',
-											},
-											{
-												img:'gallery-slider2.jpg',
-												label: 'ads group',
-											},
-											{
-												img:'gallery-slider2.jpg',
-												label: 'ads group',
-											},
-											{
-												img:'gallery-slider3.jpg',
-											},
-											{
-												img:'gallery-slider4.jpg',
-											},
-										]
-									each item in list
-										.swiper-slide.gallery-slider__item
-											.gallery-slider__img(style="background-image: url(assets/img/"+item.img+")")
+									.swiper-wrapper
+										-
+											var list=[
+												{
+													img:'gallery-slider1.jpg',
+													label: 'radico',
+												},
+												{
+													img:'gallery-slider2.jpg',
+													label: 'ads group',
+												},
+												{
+													img:'gallery-slider3.jpg',
+												},
+												{
+													img:'gallery-slider4.jpg',
+												},
+												{
+													img:'gallery-slider2.jpg',
+													label: 'ads group',
+												},
+												{
+													img:'gallery-slider2.jpg',
+													label: 'ads group',
+												},
+												{
+													img:'gallery-slider3.jpg',
+												},
+												{
+													img:'gallery-slider4.jpg',
+												},
+											]
+										each item in list
+											.swiper-slide.gallery-slider__item
+												.gallery-slider__img(style="background-image: url(assets/img/"+item.img+")")
 
-											if(item.label)
-												.gallery-slider__label= item.label
+												if(item.label)
+													.gallery-slider__label= item.label
 
-		section.p-indent.climate
-			.anim-point-clouds.js-anim-point-clouds
-			.container-fluid
-				.row.align-items-center
-					.col-md-5
-						.info-block
-							h2 Климатический бонус
+			section.p-indent.climate
+				.anim-point-clouds.js-anim-point-clouds
+				.container-fluid
+					.row.align-items-center
+						.col-md-6.col-lg-5
+							.info-block
+								h2 Климатический бонус
 
-							.info-block__text
-								p Внешний мир быстро обнаруживает особенность индийских «brown spirits». В теплом и влажном климате Индии процесс выдержки в бочке происходит в 3 раза быстрее, придавая напиткам глубокий и сложный вкус, которого нельзя достичь в более умеренном климате.
+								.info-block__text
+									p Внешний мир быстро обнаруживает особенность индийских «brown spirits». В теплом и влажном климате Индии процесс выдержки в бочке происходит в 3 раза быстрее, придавая напиткам глубокий и сложный вкус, которого нельзя достичь в более умеренном климате.
 
 		section.p-indent.briefcase-wrap
 			.container-fluid
 				.row.align-items-center
-					.col-lg-5.order-2.order-lg-1
+					.col-lg-5
 						.briefcase
 							.briefcase__title
 								span.text-gradient Портфель
@@ -211,7 +214,7 @@ block content
 								span.btn__icon-hide
 									+svg('ic-decor-arrow-right','ic-decor-arrow-right', '39', '20')
 
-					.col-lg-7.order-1.order-lg-2
+					.col-lg-7
 						.bottle-info
 							-
 								var list=[
@@ -581,21 +584,21 @@ block content
 						a.btn(href='#') Связаться с нами
 
 
-	.popup-age(id="age-gate", style="display: none;")
-		.popup-age__logo
-			img(src="assets/img/logo-grey.svg", alt="")
+	//- .popup-age(id="age-gate", style="display: none;")
+	//- 	.popup-age__logo
+	//- 		img(src="assets/img/logo-grey.svg", alt="")
 
-		.popup-age__title
-			span.text-gradient Укажите дату своего рождения
+	//- 	.popup-age__title
+	//- 		span.text-gradient Укажите дату своего рождения
 
-		.js-valid-form-age
-			form.form-site.form-site_line
-				.form-site__content
-					.form-site__item.js-form-site-item
-						.form-site__field
-							input.js-input-age(type="text", placeholder="дд.мм.гггг")
+	//- 	.js-valid-form-age
+	//- 		form.form-site.form-site_line
+	//- 			.form-site__content
+	//- 				.form-site__item.js-form-site-item
+	//- 					.form-site__field
+	//- 						input.js-input-age(type="text", placeholder="дд.мм.гггг")
 
-				.form-site__btn
-					button(type="submit", disabled="disabled").btn.js-submit-age Продолжить
-						span.btn__icon-hide
-							+svg('ic-decor-arrow-right','ic-decor-arrow-right', '39', '20')
+	//- 			.form-site__btn
+	//- 				button(type="submit", disabled="disabled").btn.js-submit-age Продолжить
+	//- 					span.btn__icon-hide
+	//- 						+svg('ic-decor-arrow-right','ic-decor-arrow-right', '39', '20')

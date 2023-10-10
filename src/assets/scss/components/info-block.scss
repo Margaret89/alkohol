@@ -16,6 +16,8 @@
 			bottom: 0;
 			left: 0;
 		}
+
+		p:last-child{margin-bottom: 0;}
 	}
 }
 
@@ -30,5 +32,13 @@
 	.info-block{
 		max-width: 392px;
 		&__text{padding: 0 0 50px 20px;}
+	}
+}
+
+@media (max-width: 767px) {
+	.info-block{
+		max-width: none;
+		padding-bottom: 100%;
+		&__text{padding: 0 0 32px 20px;}
 	}
 }

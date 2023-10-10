@@ -372,11 +372,11 @@ $(function(){
 
 
 			//Перемещение карты
-			if(scroll <= pointAnimStart){
+			if(scroll <= firstPointAnimMap-heightHeader){
 				mapScrolling = false;
-				$('.js-history-animate-map-wrap').animate({'top': '250px'}, 10);
+				$('.js-history-animate-map-wrap').animate({'top': sratPosMap+'px'}, 10);
 				$('.js-history-animate-map-wrap').removeClass('fixed');
-			}else if(scroll > pointAnimStart && scroll < pointAnimFinishMap){
+			}else if(scroll > firstPointAnimMap-heightHeader && scroll < pointAnimFinishMap){
 				mapScrolling = true;
 				$('.js-history-animate-map-wrap').addClass('fixed');
 
@@ -422,7 +422,7 @@ $(function(){
 		pointAnimFinish = $('.js-anim-finish').offset().top;// Конец анимации
 		scrollWindow = $(window).scrollTop();//текущее положение на странице
 		sratPosMap = parseInt($('.js-history-animate-map-wrap').css('top').replace('px',''));//Первоначальное положение карты
-		pointAnimFinishMap = pointAnimFinish - $('.js-history-animate-map').outerHeight() - sratPosMap;//Конец аимации для карты
+		pointAnimFinishMap = pointAnimFinish - $('.js-history-animate-map').outerHeight();//Конец аимации для карты
 		opacityFirstMap = 0;//Прозрачность первого слоя карты
 		opacitySecondMap = 0;//Прозрачность второго слоя карты
 		opacityFullMap = 0;//Прозрачность всей карты
@@ -467,22 +467,27 @@ $(function(){
 	if($('.js-gallery-slider').length){
 		var gallerySlider = new Swiper('.js-gallery-slider', {
 			loop: false,
-			spaceBetween: 40,
-			slidesPerView: 1.6,
+			spaceBetween: 15,
+			slidesPerView: 2.5,
 			modules: [Navigation, Pagination],
 			navigation: {
 				nextEl: '.js-gallery-slider-next',
 				prevEl: '.js-gallery-slider-prev',
 			},
 			breakpoints: {
-				992: {
-				  slidesPerView: 1.6,
+				// 992: {
+				//   slidesPerView: 1.6,
+				// },
+				480: {
+					slidesPerView: 3.5,
 				},
-				1280: {
-					slidesPerView: 2.6,
+				768: {
+					slidesPerView: 2.9,
+					spaceBetween: 17,
 				},
 				1500: {
 					slidesPerView: 3.4,
+					spaceBetween: 40,
 				}
 			}
 		});

@@ -250,9 +250,66 @@
 
 @media (max-width: 991px) {
 	.briefcase{
-		margin-top: 6rem;
+		margin-bottom: 10rem;
+
+		&__title{
+			font-size: 5.6rem;
+			margin-bottom: 3rem;
+		}
+
+		&__text{
+			font-size: 1.8rem;
+			max-width: none;
+		}
 
 		.btn{margin-top: 3rem;}
+	}
+
+	.choose-brand{
+		&__arr{display: none;}
+		&__text{font-size: 1.8rem;}
+	}
+
+	.bottle-info{
+		&__country{
+			width: 126px;
+			height: 126px;
+			margin-bottom: 8px;
+		}
+
+		&__item:nth-child(1){margin-top: 52px;}
+
+		&__item:nth-child(2){
+			margin-top: 60px;
+			margin-left: -2px;
+		}
+
+		&__item:nth-child(3){margin-left: -4px;}
+
+		&__img{
+			img{max-height: 85px;}
+		}
+
+		&__circles{
+			width: 52px;
+			height: 52px;
+			border-width: 4px;
+
+			span{
+				width: 84px;
+				height: 84px;
+	
+				&::before{
+					width: 120px;
+					height: 120px;
+				}
+	
+				&::after{
+					width: 158px;
+					height: 158px;
+				}
+			}
+		}
 	}
 }
 

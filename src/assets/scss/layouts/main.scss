@@ -312,7 +312,7 @@ button.btn{
 		padding-right: 20px;
 	}
 
-	.h1, .h2, h1, h2{font-size: 3.2rem;}
+	.h1, .h2, h1, h2{font-size: 4rem;}
 
 	.h3, h3{
 		font-size: 3.2rem;
@@ -322,18 +322,32 @@ button.btn{
 	.wrapper{padding-top: 80px;}
 
 	.m-indent{
-		margin-top: 80px;
-		margin-bottom: 80px;
+		margin-top: 65px;
+		margin-bottom: 65px;
 	}
 	
-	.mt-indent{margin-top: 80px;}
-	.mb-indent{margin-bottom: 80px;}
+	.mt-indent{margin-top: 65px;}
+	.mb-indent{margin-bottom: 65px;}
 	
 	.p-indent{
-		padding-top: 80px;
-		padding-bottom: 80px;
+		padding-top: 65px;
+		padding-bottom: 65px;
 	}
 	
-	.pt-indent{padding-top: 80px;}
-	.pb-indent{padding-bottom: 80px;}
+	.pt-indent{padding-top: 65px;}
+	.pb-indent{padding-bottom: 65px;}
+}
+
+@media (max-width: 767px) {
+	.h1, .h2, h1, h2{
+		font-size: 2.8rem;
+		margin-bottom: 3rem;
+	}
+
+	body{
+		font-size: 1.4rem;
+		line-height: 1.25;
+	}
+
+	p{margin-bottom: 1.8rem;}
 }
