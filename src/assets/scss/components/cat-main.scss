@@ -328,7 +328,11 @@
 		&__tag{margin-top: 52px;}
 	}
 
-	.cat-notes{gap: 20px 8px;}
+	.cat-notes{
+		gap: 20px 8px;
+
+		&_hor{gap:24px;}
+	}
 }
 
 @media (min-width: 768px) {
@@ -418,11 +422,7 @@
 		}
 
 		&__bottle{
-			
-
-			img{
-				max-height: 300px;
-			}
+			img{max-height: 300px;}
 		}
 
 		&__content{margin-top: 20px;}

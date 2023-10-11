@@ -56,3 +56,19 @@
 		}
 	}
 }
+
+@media (max-width: 767px) {
+	.catalog-filter{
+		gap: 8px;
+		margin-bottom: 30px;
+	}
+}
+
+@media (max-width: 479px) {
+	.catalog-filter{
+		&__item{
+			font-size: 1.8rem;
+			padding: 0 20px;
+		}
+	}
+}

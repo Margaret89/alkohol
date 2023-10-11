@@ -7,14 +7,14 @@ block label
 	img(src="assets/img/vertical-text-catalog.png", alt="")
 
 block content
-	section.page-header.mb-indent
+	section.page-header
 		.container-fluid
 			.row
 				.col-12
 					h1
 						span.text-gradient Коктейли
 
-	section.mt-indent
+	section
 		.container-fluid
 			.row
 				.col-12
@@ -32,11 +32,12 @@ block content
 		.catalog-list
 			.container-fluid
 				.row
-					.col-11
+					.col-xxl-11
 						.row
 							-
 								var list=[
 									{
+										pic:'dop-img1.png',
 										img:'cocktail1.png',
 										title:'Rampur Asava',
 										subtitle:'односолодовый виски',
@@ -51,6 +52,7 @@ block content
 										]
 									},
 									{
+										pic:'dop-img2.png',
 										img:'cocktail2.png',
 										title:'Rampur Double Cask',
 										subtitle:'односолодовый виски',
@@ -64,6 +66,7 @@ block content
 										]
 									},
 									{
+										pic:'dop-img3.png',
 										img:'cocktail3.png',
 										title:'Royal Ranthambore',
 										ssubtitle:'односолодовый виски',
@@ -75,6 +78,7 @@ block content
 										]
 									},
 									{
+										pic:'dop-img4.png',
 										img:'cocktail4.png',
 										title:'Royal Green',
 										subtitle:'односолодовый виски',
@@ -87,6 +91,7 @@ block content
 										]
 									},
 									{
+										pic:'dop-img5.png',
 										img:'cocktail5.png',
 										title:'The Generation',
 										subtitle:'односолодовый виски',
@@ -101,6 +106,7 @@ block content
 										]
 									},
 									{
+										pic:'dop-img6.png',
 										img:'cocktail6.png',
 										title:'Officer’s choice Blue',
 										subtitle:'односолодовый виски',
@@ -115,6 +121,7 @@ block content
 										]
 									},
 									{
+										pic:'dop-img7.png',
 										img:'cocktail7.png',
 										title:'Sterling Reserve B7',
 										subtitle:'односолодовый виски',
@@ -129,6 +136,7 @@ block content
 										]
 									},
 									{
+										pic:'dop-img8.png',
 										img:'cocktail8.png',
 										title:'Sterling Reserve B10',
 										subtitle:'односолодовый виски',
@@ -142,6 +150,7 @@ block content
 										]
 									},
 									{
+										pic:'dop-img9.png',
 										img:'cocktail9.png',
 										title:'Jaisalmer',
 										subtitle:'Джин',
@@ -156,6 +165,7 @@ block content
 										]
 									},
 									{
+										pic:'dop-img10.png',
 										img:'cocktail10.png',
 										title:'Jaisalmer Gold',
 										subtitle:'Джин',
@@ -170,6 +180,7 @@ block content
 										]
 									},
 									{
+										pic:'dop-img11.png',
 										img:'cocktail11.png',
 										title:'Calenter',
 										subtitle:'Джин',
@@ -186,9 +197,9 @@ block content
 								]
 							each item in list
 								.col-xl-6
-									.catalog-item.catalog-item_no-anim
+									.catalog-item
 										.catalog-item__bg-img-wrap
-											.catalog-item__bg-img
+											.catalog-item__bg-img(style="background-image: url(assets/img/"+item.pic+")")
 
 										.catalog-item__img
 											img(src="assets/img/"+item.img, alt="")
