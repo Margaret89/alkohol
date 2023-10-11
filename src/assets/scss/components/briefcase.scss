@@ -334,3 +334,16 @@
 		&__item{max-width: calc(33.33% - 4px);}
 	}
 }
+
+@media (max-width: 479px) {
+	.bottle-info{
+		&__country{
+			width: 95px;
+			height: 95px;
+		}
+
+		&__item:nth-child(1){margin-top: 40px;}
+		&__item:nth-child(2){margin-top: 55px;}
+		&__item:nth-child(3){margin-left: 4px;}
+	}
+}

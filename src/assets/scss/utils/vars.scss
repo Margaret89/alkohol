@@ -10,7 +10,7 @@ $font-jaipur: 'Jaipur', Arial, sans-serif;
 // Grid
 $grid-breakpoints: (
   xs: 0,
-  sm: 576px,
+  sm: 480px,
   md: 768px,
   lg: 992px,
   xl: 1280px,
@@ -18,7 +18,7 @@ $grid-breakpoints: (
 ) !default;
 
 $container-max-widths: (
-  sm: 540px,
+  sm: 470px,
   md: 720px,
   lg: 960px,
   xl: 1240px,

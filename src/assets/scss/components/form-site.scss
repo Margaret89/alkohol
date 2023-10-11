@@ -149,8 +149,31 @@
 		input[type="date"],
 		input[type="email"],
 		input[type="number"],
-		input[type="password"],{
+		input[type="password"]{
 			width: 80%;
+		}
+
+		input[type="text"],
+		input[type="date"],
+		input[type="email"],
+		input[type="number"],
+		input[type="password"],
+		textarea{
+			font-size: 2.4rem;
+		}
+
+		textarea{line-height: 1.25;}
+	}
+}
+
+@media (max-width: 479px) {
+	.form-site{
+		input[type="text"],
+		input[type="date"],
+		input[type="email"],
+		input[type="number"],
+		input[type="password"]{
+			width: 100%;
 		}
 	}
 }

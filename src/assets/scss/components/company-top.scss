@@ -35,3 +35,11 @@
 		img{max-width: 100%;}
 	}
 }
+
+@media (max-width: 479px) {
+	.company-top{
+		h1, .h1{
+			font-size: 2.4rem;
+		}
+	}
+}

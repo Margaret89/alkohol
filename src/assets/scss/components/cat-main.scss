@@ -104,19 +104,19 @@
 	&__img-wrap{
 		flex-shrink: 0;
 		// width: 38.5%;
-		width: 625px;
+		
 		background: url(/assets/img/mandala-pattern.svg) no-repeat 0 0;
 		background-size: contain;
-		opacity: 0;
-		position: absolute;
-		top: 0;
-		left: 0;
-		// transition: top 0.05s linear 0s;
+		// opacity: 0;
+		// position: absolute;
+		// top: 0;
+		// left: 0;
+		// // transition: top 0.05s linear 0s;
 
-		&.fixed{
-			position: fixed;
-			left: calc(50% - 913px);
-		}
+		// &.fixed{
+		// 	position: fixed;
+		// 	left: calc(50% - 913px);
+		// }
 	}
 
 	&__img{
@@ -126,7 +126,7 @@
 		position: relative;
 		margin: 12%;
 		// transform-style: preserve-3d;
-		opacity: 0;
+		// opacity: 0;
 	}
 
 	&__img-content{
@@ -226,28 +226,29 @@
 		margin-top: 37px;
 	}
 
-	// &__item.active{background: red;}
-	&.active &__img-wrap{opacity: 1;}
+	
+	// &.active &__img-wrap{opacity: 1;}
 
-	&.active &__img{
-		// transform: scale(1);
-		mask-image: radial-gradient(rgba(0, 0, 0, 1) 100%, transparent 100%);
-		transform-origin: center;
-		opacity: 1;
+	// &.active &__img{
+	// 	// transform: scale(1);
+	// 	mask-image: radial-gradient(rgba(0, 0, 0, 1) 100%, transparent 100%);
+	// 	transform-origin: center;
+	// 	opacity: 1;
 
-		// backface-visibility: visible;
-		// animation: flip 0.5s 1 linear;
-		// animation-fill-mode: forwards;
-		animation: showImg 0.8s 1 linear;
-		// animation-fill-mode: forwards;
-	}
+	// 	// backface-visibility: visible;
+	// 	// animation: flip 0.5s 1 linear;
+	// 	// animation-fill-mode: forwards;
+	// 	animation: showImg 0.8s 1 linear;
+	// 	// animation-fill-mode: forwards;
+	// }
 
-	&__img-wrap.finished{
-		position: absolute;
-		left: 0;
-		top: auto;
-		bottom: 0;
-	}
+
+	// &__img-wrap.finished{
+	// 	position: absolute;
+	// 	left: 0;
+	// 	top: auto;
+	// 	bottom: 0;
+	// }
 }
 
 .cat-notes{
@@ -285,9 +286,18 @@
 	&_hor &__icon{flex-shrink: 0;}
 }
 
-@media (max-width: 1500px) {
+@media (min-width: 1501px) {
 	.cat-main-item{
-		&__img-wrap.fixed{left: -153px;}
+		&__img-wrap.fixed{left: calc(50% - 913px);}
+	}
+}
+
+@media (min-width: 992px) {
+	.cat-main-item{
+		&__img-wrap{
+			width: 625px;
+			&.fixed{left: -153px;}
+		}
 	}
 }
 
@@ -295,9 +305,6 @@
 	.cat-main-item{
 		padding-left: 36%;
 		margin-bottom: 65px;
-
-		&__img-wrap{width: 350px;}
-		&__img-wrap.fixed{left: -115px;}
 
 		&__title{
 			font-size: 4rem;
@@ -324,19 +331,108 @@
 	.cat-notes{gap: 20px 8px;}
 }
 
+@media (min-width: 768px) {
+	.cat-main-item{
+		&__img-wrap{width: 350px;}
+
+		&__img-wrap{
+			opacity: 0;
+			position: absolute;
+			top: 0;
+			left: 0;
+			// transition: top 0.05s linear 0s;
+
+			&.fixed{
+				position: fixed;
+				left: -115px;
+			}
+		}
+
+		&__img{opacity: 0;}
+
+		&.active &__img-wrap{opacity: 1;}
+
+		&.active &__img{
+			// transform: scale(1);
+			mask-image: radial-gradient(rgba(0, 0, 0, 1) 100%, transparent 100%);
+			transform-origin: center;
+			opacity: 1;
+
+			// backface-visibility: visible;
+			// animation: flip 0.5s 1 linear;
+			// animation-fill-mode: forwards;
+			animation: showImg 0.8s 1 linear;
+			// animation-fill-mode: forwards;
+		}
+
+		&__img-wrap.finished{
+			position: absolute;
+			left: 0;
+			top: auto;
+			bottom: 0;
+		}
+	}
+}
+
 @media (max-width: 767px) {
 	.cat-main{margin-left: 0;}
 
 	.cat-main-item{
 		padding-left: 0;
-		&__img-wrap{display: none;}
-		&__title{font-size: 3.2rem;}
-		&__text{padding-left: 20px;}
-		
-		&__brand img{max-height: 50px;}
-	}
+		flex-wrap: wrap;
+		margin-bottom: 75px;
+		position: relative;
 
-	.cat-notes{
-		&__item{width: 80px;}
+		&__img-wrap{
+			width: 450px;
+			position: absolute;
+			top: 0;
+			left: -28%;
+		}
+
+		&__bottle{
+			margin-left: 50%;
+			width: 50%;
+
+			img{max-height: 400px;}
+		}
+
+		&__content{
+			margin-left: 0;
+			margin-top: 30px;
+		}
+
+		&__title{margin-bottom: 2.3rem;}
+		&__subtitle{margin-bottom: 20px;}
+		&__tag{margin-top: 35px;}
+	}
+}
+
+@media (max-width: 479px) {
+	.cat-main-item{
+		margin-bottom: 50px;
+
+		&__img-wrap{
+			width: 300px;
+			left: -10px;
+		}
+
+		&__bottle{
+			
+
+			img{
+				max-height: 300px;
+			}
+		}
+
+		&__content{margin-top: 20px;}
+		&__title{margin-bottom: 2rem;}
+		&__subtitle{font-size: 2.4rem;}
+
+		&__tag{
+			font-size: 1.8rem;
+			padding: 0 20px;
+			margin-top: 45px;
+		}
 	}
 }

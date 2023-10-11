@@ -119,3 +119,22 @@
 		.info-block{max-width: none;}
 	}
 }
+
+@media (max-width: 479px) {
+	.history{
+		&__title{margin-bottom: 50px;}
+
+		&__links{
+			grid-area: 8px;
+			margin-top: 50px;
+
+			.btn{padding: 0 20px;}
+		}
+
+		&__text{
+			font-size: 1.2rem;
+			line-height: 1.2;
+			padding: 0 30px;
+		}
+	}
+}

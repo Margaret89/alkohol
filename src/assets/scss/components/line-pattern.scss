@@ -2,4 +2,9 @@
 .line-pattern{
 	height: 107px;
 	background: url(/assets/img/pattern-line2.svg) repeat-x center;
+	background-size: contain;
+}
+
+@media (max-width: 991px) {
+	.line-pattern{height: 80px;}
 }

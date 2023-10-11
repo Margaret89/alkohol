@@ -45,13 +45,14 @@
 
 @media (max-width: 991px) {
 	.catalog-filter{
+		gap: 15px;
 		margin-bottom: 80px;
 		
 		&__item{
-			height: 4rem;
-			border-radius: 2rem;
+			height: 4.8rem;
+			border-radius: 2.4rem;
 			font-size: 2.4rem;
-			padding: 0 20px;
+			padding: 0 24px;
 		}
 	}
 }

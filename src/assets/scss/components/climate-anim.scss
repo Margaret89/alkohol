@@ -6,6 +6,12 @@
 		top: 50%;
 	}
 }
+
+@media (max-width: 767px) {
+	.climate{
+		.anim-point-clouds{top: 200%;}
+	}
+}
 // @keyframes cloud-first {
 // 	from {
 // 		top: 0;

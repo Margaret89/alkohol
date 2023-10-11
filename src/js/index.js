@@ -44,18 +44,20 @@ $(function(){
 			$('.js-nav-catalog-wrap').css('height', 'auto');
 		}
 
-		if(scroll < crumbFixedStart){
-			$('.js-cat-main-item-img-wrap').removeClass('fixed');
-			$('.js-cat-main-item-img-wrap').removeClass('finished');
-			$('.js-cat-main-item-img-wrap').css({'bottom':'auto', 'top':'0'});
-		}else if(scroll >= crumbFixedStart && scroll <= crumbFixedFinish-$('.js-cat-main-item-img-wrap').outerHeight()){
-			$('.js-cat-main-item-img-wrap').addClass('fixed');
-			$('.js-cat-main-item-img-wrap').removeClass('finished');
-			$('.js-cat-main-item-img-wrap').css({'top':$('.js-header').outerHeight()+$('.js-nav-catalog-wrap').outerHeight()+'px', 'bottom':'auto'});
-		}else{
-			$('.js-cat-main-item-img-wrap').removeClass('fixed');
-			$('.js-cat-main-item-img-wrap').addClass('finished');
-			$('.js-cat-main-item-img-wrap').css({'bottom':'0', 'top':'auto'});
+		if(widthWindow > 767){
+			if(scroll < crumbFixedStart){
+				$('.js-cat-main-item-img-wrap').removeClass('fixed');
+				$('.js-cat-main-item-img-wrap').removeClass('finished');
+				$('.js-cat-main-item-img-wrap').css({'bottom':'auto', 'top':'0'});
+			}else if(scroll >= crumbFixedStart && scroll <= crumbFixedFinish-$('.js-cat-main-item-img-wrap').outerHeight()){
+				$('.js-cat-main-item-img-wrap').addClass('fixed');
+				$('.js-cat-main-item-img-wrap').removeClass('finished');
+				$('.js-cat-main-item-img-wrap').css({'top':$('.js-header').outerHeight()+$('.js-nav-catalog-wrap').outerHeight()+'px', 'bottom':'auto'});
+			}else{
+				$('.js-cat-main-item-img-wrap').removeClass('fixed');
+				$('.js-cat-main-item-img-wrap').addClass('finished');
+				$('.js-cat-main-item-img-wrap').css({'bottom':'0', 'top':'auto'});
+			}
 		}
 	}
 
@@ -187,7 +189,11 @@ $(function(){
 		let pointAnimFinish = $('.js-anim-finish').offset().top;// Конец анимации
 		let scrollWindow = $(window).scrollTop();//текущее положение на странице
 		let sratPosMap = parseInt($('.js-history-animate-map-wrap').css('top').replace('px',''));//Первоначальное положение карты
-		let pointAnimFinishMap = pointAnimFinish - $('.js-history-animate-map').outerHeight() - sratPosMap;//Конец аимации для карты
+		if(widthWindow < 768){
+			var pointAnimFinishMap = pointAnimFinish - $('.js-history-animate-map').outerHeight();//Конец аимации для карты
+		}else{
+			var pointAnimFinishMap = pointAnimFinish - $('.js-history-animate-map').outerHeight() - sratPosMap;//Конец аимации для карты
+		}
 		let opacityFirstMap = 0;//Прозрачность первого слоя карты
 		let opacitySecondMap = 0;//Прозрачность второго слоя карты
 		let opacityFullMap = 0;//Прозрачность всей карты
@@ -422,7 +428,11 @@ $(function(){
 		pointAnimFinish = $('.js-anim-finish').offset().top;// Конец анимации
 		scrollWindow = $(window).scrollTop();//текущее положение на странице
 		sratPosMap = parseInt($('.js-history-animate-map-wrap').css('top').replace('px',''));//Первоначальное положение карты
-		pointAnimFinishMap = pointAnimFinish - $('.js-history-animate-map').outerHeight();//Конец аимации для карты
+		if(widthWindow < 768){
+			pointAnimFinishMap = pointAnimFinish - $('.js-history-animate-map').outerHeight();//Конец аимации для карты
+		}else{
+			pointAnimFinishMap = pointAnimFinish - $('.js-history-animate-map').outerHeight() - sratPosMap;//Конец аимации для карты
+		}
 		opacityFirstMap = 0;//Прозрачность первого слоя карты
 		opacitySecondMap = 0;//Прозрачность второго слоя карты
 		opacityFullMap = 0;//Прозрачность всей карты

@@ -90,3 +90,14 @@
 		}
 	}
 }
+
+@media (max-width: 479px) {
+	.nav-catalog{
+		&__list{gap: 8px;}
+
+		&__item{
+			font-size: 1.8rem;
+			padding: 0 20px;
+		}
+	}
+}

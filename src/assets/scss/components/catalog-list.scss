@@ -140,18 +140,21 @@
 	.catalog-item{
 		&__img,
 		&_no-anim &__img{
-			width: 240px;
+			width: 230px;
 		}
 
-		&_no-anim &__img{align-items: flex-start;}
+		&__img{
+			align-items: flex-start;
+			padding: 38px 0;
+		}
 	}
 }
 
-@media (max-width: 1279px) {
+@media (max-width: 991px) {
 	.catalog-item{
 		&__img,
 		&_no-anim &__img{
-			width: 36%;
+			width: 34%;
 		}
 	}
 }
