@@ -175,6 +175,9 @@
 			padding: 24px 16px;
 			background: rgba(31,39,47,0.85);
 		}
+
+		&_no-mob-img &__bg-img-wrap{display: none;}
+		&_no-mob-img &__img{margin: 0 auto;}
 	}
 }
 
