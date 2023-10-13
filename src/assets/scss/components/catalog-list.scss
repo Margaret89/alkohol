@@ -141,6 +141,7 @@
 	.catalog-item{
 		flex-wrap: wrap;
 		padding: 0;
+		gap: 0;
 
 		&__img{
 			margin-left: 50%;
@@ -176,8 +177,23 @@
 			background: rgba(31,39,47,0.85);
 		}
 
-		&_no-mob-img &__bg-img-wrap{display: none;}
-		&_no-mob-img &__img{margin: 0 auto;}
+		&_cocktail &__img{
+			width: 100%;
+			margin-left: 0;
+			padding-left: 0;
+			padding-right: 0;
+
+			img{
+				max-height: none;
+				margin: 0 auto;
+			}
+		}
+
+		&_cocktail &__bg-img-wrap{
+			width: 502px;
+			left: -318px;
+			top: -197px;
+		}
 	}
 }
 
