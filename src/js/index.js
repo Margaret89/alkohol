@@ -8,6 +8,16 @@ $(function(){
 		e.preventDefault ? e.preventDefault() : (e.returnValue = false);
    }
 
+   // Определяем ширину прокрутки
+	let div = document.createElement('div');
+
+	div.style.overflowY = 'scroll';
+	div.style.width = '50px';
+	div.style.height = '50px';
+	document.body.append(div);
+	let scrollWidth = div.offsetWidth - div.clientWidth;
+	div.remove();
+
 	//Фиксированое меню
 	let heightHeader = $('.js-header').outerHeight();//Высота шапки
 
@@ -110,12 +120,23 @@ $(function(){
 								if(animateScroll == true){
 									animateScroll = false;
 									document.addEventListener("scroll", returnFalse);
+									$('.js-body').addClass('stop-scroll');
+										$('.js-body').css('padding-right', scrollWidth);
 
 									var top = $('.js-cat-main-item[data-id='+index+']').offset().top - heightHeader - $('.js-nav-catalog-wrap-content').outerHeight() ;
 
 									$('body,html').animate({scrollTop: top}, 500, function() {
 										animateScroll = true;
 										document.removeEventListener("scroll", returnFalse);
+										
+										
+
+										$('.js-body').removeClass('stop-scroll');
+										$('.js-body').css('padding-right', '0');
+										// function sayHi() {
+										//   }
+										  
+										//   setTimeout(sayHi, 500);
 									});
 								}
 							}
